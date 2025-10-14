@@ -7,16 +7,19 @@
  * @brief Structure representing a node in a parse tree.
  */
 struct Node {
-    char data;    /**< Value stored in the node (operator or operand) */
-    Node* left;   /**< Pointer to left child */
-    Node* right;  /**< Pointer to right child */
+    char data;    
+    Node* left;   
+    Node* right;  
 
     /**
-     * @brief Construct a new Node object.
+     * @brief Construct a new Node object with optional children.
      * 
      * @param val Character value to store in the node.
+     * @param l Pointer to left child (default nullptr).
+     * @param r Pointer to right child (default nullptr).
      */
-    Node(char val) : data(val), left(nullptr), right(nullptr) {}
+    Node(char val, Node* l = nullptr, Node* r = nullptr) 
+        : data(val), left(l), right(r) {}
 };
 
 /**

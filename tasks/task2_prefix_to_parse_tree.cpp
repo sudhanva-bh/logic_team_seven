@@ -4,14 +4,7 @@
 
 using namespace std;
 
-// --- Task 2: Prefix to Parse Tree ---
-
-/**
- * @brief Recursively builds a parse tree from a prefix expression string.
- * @param prefix The prefix expression.
- * @param index The current position in the string (passed by reference).
- * @return A pointer to the root of the constructed subtree.
- */
+namespace {
 Node* buildTreeFromPrefixRecursive(const string& prefix, int& index) {
     if (index == prefix.length()) {
         return nullptr;
@@ -31,12 +24,8 @@ Node* buildTreeFromPrefixRecursive(const string& prefix, int& index) {
 
     return node;
 }
+}  // namespace
 
-/**
- * @brief Converts a prefix expression into a rooted binary parse tree.
- * @param prefix The prefix expression string.
- * @return A pointer to the root of the newly created parse tree.
- */
 Node* prefixToParseTree(const std::string& prefix) {
     int index = 0;
     return buildTreeFromPrefixRecursive(prefix, index);
