@@ -25,8 +25,9 @@ int main() {
         // "(a+b)*c",      // Mixed operators with parentheses
         // "~(a*b)+c",     // Negation of AND with OR
         // "a>(b+c)",      // Implication with OR on right
-        // "(a>b)>c",      // Implication on left with AND
-        "((a>b)>(~c>d))+(d>(b+c))"  // Complex nested expression
+        "(a>b)>c",      // Implication on left with AND
+        // "((a>b)>(~c>d))+(d>(b+c))"  // Complex nested expression
+        // "(((a > (b + (~c * d))) * ((~e + f) > (g * (h + ~i)))) + (((~(j * k)) > (l + m)) * ((n > (o * ~p)) + (q * (~r + (s > t))))) + (~((u + (v * (~w + x))) > (y * (~z + (a > b))))))"
     };
 
     cout << "--- Parse Tree Height Test Cases ---\n\n";
@@ -36,21 +37,14 @@ int main() {
         Node* parseTree = prefixToParseTree(prefix);
         string reconstructedInfix = parseTreeToInfix(parseTree);
         int height = computeHeightOfParseTree(parseTree);
-        // Node* implFree = impl_free(parseTree);
-        // string implFreeString = parseTreeToInfix(implFree);
-        // Node* nnfForm = nnf(implFree);
-        // string nnfString = parseTreeToInfix(nnfForm);
         Node* cnfParseTree = computeCnfFromParseTree(parseTree);
         // Node* cnfPrefix = computeCnf(prefix);
 
         cout << "Infix: " << s << '\n';
-        // cout << "Prefix: " << prefix << '\n';
-        // cout << "Reconstructed Infix: " << reconstructedInfix << '\n';
-        // cout << "Height (edges): " << height << "\n";
-        // cout << "ImplFree: " << implFreeString << "\n";
-        // cout << "NNF: " << nnfString << "\n";
+        cout << "Prefix: " << prefix << '\n';
+        cout << "Reconstructed Infix: " << reconstructedInfix << '\n';
+        cout << "Height (edges): " << height << "\n";
         cout << "cnfParseTree: " << parseTreeToInfix(cnfParseTree) << "\n";
-        // cout << "cnfPrefix: " << parseTreeToInfix(cnfPrefix) << "\n";
 
         cout << string(40, '-') << "\n";
     }

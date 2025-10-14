@@ -6,54 +6,86 @@
 
 using namespace std;
 
+// void freeTree(Node* node) {
+//     if (!node) return;
+//     freeTree(node->left);
+//     freeTree(node->right);
+//     delete node;
+// }
+
 namespace {
+
 Node* impl_free(Node* currentNode) {
     if (!currentNode) return nullptr;
 
     Node* left = impl_free(currentNode->left);
     Node* right = impl_free(currentNode->right);
 
+    Node* result = nullptr;
+
     switch (currentNode->data) {
         case '>':
-            return disjunction(negation(left), right);  // (~A + B)
+            result = disjunction(negation(left), right);
+            break;
         case '~':
-            return negation(right);
+            result = negation(right);
+            break;
         case '*':
-            return conjunction(left, right);
+            result = conjunction(left, right);
+            break;
         case '+':
-            return disjunction(left, right);
+            result = disjunction(left, right);
+            break;
         default:
-            return new Node(currentNode->data);
+            result = new Node(currentNode->data);
+            break;
     }
+
+    delete currentNode;
+    return result;
 }
 
 Node* nnf(Node* currentNode) {
+    if (!currentNode) return nullptr;
+
+    Node* result = nullptr;
+
     switch (currentNode->data) {
         case '+':
-            return disjunction(nnf(currentNode->left), nnf(currentNode->right));
+            result = disjunction(nnf(currentNode->left), nnf(currentNode->right));
+            break;
         case '*':
-            return conjunction(nnf(currentNode->left), nnf(currentNode->right));
+            result = conjunction(nnf(currentNode->left), nnf(currentNode->right));
+            break;
         case '~': {
             Node* innerNode = currentNode->right;
             switch (innerNode->data) {
                 case '~':
-                    return nnf(innerNode->right);
-
+                    result = nnf(innerNode->right);
+                    break;
                 case '+':
-                    return conjunction(nnf(negation(innerNode->left)),
-                                       nnf(negation(innerNode->right)));
-
+                    result = conjunction(
+                        nnf(negation(innerNode->left)),
+                        nnf(negation(innerNode->right)));
+                    break;
                 case '*':
-                    return disjunction(nnf(negation(innerNode->left)),
-                                       nnf(negation(innerNode->right)));
-
+                    result = disjunction(
+                        nnf(negation(innerNode->left)),
+                        nnf(negation(innerNode->right)));
+                    break;
                 default:
-                    return negation(innerNode);
+                    result = negation(innerNode);
+                    break;
             }
+            break;
         }
         default:
-            return new Node(currentNode->data);
+            result = new Node(currentNode->data);
+            break;
     }
+
+    delete currentNode;
+    return result;
 }
 
 Node* distr(Node* node1, Node* node2) {
@@ -69,18 +101,31 @@ Node* distr(Node* node1, Node* node2) {
 }
 
 Node* cnf(Node* currentNode) {
+    if (!currentNode) return nullptr;
+
+    Node* result = nullptr;
+
     switch (currentNode->data) {
         case '*':
-            return conjunction(cnf(currentNode->left), cnf(currentNode->right));
+            result = conjunction(cnf(currentNode->left), cnf(currentNode->right));
+            break;
         case '+':
-            return distr(cnf(currentNode->left), cnf(currentNode->right));
-
+            result = distr(cnf(currentNode->left), cnf(currentNode->right));
+            break;
         default:
-            return currentNode;
+            result = currentNode;
+            break;
     }
+
+    return result;
 }
-}  // namespace
+
+}
 
 Node* computeCnfFromParseTree(Node* rootNode) {
-    return cnf(nnf(impl_free(rootNode)));
+    if (!rootNode) return nullptr;
+    Node* implFreeTree = impl_free(rootNode);
+    Node* nnfTree = nnf(implFreeTree);
+    Node* cnfTree = cnf(nnfTree);
+    return cnfTree;
 }
