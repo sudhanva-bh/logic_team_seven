@@ -132,6 +132,21 @@ Node* prefixToParseTree(const std::string& prefix) {
     return buildTreeFromPrefixRecursive(prefix, index);
 }
 
+// --- Task 3: Parse Tree to Infix Expression ---
+
+/**
+ * @brief Recursively converts a parse tree back into an infix expression
+ * string.
+ *
+ * This function performs an in-order traversal of the given parse tree.
+ * It places parentheses around each binary operation to preserve correct
+ * operator precedence, but omits the outermost parentheses for the root node.
+ *
+ * @param currentNode Pointer to the current node being processed.
+ * @param isRoot Flag indicating whether the current node is the root of the
+ * tree. (Used to skip outermost parentheses.)
+ * @return The resulting infix expression as a string.
+ */
 string parseTreeToInfix(Node* currentNode, bool isRoot = true) {
     if (currentNode == nullptr) {
         return "";
@@ -145,6 +160,7 @@ string parseTreeToInfix(Node* currentNode, bool isRoot = true) {
         string left = parseTreeToInfix(currentNode->left, false);
         string right = parseTreeToInfix(currentNode->right, false);
         string result = left + token + right;
+
         return isRoot ? result : "(" + result + ")";
     } else {
         return string(1, token);
