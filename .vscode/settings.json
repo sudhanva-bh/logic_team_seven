@@ -1,0 +1,10 @@
+{
+  "files.associations": {
+    "cctype": "cpp",
+    "locale": "cpp",
+    "stack": "cpp",
+    "xstring": "cpp",
+    "xutility": "cpp"
+  },
+  "C_Cpp.errorSquiggles": "disabled"
+}
