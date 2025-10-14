@@ -9,10 +9,32 @@ using namespace std;
 // --- Task 1: Infix to Prefix Conversion ---
 
 /**
- * @brief Converts an infix propositional logic expression to a prefix
- * expression.
- * @param infix The fully parenthesized infix expression string. [cite: 3]
- * @return The equivalent prefix expression string.
+ * @brief Converts a fully parenthesized infix propositional logic expression
+ *        into its equivalent prefix expression.
+ * 
+ * This function implements the standard algorithm:
+ * 1. Reverse the infix string.
+ * 2. Swap '(' with ')' and vice versa.
+ * 3. Convert the modified infix to postfix notation using a stack.
+ * 4. Reverse the postfix expression to obtain the prefix expression.
+ * 
+ * Supported operators:
+ * - Negation: '~'
+ * - OR: '+'
+ * - AND: '*'
+ * - Implication: '>'
+ * 
+ * @param infix The fully parenthesized infix expression (e.g., "(a+b)*(c+d)").
+ * @return std::string The equivalent prefix expression (e.g., "*+ab+cd").
+ * 
+ * @note The input must be fully parenthesized; otherwise, results may be incorrect.
+ * @see isOperator(char c), getPrecedence(char op)
+ * @cite [3] Standard algorithm for infix to prefix conversion in propositional logic.
+ * 
+ * @example
+ * std::string infix = "(a+b)*(c+d)";
+ * std::string prefix = infixToPrefix(infix);
+ * // prefix now contains "*+ab+cd"
  */
 string infixToPrefix(string infix) {
     // Step 1: Reverse the infix expression.
