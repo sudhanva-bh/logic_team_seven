@@ -7,11 +7,11 @@
 using namespace std;
 
 namespace {
-Node* impl_free_recursive(Node* currentNode) {
+Node* impl_free(Node* currentNode) {
     if (!currentNode) return nullptr;
 
-    Node* left = impl_free_recursive(currentNode->left);
-    Node* right = impl_free_recursive(currentNode->right);
+    Node* left = impl_free(currentNode->left);
+    Node* right = impl_free(currentNode->right);
 
     switch (currentNode->data) {
         case '>':
@@ -26,38 +26,61 @@ Node* impl_free_recursive(Node* currentNode) {
             return new Node(currentNode->data);
     }
 }
-}  // namespace
 
-Node* impl_free(Node* rootNode) { return impl_free_recursive(rootNode); }
-
-namespace {
-Node* nnf_recursion(Node* currentNode) {
+Node* nnf(Node* currentNode) {
     switch (currentNode->data) {
         case '+':
-            return disjunction(nnf_recursion(currentNode->left),
-                               nnf_recursion(currentNode->right));
+            return disjunction(nnf(currentNode->left), nnf(currentNode->right));
         case '*':
-            return conjunction(nnf_recursion(currentNode->left),
-                               nnf_recursion(currentNode->right));
+            return conjunction(nnf(currentNode->left), nnf(currentNode->right));
         case '~': {
             Node* innerNode = currentNode->right;
+            switch (innerNode->data) {
+                case '~':
+                    return nnf(innerNode->right);
 
-            if (innerNode->data == '~') {
-                return nnf_recursion(innerNode->right);
-            } else if (innerNode->data == '+') {
-                return conjunction(nnf_recursion(negation(innerNode->left)),
-                                   nnf_recursion(negation(innerNode->right)));
-            } else if (innerNode->data == '*') {
-                return disjunction(nnf_recursion(negation(innerNode->left)),
-                                   nnf_recursion(negation(innerNode->right)));
-            } else {
-                return negation(innerNode);
+                case '+':
+                    return conjunction(nnf(negation(innerNode->left)),
+                                       nnf(negation(innerNode->right)));
+
+                case '*':
+                    return disjunction(nnf(negation(innerNode->left)),
+                                       nnf(negation(innerNode->right)));
+
+                default:
+                    return negation(innerNode);
             }
         }
         default:
             return new Node(currentNode->data);
     }
 }
+
+Node* distr(Node* node1, Node* node2) {
+    if (node1->data == '*') {
+        return conjunction(distr(node1->left, node2),
+                           distr(node1->right, node2));
+    } else if (node2->data == '*') {
+        return conjunction(distr(node1, node2->left),
+                           distr(node1, node2->right));
+    } else {
+        return disjunction(node1, node2);
+    }
+}
+
+Node* cnf(Node* currentNode) {
+    switch (currentNode->data) {
+        case '*':
+            return conjunction(cnf(currentNode->left), cnf(currentNode->right));
+        case '+':
+            return distr(cnf(currentNode->left), cnf(currentNode->right));
+
+        default:
+            return currentNode;
+    }
+}
 }  // namespace
 
-Node* nnf(Node* rootNode) { return nnf_recursion(rootNode); }
+Node* computeCnfFromParseTree(Node* rootNode) {
+    return cnf(nnf(impl_free(rootNode)));
+}
