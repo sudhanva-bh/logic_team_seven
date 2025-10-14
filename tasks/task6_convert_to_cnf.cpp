@@ -8,29 +8,56 @@ using namespace std;
 
 namespace {
 Node* impl_free_recursive(Node* currentNode) {
-    if (!currentNode) return nullptr;  // Base case
+    if (!currentNode) return nullptr;
 
-    char token = currentNode->data;
+    Node* left = impl_free_recursive(currentNode->left);
+    Node* right = impl_free_recursive(currentNode->right);
 
-    if (token == '>') {
-        Node* leftImplFree = impl_free_recursive(currentNode->left);
-        Node* rightImplFree = impl_free_recursive(currentNode->right);
-
-        Node* notLeft = new Node('~', nullptr, leftImplFree);
-        return new Node('+', notLeft, rightImplFree);
+    switch (currentNode->data) {
+        case '>':
+            return disjunction(negation(left), right);  // (~A + B)
+        case '~':
+            return negation(right);
+        case '*':
+            return conjunction(left, right);
+        case '+':
+            return disjunction(left, right);
+        default:
+            return new Node(currentNode->data);
     }
-
-    if (token == '~') {
-        return new Node('~', nullptr, impl_free_recursive(currentNode->right));
-    }
-
-    if (token == '*' || token == '+') {
-        return new Node(token, impl_free_recursive(currentNode->left),
-                        impl_free_recursive(currentNode->right));
-    }
-
-    return new Node(token);
 }
 }  // namespace
 
 Node* impl_free(Node* rootNode) { return impl_free_recursive(rootNode); }
+
+namespace {
+Node* nnf_recursion(Node* currentNode) {
+    switch (currentNode->data) {
+        case '+':
+            return disjunction(nnf_recursion(currentNode->left),
+                               nnf_recursion(currentNode->right));
+        case '*':
+            return conjunction(nnf_recursion(currentNode->left),
+                               nnf_recursion(currentNode->right));
+        case '~': {
+            Node* innerNode = currentNode->right;
+
+            if (innerNode->data == '~') {
+                return nnf_recursion(innerNode->right);
+            } else if (innerNode->data == '+') {
+                return conjunction(nnf_recursion(negation(innerNode->left)),
+                                   nnf_recursion(negation(innerNode->right)));
+            } else if (innerNode->data == '*') {
+                return disjunction(nnf_recursion(negation(innerNode->left)),
+                                   nnf_recursion(negation(innerNode->right)));
+            } else {
+                return negation(innerNode);
+            }
+        }
+        default:
+            return new Node(currentNode->data);
+    }
+}
+}  // namespace
+
+Node* nnf(Node* rootNode) { return nnf_recursion(rootNode); }
