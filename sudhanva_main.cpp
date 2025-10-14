@@ -2,6 +2,7 @@
 #include <cctype>
 #include <iostream>
 #include <stack>
+#include <vector>
 using namespace std;
 
 struct Node {
@@ -135,19 +136,12 @@ Node* prefixToParseTree(const std::string& prefix) {
 // --- Task 3: Parse Tree to Infix Expression ---
 
 /**
- * @brief Recursively converts a parse tree back into an infix expression
- * string.
- *
- * This function performs an in-order traversal of the given parse tree.
- * It places parentheses around each binary operation to preserve correct
- * operator precedence, but omits the outermost parentheses for the root node.
- *
+ * @brief Helper function that recursively converts a parse tree to an infix expression.
  * @param currentNode Pointer to the current node being processed.
- * @param isRoot Flag indicating whether the current node is the root of the
- * tree. (Used to skip outermost parentheses.)
- * @return The resulting infix expression as a string.
+ * @param isRoot Flag indicating whether the current node is the root of the tree.
+ * @return The corresponding infix expression for the current subtree.
  */
-string parseTreeToInfix(Node* currentNode, bool isRoot = true) {
+string parseTreeToInfixHelper(Node* currentNode, bool isRoot) {
     if (currentNode == nullptr) {
         return "";
     }
@@ -155,10 +149,10 @@ string parseTreeToInfix(Node* currentNode, bool isRoot = true) {
     char token = currentNode->data;
 
     if (token == '~') {
-        return "(~" + parseTreeToInfix(currentNode->right, false) + ")";
+        return "(~" + parseTreeToInfixHelper(currentNode->right, false) + ")";
     } else if (isOperator(token)) {
-        string left = parseTreeToInfix(currentNode->left, false);
-        string right = parseTreeToInfix(currentNode->right, false);
+        string left = parseTreeToInfixHelper(currentNode->left, false);
+        string right = parseTreeToInfixHelper(currentNode->right, false);
         string result = left + token + right;
 
         return isRoot ? result : "(" + result + ")";
@@ -167,11 +161,95 @@ string parseTreeToInfix(Node* currentNode, bool isRoot = true) {
     }
 }
 
+/**
+ * @brief Converts a parse tree into an infix expression string.
+ *
+ * This is the main wrapper function that starts the recursive process
+ * from the root of the parse tree. The resulting expression omits unnecessary
+ * outer parentheses.
+ *
+ * @param rootNode Pointer to the root node of the parse tree.
+ * @return The reconstructed infix expression as a string.
+ */
+string parseTreeToInfix(Node* rootNode) {
+    return parseTreeToInfixHelper(rootNode, true);
+}
+
+// --- Task 4: Computing the Height of a Parse Tree ---
+
+/**
+ * @brief Helper function that recursively computes the height (in edges)
+ * of a parse tree.
+ *
+ * The height is defined as the number of edges on the longest path
+ * from the current node down to a leaf.
+ *
+ * @param currentNode Pointer to the current node being processed.
+ * @return int Height of the current subtree in edges.
+ */
+int computeHeightOfParseTreeHelper(Node* currentNode) {
+    if (currentNode == nullptr) {
+        return 0;
+    }
+
+    char token = currentNode->data;
+
+    if (token == '~') {
+        return 1 + computeHeightOfParseTreeHelper(currentNode->right);
+    } else if (isOperator(token)) {
+        int leftHeight = computeHeightOfParseTreeHelper(currentNode->left);
+        int rightHeight = computeHeightOfParseTreeHelper(currentNode->right);
+        return 1 + max(leftHeight, rightHeight);
+    } else {
+        return 0;
+    }
+}
+
+/**
+ * @brief Computes the height (in edges) of a parse tree rooted at the given node.
+ *
+ * This is the wrapper function that starts the recursive computation
+ * of height from the root node.
+ *
+ * @param rootNode Pointer to the root of the parse tree.
+ * @return int Height of the parse tree in terms of edges.
+ */
+int computeHeightOfParseTree(Node* rootNode) {
+    return computeHeightOfParseTreeHelper(rootNode);
+}
+
 int main() {
-    string s = "a>(b+(~c*d))";
-    string prefix = infixToPrefix(s);
-    Node* parseTree = prefixToParseTree(prefix);
-    string parseTreeToInf = parseTreeToInfix(parseTree);
-    cout << "\nprefix: " << prefix;
-    cout << "\nparseTreeToInf: " << parseTreeToInf;
+    vector<string> testCases = {
+        "",
+        "a",
+        "a+b",
+        "a+b*c",
+        "(a+b)*c",
+        "~a",
+        "~(a+b)",
+        "a+(b*(c+d))",
+        "((a+b)*(c-d))/e",
+        "a>(b+(~c*d))",
+        "((~a)+(b*(c+d)))",
+        "(a+(b+(c+(d+e))))",
+        "((((a+b)+c)+d)+e)",
+        "(a*((b+c)*(d+(e*f))))"
+    };
+
+    cout << "--- Parse Tree Height Test Cases ---\n\n";
+
+    for (const string& s : testCases) {
+        string prefix = infixToPrefix(s);
+        Node* parseTree = prefixToParseTree(prefix);
+        string reconstructedInfix = parseTreeToInfix(parseTree);
+        int height = computeHeightOfParseTree(parseTree);
+
+        cout << "Infix: " << s << '\n';
+        cout << "Prefix: " << prefix << '\n';
+        cout << "Reconstructed Infix: " << reconstructedInfix << '\n';
+        cout << "Height (edges): " << height << "\n";
+        cout << string(40, '-') << "\n";
+    }
+
+    return 0;
 }
