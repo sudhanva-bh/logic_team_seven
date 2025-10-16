@@ -40,6 +40,8 @@ Node* impl_free(Node* currentNode) {
             result = new Node(currentNode->data);
             break;
     }
+
+    delete currentNode;
     return result;
 }
 
@@ -81,6 +83,8 @@ Node* nnf(Node* currentNode) {
             result = new Node(currentNode->data);
             break;
     }
+
+    delete currentNode;
     return result;
 }
 
@@ -120,7 +124,6 @@ Node* cnf(Node* currentNode) {
 
 Node* computeCnfFromParseTree(Node* rootNode) {
     if (!rootNode) return nullptr;
-
     Node* implFreeTree = impl_free(rootNode);
     Node* nnfTree = nnf(implFreeTree);
     Node* cnfTree = cnf(nnfTree);
