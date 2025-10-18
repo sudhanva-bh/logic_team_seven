@@ -115,7 +115,9 @@ void assignTruthValues(int bitNumber, map<char, bool>& truth_values,
 
 }  // namespace
 
-void generateTruthTable(Node* cnfRootNode, set<char> atoms) {
+void generateTruthTable(Node* cnfRootNode) {
+    set<char> atoms;
+    getAtomsRecursive(cnfRootNode, atoms);
     int numOfAtoms = atoms.size();
     map<char, bool> truth_values;
 
@@ -130,6 +132,7 @@ void generateTruthTable(Node* cnfRootNode, set<char> atoms) {
     int max = (1 << numOfAtoms) - 1;
 
     // Heading
+    cout << string(numOfAtoms * 5 + 3, '-') << endl;
     for (char atom : atoms) {
         cout << left << setw(5) << atom;
     }
@@ -147,10 +150,4 @@ void generateTruthTable(Node* cnfRootNode, set<char> atoms) {
 
         cout << result << endl;
     }
-}
-
-set<char> getAtoms(Node* rootNode) {
-    set<char> atoms;
-    getAtomsRecursive(rootNode, atoms);
-    return atoms;
 }

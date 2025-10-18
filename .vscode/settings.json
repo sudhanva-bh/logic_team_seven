@@ -57,7 +57,13 @@
     "xtr1common": "cpp",
     "xtree": "cpp",
     "set": "cpp",
-    "iomanip": "cpp"
+    "iomanip": "cpp",
+    "chrono": "cpp",
+    "forward_list": "cpp",
+    "fstream": "cpp",
+    "random": "cpp",
+    "ratio": "cpp",
+    "sstream": "cpp"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }

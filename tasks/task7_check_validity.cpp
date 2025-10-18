@@ -6,29 +6,29 @@
 using namespace std;
 
 namespace {
-void collectClauses(Node* currentNode, vector<Node*>& clauses) {
-    if (!currentNode) return;
-    if (currentNode->data == '*') {
-        collectClauses(currentNode->left, clauses);
-        collectClauses(currentNode->right, clauses);
+void collectClauses(Node* currentCnfNode, vector<Node*>& clauses) {
+    if (!currentCnfNode) return;
+    if (currentCnfNode->data == '*') {
+        collectClauses(currentCnfNode->left, clauses);
+        collectClauses(currentCnfNode->right, clauses);
     } else {
         // Anything not a top-level AND is considered a clause
-        clauses.push_back(currentNode);
+        clauses.push_back(currentCnfNode);
     }
 }
 
-void collectLiterals(Node* currentNode, set<char>& positive,
+void collectLiterals(Node* clauseNode, set<char>& positive,
                      set<char>& negative) {
-    if (!currentNode) return;
-    if (currentNode->data == '+') {
-        collectLiterals(currentNode->left, positive, negative);
-        collectLiterals(currentNode->right, positive, negative);
-    } else if (currentNode->data == '~') {
-        if (currentNode->right) {
-            negative.insert(currentNode->right->data);
+    if (!clauseNode) return;
+    if (clauseNode->data == '+') {
+        collectLiterals(clauseNode->left, positive, negative);
+        collectLiterals(clauseNode->right, positive, negative);
+    } else if (clauseNode->data == '~') {
+        if (clauseNode->right) {
+            negative.insert(clauseNode->right->data);
         }
     } else {
-        positive.insert(currentNode->data);
+        positive.insert(clauseNode->data);
     }
 }
 
@@ -45,8 +45,12 @@ bool isTautologicalClause(Node* clauseNode) {
     return false;
 }
 }  // namespace
-bool isValid(Node* cnf_root) {
-    if (!cnf_root) return true;  // An empty formula is valid.
+
+bool isValid(Node* cnf_root, int& validCount, int& invalidCount) {
+    validCount = 0;
+    invalidCount = 0;
+
+    if (!cnf_root) return true;
 
     vector<Node*> clauses;
     collectClauses(cnf_root, clauses);
@@ -54,11 +58,11 @@ bool isValid(Node* cnf_root) {
     if (clauses.empty()) return true;
 
     for (Node* clause : clauses) {
-        if (!isTautologicalClause(clause)) {
-            return false;  // If any clause is not a tautology, the formula is
-                           // not valid.
-        }
+        if (isTautologicalClause(clause))
+            ++validCount;
+        else
+            ++invalidCount;
     }
 
-    return true;  // All clauses were tautologies.
+    return invalidCount == 0;  // true if all are valid
 }
