@@ -5,7 +5,7 @@
 #include <vector>
 
 namespace {
-const std::string defaultAtoms = "abcdefghijklmnopqrstuvwxyz";
+const std::string allAtoms = "abcdefghijklmnopqrstuvwxyz";
 
 char randomAtom(const std::string& atoms) {
     return atoms[rand() % atoms.size()];
@@ -39,24 +39,19 @@ std::string generateFormulaRec(int depth, int minDepth, int maxDepth,
 }
 }  // namespace
 
-std::vector<std::string> generateRandomFormulas(
-    int numFormulas, int minDepth = 2, int maxDepth = 5,
-    const std::string& atoms = defaultAtoms, double negationProb = 0.5) {
+// Public interface
+std::vector<std::string> generateRandomFormulas(int numFormulas,
+                                                int numVariables = 5,
+                                                int minDepth = 2,
+                                                int maxDepth = 5,
+                                                double negationProb = 0.5) {
+    // Select first numVariables letters
+    std::string atoms = allAtoms.substr(0, numVariables);
+
     std::vector<std::string> formulas;
     for (int i = 0; i < numFormulas; ++i) {
         formulas.push_back(
             generateFormulaRec(0, minDepth, maxDepth, atoms, negationProb));
     }
     return formulas;
-}
-
-std::map<char, bool> generateRandomTruthTable() {
-    std::map<char, bool> truthTable;
-    const std::string atoms = "abcdefghijklmnopqrstuvwxyz";
-
-    for (char atom : atoms) {
-        truthTable[atom] = rand() % 2 == 0;  // randomly true or false
-    }
-
-    return truthTable;
 }

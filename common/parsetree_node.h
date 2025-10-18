@@ -7,10 +7,20 @@ struct Node {
     char data;
     Node* left;
     Node* right;
-    
+
     Node(char val, Node* l = nullptr, Node* r = nullptr)
         : data(val), left(l), right(r) {}
 };
+
+inline Node* copyNode(const Node* src) {
+    if (!src) return nullptr;
+    Node* out = new Node(src->data);
+    out->left = copyNode(src->left);
+    out->right = copyNode(src->right);
+    return out;
+}
+
+Node* literal(char s) { return new Node(s); }
 
 Node* negation(Node* node) { return new Node('~', nullptr, node); }
 
@@ -28,6 +38,21 @@ Node* implication(Node* leftNode, Node* rightNode) {
 
 inline bool isOperator(char c) {
     return c == '~' || c == '+' || c == '*' || c == '>';
+}
+
+inline bool is_literal(const Node* node) {
+    if (!node) return false;
+    // A literal has no operator data
+    if (node->data != '+' && node->data != '*') {
+        // If it's a '~', its child must not be an operator
+        if (node->data == '~') {
+            return node->right &&
+                   (node->right->data != '+' && node->right->data != '*');
+        }
+        // Not '~', '+', or '*', so it's a positive literal (e.g., 'A')
+        return true;
+    }
+    return false;
 }
 
 inline int getPrecedence(char op) {

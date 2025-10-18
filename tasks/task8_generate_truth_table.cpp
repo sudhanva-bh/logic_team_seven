@@ -115,8 +115,7 @@ void assignTruthValues(int bitNumber, map<char, bool>& truth_values,
 
 }  // namespace
 
-void generateTruthTable(Node* cnfRootNode) {
-    set<char> atoms;
+void generateTruthTable(Node* cnfRootNode, set<char>& atoms) {
     getAtomsRecursive(cnfRootNode, atoms);
     int numOfAtoms = atoms.size();
     map<char, bool> truth_values;
