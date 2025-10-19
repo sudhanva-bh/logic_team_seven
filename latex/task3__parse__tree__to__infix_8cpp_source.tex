@@ -1,0 +1,38 @@
+\doxysection{task3\+\_\+parse\+\_\+tree\+\_\+to\+\_\+infix.\+cpp}
+\hypertarget{task3__parse__tree__to__infix_8cpp_source}{}\label{task3__parse__tree__to__infix_8cpp_source}\index{tasks/task3\_parse\_tree\_to\_infix.cpp@{tasks/task3\_parse\_tree\_to\_infix.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}../common/parsetree\_node.h"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\{}
+\DoxyCodeLine{00008\ \textcolor{keywordtype}{string}\ buildParseTreeToInfixRecursive(\mbox{\hyperlink{struct_node}{Node}}*\ currentNode,\ \textcolor{keywordtype}{bool}\ isRoot)\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordflow}{if}\ (currentNode\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00011\ \ \ \ \ \}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{char}\ token\ =\ currentNode-\/>data;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordflow}{if}\ (token\ ==\ \textcolor{charliteral}{'\string~'})\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}\string~"{}}\ +\ buildParseTreeToInfixRecursive(currentNode-\/>right,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00017\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (isOperator(token))\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ left\ =\ buildParseTreeToInfixRecursive(currentNode-\/>left,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ right\ =}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ buildParseTreeToInfixRecursive(currentNode-\/>right,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ result\ =\ left\ +\ token\ +\ right;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ isRoot\ ?\ result\ :\ \textcolor{stringliteral}{"{}("{}}\ +\ result\ +\ \textcolor{stringliteral}{"{})"{}};}
+\DoxyCodeLine{00024\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ string(1,\ token);}
+\DoxyCodeLine{00026\ \ \ \ \ \}}
+\DoxyCodeLine{00027\ \}}
+\DoxyCodeLine{00028\ \}\ \ \textcolor{comment}{//\ namespace}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keywordtype}{string}\ parseTreeToInfix(\mbox{\hyperlink{struct_node}{Node}}*\ rootNode)\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordflow}{return}\ buildParseTreeToInfixRecursive(rootNode,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00032\ \}}
+
+\end{DoxyCode}

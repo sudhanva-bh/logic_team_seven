@@ -1,0 +1,88 @@
+\doxysection{parsetree\+\_\+node.\+h}
+\hypertarget{parsetree__node_8h_source}{}\label{parsetree__node_8h_source}\index{common/parsetree\_node.h@{common/parsetree\_node.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PARSETREE\_NODE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PARSETREE\_NODE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{struct\ }Node\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keywordtype}{char}\ data;}
+\DoxyCodeLine{00008\ \ \ \ \ Node*\ left;}
+\DoxyCodeLine{00009\ \ \ \ \ Node*\ right;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ Node(\textcolor{keywordtype}{char}\ val,\ Node*\ l\ =\ \textcolor{keyword}{nullptr},\ Node*\ r\ =\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ :\ data(val),\ left(l),\ right(r)\ \{\}}
+\DoxyCodeLine{00013\ \};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{struct_node}{Node}}*\ copyNode(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_node}{Node}}*\ src)\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordflow}{if}\ (!src)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}*\ out\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}}(src-\/>data);}
+\DoxyCodeLine{00018\ \ \ \ \ out-\/>left\ =\ copyNode(src-\/>left);}
+\DoxyCodeLine{00019\ \ \ \ \ out-\/>right\ =\ copyNode(src-\/>right);}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{00021\ \}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \mbox{\hyperlink{struct_node}{Node}}*\ literal(\textcolor{keywordtype}{char}\ s)\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}}(s);\ \}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \mbox{\hyperlink{struct_node}{Node}}*\ negation(\mbox{\hyperlink{struct_node}{Node}}*\ node)\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}}(\textcolor{charliteral}{'\string~'},\ \textcolor{keyword}{nullptr},\ node);\ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \mbox{\hyperlink{struct_node}{Node}}*\ conjunction(\mbox{\hyperlink{struct_node}{Node}}*\ leftNode,\ \mbox{\hyperlink{struct_node}{Node}}*\ rightNode)\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}}(\textcolor{charliteral}{'*'},\ leftNode,\ rightNode);}
+\DoxyCodeLine{00029\ \}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \mbox{\hyperlink{struct_node}{Node}}*\ disjunction(\mbox{\hyperlink{struct_node}{Node}}*\ leftNode,\ \mbox{\hyperlink{struct_node}{Node}}*\ rightNode)\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}}(\textcolor{charliteral}{'+'},\ leftNode,\ rightNode);}
+\DoxyCodeLine{00033\ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \mbox{\hyperlink{struct_node}{Node}}*\ implication(\mbox{\hyperlink{struct_node}{Node}}*\ leftNode,\ \mbox{\hyperlink{struct_node}{Node}}*\ rightNode)\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}}(\textcolor{charliteral}{'>'},\ leftNode,\ rightNode);}
+\DoxyCodeLine{00037\ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ isOperator(\textcolor{keywordtype}{char}\ c)\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{return}\ c\ ==\ \textcolor{charliteral}{'\string~'}\ ||\ c\ ==\ \textcolor{charliteral}{'+'}\ ||\ c\ ==\ \textcolor{charliteral}{'*'}\ ||\ c\ ==\ \textcolor{charliteral}{'>'};}
+\DoxyCodeLine{00041\ \}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ is\_literal(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_node}{Node}}*\ node)\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{if}\ (!node)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{//\ A\ literal\ has\ no\ operator\ data}}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{if}\ (node-\/>data\ !=\ \textcolor{charliteral}{'+'}\ \&\&\ node-\/>data\ !=\ \textcolor{charliteral}{'*'})\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ it's\ a\ '\string~',\ its\ child\ must\ not\ be\ an\ operator}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (node-\/>data\ ==\ \textcolor{charliteral}{'\string~'})\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ node-\/>right\ \&\&}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (node-\/>right-\/>data\ !=\ \textcolor{charliteral}{'+'}\ \&\&\ node-\/>right-\/>data\ !=\ \textcolor{charliteral}{'*'});}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Not\ '\string~',\ '+',\ or\ '*',\ so\ it's\ a\ positive\ literal\ (e.g.,\ 'A')}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00054\ \ \ \ \ \}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00056\ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ getPrecedence(\textcolor{keywordtype}{char}\ op)\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{switch}\ (op)\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'>'}:}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'+'}:}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 2;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'*'}:}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 3;}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'\string~'}:}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 4;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;\ \ \textcolor{comment}{//\ operands\ /\ parentheses}}
+\DoxyCodeLine{00070\ \ \ \ \ \}}
+\DoxyCodeLine{00071\ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ destroyParseTree(\mbox{\hyperlink{struct_node}{Node}}*\ root)\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{if}\ (root\ ==\ \textcolor{keyword}{nullptr})\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ destroyParseTree(root-\/>left);}
+\DoxyCodeLine{00077\ \ \ \ \ destroyParseTree(root-\/>right);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{delete}\ root;}
+\DoxyCodeLine{00080\ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ PARSETREE\_NODE\_H}}
+
+\end{DoxyCode}

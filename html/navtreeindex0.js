@@ -1,0 +1,25 @@
+var NAVTREEINDEX0 =
+{
+"annotated.html":[0,0],
+"classes.html":[0,1],
+"dir_bdd9a5d540de89e9fe90efdfc6973a4f.html":[1,0,0],
+"dir_ff2f1db7d3fcf6d9810be7915ed78eb1.html":[1,0,1],
+"files.html":[1,0],
+"generate__prepositional__logic__statements_8cpp_source.html":[1,0,0,0],
+"globals.html":[1,1,0],
+"globals_func.html":[1,1,1],
+"index.html":[],
+"pages.html":[],
+"parsetree__node_8h_source.html":[1,0,0,1],
+"struct_node.html":[0,0,0],
+"task1__infix__to__prefix_8cpp.html":[1,0,1,0],
+"task1__infix__to__prefix_8cpp.html#adcb4031b2dee72ddd4c6a1a934145a9b":[1,0,1,0,0],
+"task1__infix__to__prefix_8cpp_source.html":[1,0,1,0],
+"task2__prefix__to__parse__tree_8cpp_source.html":[1,0,1,1],
+"task3__parse__tree__to__infix_8cpp_source.html":[1,0,1,2],
+"task4__compute__height____of__parse__tree_8cpp_source.html":[1,0,1,3],
+"task5__evaluate__truth__value_8cpp_source.html":[1,0,1,4],
+"task6__convert__to__cnf_8cpp_source.html":[1,0,1,5],
+"task7__check__validity_8cpp_source.html":[1,0,1,6],
+"task8__generate__truth__table_8cpp_source.html":[1,0,1,7]
+};
