@@ -1,0 +1,3735 @@
+===========================================
+Input Infix: (a+a)
+===========================================
+Task 1 (Infix to Prefix):      +aa [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   a+a [0 ns]
+Task 4 (Compute Height):       1 [0 ns]
+
+--- Truth Values Used ---
+a = True
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       a+a [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+--------
+a    OUT
+--------
+T    T
+F    F
+ [Time: 1001000 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~b*c)
+===========================================
+Task 1 (Infix to Prefix):      *~bc [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~b*c [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+b = True
+c = True
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       ~b*c [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    2
+Task 8 (Generate Truth Table):
+-------------
+b    c    OUT
+-------------
+T    T    F
+T    F    F
+F    T    T
+F    F    F
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~c>a)
+===========================================
+Task 1 (Infix to Prefix):      >~ca [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~c>a [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+a = True
+c = True
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       c+a [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+a    c    OUT
+-------------
+T    T    T
+T    F    T
+F    T    T
+F    F    F
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~a*~b)
+===========================================
+Task 1 (Infix to Prefix):      *~a~b [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~a*~b [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+a = True
+b = True
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       ~a*~b [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    2
+Task 8 (Generate Truth Table):
+-------------
+a    b    OUT
+-------------
+T    T    F
+T    F    F
+F    T    F
+F    F    T
+ [Time: 1001000 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~c*c)
+===========================================
+Task 1 (Infix to Prefix):      *~cc [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~c*c [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+c = True
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       ~c*c [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    2
+Task 8 (Generate Truth Table):
+--------
+c    OUT
+--------
+T    F
+F    F
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~e*~d)
+===========================================
+Task 1 (Infix to Prefix):      *~e~d [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~e*~d [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+d = True
+e = False
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       ~e*~d [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    2
+Task 8 (Generate Truth Table):
+-------------
+d    e    OUT
+-------------
+T    T    F
+T    F    F
+F    T    F
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (d>~a)
+===========================================
+Task 1 (Infix to Prefix):      >d~a [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   d>~a [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+a = True
+d = True
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       ~d+~a [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+a    d    OUT
+-------------
+T    T    F
+T    F    T
+F    T    T
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~d+~d)
+===========================================
+Task 1 (Infix to Prefix):      +~d~d [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~d+~d [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+d = True
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       ~d+~d [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+--------
+d    OUT
+--------
+T    F
+F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (b+a)
+===========================================
+Task 1 (Infix to Prefix):      +ba [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   b+a [0 ns]
+Task 4 (Compute Height):       1 [0 ns]
+
+--- Truth Values Used ---
+a = True
+b = True
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       b+a [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+a    b    OUT
+-------------
+T    T    T
+T    F    T
+F    T    T
+F    F    F
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~d*~b)
+===========================================
+Task 1 (Infix to Prefix):      *~d~b [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~d*~b [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+b = True
+d = True
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       ~d*~b [1000000 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    2
+Task 8 (Generate Truth Table):
+-------------
+b    d    OUT
+-------------
+T    T    F
+T    F    F
+F    T    F
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~b*a)
+===========================================
+Task 1 (Infix to Prefix):      *~ba [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~b*a [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+a = True
+b = True
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       ~b*a [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    2
+Task 8 (Generate Truth Table):
+-------------
+a    b    OUT
+-------------
+T    T    F
+T    F    T
+F    T    F
+F    F    F
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (d*~c)
+===========================================
+Task 1 (Infix to Prefix):      *d~c [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   d*~c [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+c = True
+d = True
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       d*~c [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    2
+Task 8 (Generate Truth Table):
+-------------
+c    d    OUT
+-------------
+T    T    F
+T    F    F
+F    T    T
+F    F    F
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~d*~b)
+===========================================
+Task 1 (Infix to Prefix):      *~d~b [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~d*~b [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+b = True
+d = True
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       ~d*~b [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    2
+Task 8 (Generate Truth Table):
+-------------
+b    d    OUT
+-------------
+T    T    F
+T    F    F
+F    T    F
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~e+a)
+===========================================
+Task 1 (Infix to Prefix):      +~ea [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~e+a [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+a = True
+e = False
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       ~e+a [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+a    e    OUT
+-------------
+T    T    T
+T    F    T
+F    T    F
+F    F    T
+ [Time: 999000 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (e>c)
+===========================================
+Task 1 (Infix to Prefix):      >ec [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   e>c [0 ns]
+Task 4 (Compute Height):       1 [0 ns]
+
+--- Truth Values Used ---
+c = True
+e = False
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       ~e+c [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+c    e    OUT
+-------------
+T    T    T
+T    F    T
+F    T    F
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (e>d)
+===========================================
+Task 1 (Infix to Prefix):      >ed [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   e>d [0 ns]
+Task 4 (Compute Height):       1 [0 ns]
+
+--- Truth Values Used ---
+d = True
+e = False
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       ~e+d [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+d    e    OUT
+-------------
+T    T    T
+T    F    T
+F    T    F
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~d*b)
+===========================================
+Task 1 (Infix to Prefix):      *~db [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~d*b [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+b = True
+d = True
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       ~d*b [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    2
+Task 8 (Generate Truth Table):
+-------------
+b    d    OUT
+-------------
+T    T    F
+T    F    T
+F    T    F
+F    F    F
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (d*e)
+===========================================
+Task 1 (Infix to Prefix):      *de [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   d*e [0 ns]
+Task 4 (Compute Height):       1 [0 ns]
+
+--- Truth Values Used ---
+d = True
+e = False
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       d*e [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    2
+Task 8 (Generate Truth Table):
+-------------
+d    e    OUT
+-------------
+T    T    T
+T    F    F
+F    T    F
+F    F    F
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (c>a)
+===========================================
+Task 1 (Infix to Prefix):      >ca [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   c>a [0 ns]
+Task 4 (Compute Height):       1 [0 ns]
+
+--- Truth Values Used ---
+a = True
+c = True
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       ~c+a [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+a    c    OUT
+-------------
+T    T    T
+T    F    T
+F    T    F
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~a>~a)
+===========================================
+Task 1 (Infix to Prefix):      >~a~a [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~a>~a [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+a = True
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       a+~a [0 ns]
+Task 7 (Check Validity):       Valid [0 µs]
+Number of valid clauses:      1
+Number of invalid clauses:    0
+Task 8 (Generate Truth Table):
+--------
+a    OUT
+--------
+T    T
+F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~d+a)
+===========================================
+Task 1 (Infix to Prefix):      +~da [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~d+a [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+a = True
+d = True
+
+Task 5 (Evaluate Truth):       True [1000000 ns]
+Task 6 (Convert to CNF):       ~d+a [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+a    d    OUT
+-------------
+T    T    T
+T    F    T
+F    T    F
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~e+~e)
+===========================================
+Task 1 (Infix to Prefix):      +~e~e [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~e+~e [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+e = False
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       ~e+~e [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+--------
+e    OUT
+--------
+T    F
+F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~e+~d)
+===========================================
+Task 1 (Infix to Prefix):      +~e~d [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~e+~d [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+d = True
+e = False
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       ~e+~d [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+d    e    OUT
+-------------
+T    T    F
+T    F    T
+F    T    T
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (b>~a)
+===========================================
+Task 1 (Infix to Prefix):      >b~a [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   b>~a [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+a = True
+b = True
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       ~b+~a [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+a    b    OUT
+-------------
+T    T    F
+T    F    T
+F    T    T
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (b>b)
+===========================================
+Task 1 (Infix to Prefix):      >bb [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   b>b [0 ns]
+Task 4 (Compute Height):       1 [0 ns]
+
+--- Truth Values Used ---
+b = True
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       ~b+b [0 ns]
+Task 7 (Check Validity):       Valid [0 µs]
+Number of valid clauses:      1
+Number of invalid clauses:    0
+Task 8 (Generate Truth Table):
+--------
+b    OUT
+--------
+T    T
+F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~c+c)
+===========================================
+Task 1 (Infix to Prefix):      +~cc [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~c+c [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+c = True
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       ~c+c [0 ns]
+Task 7 (Check Validity):       Valid [0 µs]
+Number of valid clauses:      1
+Number of invalid clauses:    0
+Task 8 (Generate Truth Table):
+--------
+c    OUT
+--------
+T    T
+F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~b+e)
+===========================================
+Task 1 (Infix to Prefix):      +~be [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~b+e [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+b = True
+e = False
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       ~b+e [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+b    e    OUT
+-------------
+T    T    T
+T    F    F
+F    T    T
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (e+~c)
+===========================================
+Task 1 (Infix to Prefix):      +e~c [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   e+~c [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+c = True
+e = False
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       e+~c [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+c    e    OUT
+-------------
+T    T    T
+T    F    F
+F    T    T
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~c*~c)
+===========================================
+Task 1 (Infix to Prefix):      *~c~c [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~c*~c [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+c = True
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       ~c*~c [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    2
+Task 8 (Generate Truth Table):
+--------
+c    OUT
+--------
+T    F
+F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~a*~e)
+===========================================
+Task 1 (Infix to Prefix):      *~a~e [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~a*~e [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+a = True
+e = False
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       ~a*~e [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    2
+Task 8 (Generate Truth Table):
+-------------
+a    e    OUT
+-------------
+T    T    F
+T    F    F
+F    T    F
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~d*~e)
+===========================================
+Task 1 (Infix to Prefix):      *~d~e [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~d*~e [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+d = True
+e = False
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       ~d*~e [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    2
+Task 8 (Generate Truth Table):
+-------------
+d    e    OUT
+-------------
+T    T    F
+T    F    F
+F    T    F
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (b*~a)
+===========================================
+Task 1 (Infix to Prefix):      *b~a [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   b*~a [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+a = True
+b = True
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       b*~a [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    2
+Task 8 (Generate Truth Table):
+-------------
+a    b    OUT
+-------------
+T    T    F
+T    F    F
+F    T    T
+F    F    F
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (b+~a)
+===========================================
+Task 1 (Infix to Prefix):      +b~a [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   b+~a [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+a = True
+b = True
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       b+~a [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+a    b    OUT
+-------------
+T    T    T
+T    F    F
+F    T    T
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~e>a)
+===========================================
+Task 1 (Infix to Prefix):      >~ea [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~e>a [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+a = True
+e = False
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       e+a [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+a    e    OUT
+-------------
+T    T    T
+T    F    T
+F    T    T
+F    F    F
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~e*a)
+===========================================
+Task 1 (Infix to Prefix):      *~ea [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~e*a [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+a = True
+e = False
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       ~e*a [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    2
+Task 8 (Generate Truth Table):
+-------------
+a    e    OUT
+-------------
+T    T    F
+T    F    T
+F    T    F
+F    F    F
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~c>e)
+===========================================
+Task 1 (Infix to Prefix):      >~ce [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~c>e [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+c = True
+e = False
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       c+e [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+c    e    OUT
+-------------
+T    T    T
+T    F    T
+F    T    T
+F    F    F
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (a+~e)
+===========================================
+Task 1 (Infix to Prefix):      +a~e [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   a+~e [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+a = True
+e = False
+
+Task 5 (Evaluate Truth):       True [1510000 ns]
+Task 6 (Convert to CNF):       a+~e [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+a    e    OUT
+-------------
+T    T    T
+T    F    T
+F    T    F
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~c+~e)
+===========================================
+Task 1 (Infix to Prefix):      +~c~e [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~c+~e [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+c = True
+e = False
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       ~c+~e [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+c    e    OUT
+-------------
+T    T    F
+T    F    T
+F    T    T
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~e*~e)
+===========================================
+Task 1 (Infix to Prefix):      *~e~e [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~e*~e [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+e = False
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       ~e*~e [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    2
+Task 8 (Generate Truth Table):
+--------
+e    OUT
+--------
+T    F
+F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~c+~c)
+===========================================
+Task 1 (Infix to Prefix):      +~c~c [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~c+~c [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+c = True
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       ~c+~c [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+--------
+c    OUT
+--------
+T    F
+F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (b+~e)
+===========================================
+Task 1 (Infix to Prefix):      +b~e [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   b+~e [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+b = True
+e = False
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       b+~e [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+b    e    OUT
+-------------
+T    T    T
+T    F    T
+F    T    F
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~e>~a)
+===========================================
+Task 1 (Infix to Prefix):      >~e~a [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~e>~a [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+a = True
+e = False
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       e+~a [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+a    e    OUT
+-------------
+T    T    T
+T    F    F
+F    T    T
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (c+~d)
+===========================================
+Task 1 (Infix to Prefix):      +c~d [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   c+~d [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+c = True
+d = True
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       c+~d [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+c    d    OUT
+-------------
+T    T    T
+T    F    T
+F    T    F
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (e*e)
+===========================================
+Task 1 (Infix to Prefix):      *ee [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   e*e [0 ns]
+Task 4 (Compute Height):       1 [0 ns]
+
+--- Truth Values Used ---
+e = False
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       e*e [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    2
+Task 8 (Generate Truth Table):
+--------
+e    OUT
+--------
+T    T
+F    F
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (a*~a)
+===========================================
+Task 1 (Infix to Prefix):      *a~a [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   a*~a [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+a = True
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       a*~a [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    2
+Task 8 (Generate Truth Table):
+--------
+a    OUT
+--------
+T    F
+F    F
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (e*~e)
+===========================================
+Task 1 (Infix to Prefix):      *e~e [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   e*~e [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+e = False
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       e*~e [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    2
+Task 8 (Generate Truth Table):
+--------
+e    OUT
+--------
+T    F
+F    F
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~b*~b)
+===========================================
+Task 1 (Infix to Prefix):      *~b~b [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~b*~b [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+b = True
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       ~b*~b [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    2
+Task 8 (Generate Truth Table):
+--------
+b    OUT
+--------
+T    F
+F    T
+ [Time: 1004000 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~a+e)
+===========================================
+Task 1 (Infix to Prefix):      +~ae [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~a+e [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+a = True
+e = False
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       ~a+e [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+a    e    OUT
+-------------
+T    T    T
+T    F    F
+F    T    T
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (c+~a)
+===========================================
+Task 1 (Infix to Prefix):      +c~a [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   c+~a [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+a = True
+c = True
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       c+~a [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+a    c    OUT
+-------------
+T    T    T
+T    F    F
+F    T    T
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~b>~e)
+===========================================
+Task 1 (Infix to Prefix):      >~b~e [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~b>~e [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+b = True
+e = False
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       b+~e [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+b    e    OUT
+-------------
+T    T    T
+T    F    T
+F    T    F
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (a>b)
+===========================================
+Task 1 (Infix to Prefix):      >ab [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   a>b [0 ns]
+Task 4 (Compute Height):       1 [0 ns]
+
+--- Truth Values Used ---
+a = True
+b = True
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       ~a+b [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+a    b    OUT
+-------------
+T    T    T
+T    F    F
+F    T    T
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~e*~e)
+===========================================
+Task 1 (Infix to Prefix):      *~e~e [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~e*~e [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+e = False
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       ~e*~e [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    2
+Task 8 (Generate Truth Table):
+--------
+e    OUT
+--------
+T    F
+F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (b*e)
+===========================================
+Task 1 (Infix to Prefix):      *be [0 ns]
+Task 2 (Prefix to ParseTree):  Done [999000 ns]
+Task 3 (ParseTree to Infix):   b*e [0 ns]
+Task 4 (Compute Height):       1 [0 ns]
+
+--- Truth Values Used ---
+b = True
+e = False
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       b*e [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    2
+Task 8 (Generate Truth Table):
+-------------
+b    e    OUT
+-------------
+T    T    T
+T    F    F
+F    T    F
+F    F    F
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (d+b)
+===========================================
+Task 1 (Infix to Prefix):      +db [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   d+b [0 ns]
+Task 4 (Compute Height):       1 [0 ns]
+
+--- Truth Values Used ---
+b = True
+d = True
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       d+b [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+b    d    OUT
+-------------
+T    T    T
+T    F    T
+F    T    T
+F    F    F
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~b>~e)
+===========================================
+Task 1 (Infix to Prefix):      >~b~e [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~b>~e [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+b = True
+e = False
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       b+~e [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+b    e    OUT
+-------------
+T    T    T
+T    F    T
+F    T    F
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (c*~e)
+===========================================
+Task 1 (Infix to Prefix):      *c~e [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   c*~e [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+c = True
+e = False
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       c*~e [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    2
+Task 8 (Generate Truth Table):
+-------------
+c    e    OUT
+-------------
+T    T    F
+T    F    T
+F    T    F
+F    F    F
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~b>~b)
+===========================================
+Task 1 (Infix to Prefix):      >~b~b [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~b>~b [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+b = True
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       b+~b [0 ns]
+Task 7 (Check Validity):       Valid [0 µs]
+Number of valid clauses:      1
+Number of invalid clauses:    0
+Task 8 (Generate Truth Table):
+--------
+b    OUT
+--------
+T    T
+F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (a>~e)
+===========================================
+Task 1 (Infix to Prefix):      >a~e [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   a>~e [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+a = True
+e = False
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       ~a+~e [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+a    e    OUT
+-------------
+T    T    F
+T    F    T
+F    T    T
+F    F    T
+ [Time: 1000000 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~b>c)
+===========================================
+Task 1 (Infix to Prefix):      >~bc [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~b>c [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+b = True
+c = True
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       b+c [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+b    c    OUT
+-------------
+T    T    T
+T    F    T
+F    T    T
+F    F    F
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~d*~d)
+===========================================
+Task 1 (Infix to Prefix):      *~d~d [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~d*~d [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+d = True
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       ~d*~d [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    2
+Task 8 (Generate Truth Table):
+--------
+d    OUT
+--------
+T    F
+F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (e>~b)
+===========================================
+Task 1 (Infix to Prefix):      >e~b [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   e>~b [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+b = True
+e = False
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       ~e+~b [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+b    e    OUT
+-------------
+T    T    F
+T    F    T
+F    T    T
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (c+~d)
+===========================================
+Task 1 (Infix to Prefix):      +c~d [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   c+~d [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+c = True
+d = True
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       c+~d [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+c    d    OUT
+-------------
+T    T    T
+T    F    T
+F    T    F
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (e+~c)
+===========================================
+Task 1 (Infix to Prefix):      +e~c [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   e+~c [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+c = True
+e = False
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       e+~c [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+c    e    OUT
+-------------
+T    T    T
+T    F    F
+F    T    T
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (e*~c)
+===========================================
+Task 1 (Infix to Prefix):      *e~c [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   e*~c [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+c = True
+e = False
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       e*~c [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    2
+Task 8 (Generate Truth Table):
+-------------
+c    e    OUT
+-------------
+T    T    F
+T    F    F
+F    T    T
+F    F    F
+ [Time: 999000 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~e*c)
+===========================================
+Task 1 (Infix to Prefix):      *~ec [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~e*c [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+c = True
+e = False
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       ~e*c [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    2
+Task 8 (Generate Truth Table):
+-------------
+c    e    OUT
+-------------
+T    T    F
+T    F    T
+F    T    F
+F    F    F
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (c+~e)
+===========================================
+Task 1 (Infix to Prefix):      +c~e [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   c+~e [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+c = True
+e = False
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       c+~e [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+c    e    OUT
+-------------
+T    T    T
+T    F    T
+F    T    F
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~a>b)
+===========================================
+Task 1 (Infix to Prefix):      >~ab [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~a>b [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+a = True
+b = True
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       a+b [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+a    b    OUT
+-------------
+T    T    T
+T    F    T
+F    T    T
+F    F    F
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~e+e)
+===========================================
+Task 1 (Infix to Prefix):      +~ee [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~e+e [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+e = False
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       ~e+e [0 ns]
+Task 7 (Check Validity):       Valid [0 µs]
+Number of valid clauses:      1
+Number of invalid clauses:    0
+Task 8 (Generate Truth Table):
+--------
+e    OUT
+--------
+T    T
+F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~a*~c)
+===========================================
+Task 1 (Infix to Prefix):      *~a~c [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~a*~c [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+a = True
+c = True
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       ~a*~c [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    2
+Task 8 (Generate Truth Table):
+-------------
+a    c    OUT
+-------------
+T    T    F
+T    F    F
+F    T    F
+F    F    T
+ [Time: 1002000 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (b>~c)
+===========================================
+Task 1 (Infix to Prefix):      >b~c [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   b>~c [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+b = True
+c = True
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       ~b+~c [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+b    c    OUT
+-------------
+T    T    F
+T    F    T
+F    T    T
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~b>~c)
+===========================================
+Task 1 (Infix to Prefix):      >~b~c [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~b>~c [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+b = True
+c = True
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       b+~c [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+b    c    OUT
+-------------
+T    T    T
+T    F    T
+F    T    F
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (b+a)
+===========================================
+Task 1 (Infix to Prefix):      +ba [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   b+a [0 ns]
+Task 4 (Compute Height):       1 [0 ns]
+
+--- Truth Values Used ---
+a = True
+b = True
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       b+a [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+a    b    OUT
+-------------
+T    T    T
+T    F    T
+F    T    T
+F    F    F
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~b>d)
+===========================================
+Task 1 (Infix to Prefix):      >~bd [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~b>d [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+b = True
+d = True
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       b+d [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+b    d    OUT
+-------------
+T    T    T
+T    F    T
+F    T    T
+F    F    F
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~e+~a)
+===========================================
+Task 1 (Infix to Prefix):      +~e~a [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~e+~a [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+a = True
+e = False
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       ~e+~a [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+a    e    OUT
+-------------
+T    T    F
+T    F    T
+F    T    T
+F    F    T
+ [Time: 998000 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~a+a)
+===========================================
+Task 1 (Infix to Prefix):      +~aa [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~a+a [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+a = True
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       ~a+a [0 ns]
+Task 7 (Check Validity):       Valid [0 µs]
+Number of valid clauses:      1
+Number of invalid clauses:    0
+Task 8 (Generate Truth Table):
+--------
+a    OUT
+--------
+T    T
+F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~d*~a)
+===========================================
+Task 1 (Infix to Prefix):      *~d~a [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~d*~a [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+a = True
+d = True
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       ~d*~a [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    2
+Task 8 (Generate Truth Table):
+-------------
+a    d    OUT
+-------------
+T    T    F
+T    F    F
+F    T    F
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~b*~b)
+===========================================
+Task 1 (Infix to Prefix):      *~b~b [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~b*~b [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+b = True
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       ~b*~b [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    2
+Task 8 (Generate Truth Table):
+--------
+b    OUT
+--------
+T    F
+F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (c+~d)
+===========================================
+Task 1 (Infix to Prefix):      +c~d [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   c+~d [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+c = True
+d = True
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       c+~d [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+c    d    OUT
+-------------
+T    T    T
+T    F    T
+F    T    F
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (c*a)
+===========================================
+Task 1 (Infix to Prefix):      *ca [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   c*a [0 ns]
+Task 4 (Compute Height):       1 [0 ns]
+
+--- Truth Values Used ---
+a = True
+c = True
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       c*a [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    2
+Task 8 (Generate Truth Table):
+-------------
+a    c    OUT
+-------------
+T    T    T
+T    F    F
+F    T    F
+F    F    F
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~e>~d)
+===========================================
+Task 1 (Infix to Prefix):      >~e~d [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~e>~d [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+d = True
+e = False
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       e+~d [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+d    e    OUT
+-------------
+T    T    T
+T    F    F
+F    T    T
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~c>c)
+===========================================
+Task 1 (Infix to Prefix):      >~cc [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~c>c [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+c = True
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       c+c [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+--------
+c    OUT
+--------
+T    T
+F    F
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~b+e)
+===========================================
+Task 1 (Infix to Prefix):      +~be [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~b+e [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+b = True
+e = False
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       ~b+e [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+b    e    OUT
+-------------
+T    T    T
+T    F    F
+F    T    T
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (e+e)
+===========================================
+Task 1 (Infix to Prefix):      +ee [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   e+e [0 ns]
+Task 4 (Compute Height):       1 [0 ns]
+
+--- Truth Values Used ---
+e = False
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       e+e [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+--------
+e    OUT
+--------
+T    T
+F    F
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (c+~b)
+===========================================
+Task 1 (Infix to Prefix):      +c~b [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   c+~b [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+b = True
+c = True
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       c+~b [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+b    c    OUT
+-------------
+T    T    T
+T    F    F
+F    T    T
+F    F    T
+ [Time: 743000 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~e*~d)
+===========================================
+Task 1 (Infix to Prefix):      *~e~d [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~e*~d [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+d = True
+e = False
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       ~e*~d [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    2
+Task 8 (Generate Truth Table):
+-------------
+d    e    OUT
+-------------
+T    T    F
+T    F    F
+F    T    F
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (a+~c)
+===========================================
+Task 1 (Infix to Prefix):      +a~c [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   a+~c [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+a = True
+c = True
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       a+~c [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+a    c    OUT
+-------------
+T    T    T
+T    F    T
+F    T    F
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~b+~d)
+===========================================
+Task 1 (Infix to Prefix):      +~b~d [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~b+~d [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+b = True
+d = True
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       ~b+~d [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+b    d    OUT
+-------------
+T    T    F
+T    F    T
+F    T    T
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (e>d)
+===========================================
+Task 1 (Infix to Prefix):      >ed [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   e>d [0 ns]
+Task 4 (Compute Height):       1 [0 ns]
+
+--- Truth Values Used ---
+d = True
+e = False
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       ~e+d [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+d    e    OUT
+-------------
+T    T    T
+T    F    T
+F    T    F
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (a+a)
+===========================================
+Task 1 (Infix to Prefix):      +aa [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   a+a [0 ns]
+Task 4 (Compute Height):       1 [0 ns]
+
+--- Truth Values Used ---
+a = True
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       a+a [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+--------
+a    OUT
+--------
+T    T
+F    F
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~d+~e)
+===========================================
+Task 1 (Infix to Prefix):      +~d~e [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~d+~e [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+d = True
+e = False
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       ~d+~e [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+d    e    OUT
+-------------
+T    T    F
+T    F    T
+F    T    T
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (a+~d)
+===========================================
+Task 1 (Infix to Prefix):      +a~d [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   a+~d [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+a = True
+d = True
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       a+~d [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+a    d    OUT
+-------------
+T    T    T
+T    F    T
+F    T    F
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (e*d)
+===========================================
+Task 1 (Infix to Prefix):      *ed [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   e*d [0 ns]
+Task 4 (Compute Height):       1 [0 ns]
+
+--- Truth Values Used ---
+d = True
+e = False
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       e*d [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    2
+Task 8 (Generate Truth Table):
+-------------
+d    e    OUT
+-------------
+T    T    T
+T    F    F
+F    T    F
+F    F    F
+ [Time: 1059000 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (d>c)
+===========================================
+Task 1 (Infix to Prefix):      >dc [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   d>c [0 ns]
+Task 4 (Compute Height):       1 [0 ns]
+
+--- Truth Values Used ---
+c = True
+d = True
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       ~d+c [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+c    d    OUT
+-------------
+T    T    T
+T    F    T
+F    T    F
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (b+b)
+===========================================
+Task 1 (Infix to Prefix):      +bb [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   b+b [0 ns]
+Task 4 (Compute Height):       1 [0 ns]
+
+--- Truth Values Used ---
+b = True
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       b+b [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+--------
+b    OUT
+--------
+T    T
+F    F
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~b+~b)
+===========================================
+Task 1 (Infix to Prefix):      +~b~b [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~b+~b [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+b = True
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       ~b+~b [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+--------
+b    OUT
+--------
+T    F
+F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~b>d)
+===========================================
+Task 1 (Infix to Prefix):      >~bd [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~b>d [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+b = True
+d = True
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       b+d [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+b    d    OUT
+-------------
+T    T    T
+T    F    T
+F    T    T
+F    F    F
+ [Time: 594000 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (c+~c)
+===========================================
+Task 1 (Infix to Prefix):      +c~c [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   c+~c [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+c = True
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       c+~c [0 ns]
+Task 7 (Check Validity):       Valid [0 µs]
+Number of valid clauses:      1
+Number of invalid clauses:    0
+Task 8 (Generate Truth Table):
+--------
+c    OUT
+--------
+T    T
+F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~c>~e)
+===========================================
+Task 1 (Infix to Prefix):      >~c~e [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~c>~e [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+c = True
+e = False
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       c+~e [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+c    e    OUT
+-------------
+T    T    T
+T    F    T
+F    T    F
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~d+~a)
+===========================================
+Task 1 (Infix to Prefix):      +~d~a [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~d+~a [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+a = True
+d = True
+
+Task 5 (Evaluate Truth):       False [0 ns]
+Task 6 (Convert to CNF):       ~d+~a [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+a    d    OUT
+-------------
+T    T    F
+T    F    T
+F    T    T
+F    F    T
+ [Time: 0 ns]
+------------------------------------------------------------
+
+===========================================
+Input Infix: (~b>d)
+===========================================
+Task 1 (Infix to Prefix):      >~bd [0 ns]
+Task 2 (Prefix to ParseTree):  Done [0 ns]
+Task 3 (ParseTree to Infix):   ~b>d [0 ns]
+Task 4 (Compute Height):       2 [0 ns]
+
+--- Truth Values Used ---
+b = True
+d = True
+
+Task 5 (Evaluate Truth):       True [0 ns]
+Task 6 (Convert to CNF):       b+d [0 ns]
+Task 7 (Check Validity):       Invalid [0 µs]
+Number of valid clauses:      0
+Number of invalid clauses:    1
+Task 8 (Generate Truth Table):
+-------------
+b    d    OUT
+-------------
+T    T    T
+T    F    T
+F    T    T
+F    F    F
+ [Time: 0 ns]
+------------------------------------------------------------
+
+
+
+=== Performance Summary ===
+Formula 1 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 1001000 ns
+---------------------------------------
+Formula 2 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 3 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 4 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 1001000 ns
+---------------------------------------
+Formula 5 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 6 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 7 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 8 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 9 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 10 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 1000000 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 11 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 12 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 13 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 14 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 999000 ns
+---------------------------------------
+Formula 15 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 16 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 17 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 18 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 19 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 20 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 21 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 1000000 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 22 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 23 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 24 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 25 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 26 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 27 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 28 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 29 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 30 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 31 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 32 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 33 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 34 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 35 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 36 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 37 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 1510000 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 38 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 39 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 40 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 41 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 42 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 43 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 44 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 45 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 46 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 47 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 1004000 ns
+---------------------------------------
+Formula 48 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 49 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 50 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 51 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 52 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 53 timings:
+T1: 0 ns
+T2: 999000 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 54 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 55 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 56 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 57 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 58 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 1000000 ns
+---------------------------------------
+Formula 59 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 60 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 61 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 62 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 63 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 64 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 999000 ns
+---------------------------------------
+Formula 65 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 66 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 67 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 68 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 69 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 1002000 ns
+---------------------------------------
+Formula 70 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 71 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 72 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 73 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 74 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 998000 ns
+---------------------------------------
+Formula 75 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 76 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 77 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 78 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 79 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 80 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 81 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 82 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 83 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 84 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 743000 ns
+---------------------------------------
+Formula 85 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 86 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 87 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 88 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 89 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 90 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 91 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 92 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 1059000 ns
+---------------------------------------
+Formula 93 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 94 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 95 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 96 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 594000 ns
+---------------------------------------
+Formula 97 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 98 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 99 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+Formula 100 timings:
+T1: 0 ns
+T2: 0 ns
+T3: 0 ns
+T4: 0 ns
+T5: 0 ns
+T6: 0 ns
+T7: 0 ns
+T8: 0 ns
+---------------------------------------
+
+Average times:
+T1: 0 ns
+T2: 9990 ns
+T3: 0 ns
+T4: 0 ns
+T5: 25100 ns
+T6: 10000 ns
+T7: 0 ns
+T8: 104000 ns
