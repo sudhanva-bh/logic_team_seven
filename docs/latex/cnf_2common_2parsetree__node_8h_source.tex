@@ -1,54 +1,54 @@
 \doxysection{parsetree\+\_\+node.\+h}
 \hypertarget{cnf_2common_2parsetree__node_8h_source}{}\label{cnf_2common_2parsetree__node_8h_source}\index{cnf/common/parsetree\_node.h@{cnf/common/parsetree\_node.h}}
-
+\mbox{\hyperlink{cnf_2common_2parsetree__node_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ INT\_PARSETREE\_NODE\_H}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ INT\_PARSETREE\_NODE\_H}}
 \DoxyCodeLine{00003\ }
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
 \DoxyCodeLine{00005\ }
-\DoxyCodeLine{00006\ \textcolor{keyword}{struct\ }Node\ \{}
-\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keywordtype}{int}\ data;\ \ \ \ \ \ \textcolor{comment}{//\ positive\ integer\ literal\ or\ negative\ operator}}
-\DoxyCodeLine{00008\ \ \ \ \ Node*\ \mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}};}
-\DoxyCodeLine{00009\ \ \ \ \ Node*\ \mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}};}
+\DoxyCodeLine{00006\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_node_a03ffb8209d9cf4d007b14b1322f960eb}{Node}}\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_node_a87c003c9f600e3fc58e6e90835f0b605}{data}};\ \ \ \ \ \ \textcolor{comment}{//\ positive\ integer\ literal\ or\ negative\ operator}}
+\DoxyCodeLine{00008\ \ \ \ \ \mbox{\hyperlink{struct_node_a03ffb8209d9cf4d007b14b1322f960eb}{Node}}*\ \mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}};}
+\DoxyCodeLine{00009\ \ \ \ \ \mbox{\hyperlink{struct_node_a03ffb8209d9cf4d007b14b1322f960eb}{Node}}*\ \mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}};}
 \DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \ \ \ \ Node(\textcolor{keywordtype}{int}\ val,\ Node*\ l\ =\ \textcolor{keyword}{nullptr},\ Node*\ r\ =\ \textcolor{keyword}{nullptr})}
-\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ :\ data(val),\ \mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}}(l),\ \mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}}(r)\ \{\}}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{struct_node_a03ffb8209d9cf4d007b14b1322f960eb}{Node}}(\textcolor{keywordtype}{int}\ val,\ \mbox{\hyperlink{struct_node_a03ffb8209d9cf4d007b14b1322f960eb}{Node}}*\ l\ =\ \textcolor{keyword}{nullptr},\ \mbox{\hyperlink{struct_node_a03ffb8209d9cf4d007b14b1322f960eb}{Node}}*\ r\ =\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{struct_node_a87c003c9f600e3fc58e6e90835f0b605}{data}}(val),\ \mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}}(l),\ \mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}}(r)\ \{\}}
 \DoxyCodeLine{00013\ \};}
 \DoxyCodeLine{00014\ }
 \DoxyCodeLine{00015\ \textcolor{comment}{//\ Copy\ a\ node\ recursively}}
-\DoxyCodeLine{00016\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{struct_node}{Node}}*\ copyNode(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_node}{Node}}*\ src)\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{struct_node}{Node}}*\ \mbox{\hyperlink{cnf_2common_2parsetree__node_8h_ab2e81f14ebb3c586790be13f12aaed77}{copyNode}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_node}{Node}}*\ src)\ \{}
 \DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordflow}{if}\ (!src)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}*\ out\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}}(src-\/>data);}
-\DoxyCodeLine{00019\ \ \ \ \ out-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}}\ =\ copyNode(src-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}});}
-\DoxyCodeLine{00020\ \ \ \ \ out-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}}\ =\ copyNode(src-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}});}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}*\ out\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}}(src-\/>\mbox{\hyperlink{struct_node_a87c003c9f600e3fc58e6e90835f0b605}{data}});}
+\DoxyCodeLine{00019\ \ \ \ \ out-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}}\ =\ \mbox{\hyperlink{cnf_2common_2parsetree__node_8h_ab2e81f14ebb3c586790be13f12aaed77}{copyNode}}(src-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}});}
+\DoxyCodeLine{00020\ \ \ \ \ out-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}}\ =\ \mbox{\hyperlink{cnf_2common_2parsetree__node_8h_ab2e81f14ebb3c586790be13f12aaed77}{copyNode}}(src-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}});}
 \DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
 \DoxyCodeLine{00022\ \}}
 \DoxyCodeLine{00023\ }
 \DoxyCodeLine{00024\ \textcolor{comment}{//\ Node\ constructors\ for\ operators\ and\ literals}}
-\DoxyCodeLine{00025\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{struct_node}{Node}}*\ literal(\textcolor{keywordtype}{int}\ value)\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}}(value);\ \}\ \ \ \textcolor{comment}{//\ value\ >\ 0}}
-\DoxyCodeLine{00026\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{struct_node}{Node}}*\ negation(\mbox{\hyperlink{struct_node}{Node}}*\ node)\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}}(-\/4,\ \textcolor{keyword}{nullptr},\ node);\ \}}
-\DoxyCodeLine{00027\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{struct_node}{Node}}*\ conjunction(\mbox{\hyperlink{struct_node}{Node}}*\ leftNode,\ \mbox{\hyperlink{struct_node}{Node}}*\ rightNode)\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}}(-\/3,\ leftNode,\ rightNode);\ \}}
-\DoxyCodeLine{00028\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{struct_node}{Node}}*\ disjunction(\mbox{\hyperlink{struct_node}{Node}}*\ leftNode,\ \mbox{\hyperlink{struct_node}{Node}}*\ rightNode)\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}}(-\/2,\ leftNode,\ rightNode);\ \}}
-\DoxyCodeLine{00029\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{struct_node}{Node}}*\ implication(\mbox{\hyperlink{struct_node}{Node}}*\ leftNode,\ \mbox{\hyperlink{struct_node}{Node}}*\ rightNode)\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}}(-\/1,\ leftNode,\ rightNode);\ \}}
+\DoxyCodeLine{00025\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{struct_node}{Node}}*\ \mbox{\hyperlink{cnf_2common_2parsetree__node_8h_afbe9201fdc7feeb5aa013d1ac705f379}{literal}}(\textcolor{keywordtype}{int}\ value)\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}}(value);\ \}\ \ \ \textcolor{comment}{//\ value\ >\ 0}}
+\DoxyCodeLine{00026\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{struct_node}{Node}}*\ \mbox{\hyperlink{cnf_2common_2parsetree__node_8h_ac2834e8ea6d59d5bb73d8455a9d6ff06}{negation}}(\mbox{\hyperlink{struct_node}{Node}}*\ node)\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}}(-\/4,\ \textcolor{keyword}{nullptr},\ node);\ \}}
+\DoxyCodeLine{00027\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{struct_node}{Node}}*\ \mbox{\hyperlink{cnf_2common_2parsetree__node_8h_abe157569e5b15aefe5e68255c4fcd50d}{conjunction}}(\mbox{\hyperlink{struct_node}{Node}}*\ leftNode,\ \mbox{\hyperlink{struct_node}{Node}}*\ rightNode)\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}}(-\/3,\ leftNode,\ rightNode);\ \}}
+\DoxyCodeLine{00028\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{struct_node}{Node}}*\ \mbox{\hyperlink{cnf_2common_2parsetree__node_8h_a102a1e5d85bdb1118cff856e4516508a}{disjunction}}(\mbox{\hyperlink{struct_node}{Node}}*\ leftNode,\ \mbox{\hyperlink{struct_node}{Node}}*\ rightNode)\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}}(-\/2,\ leftNode,\ rightNode);\ \}}
+\DoxyCodeLine{00029\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{struct_node}{Node}}*\ \mbox{\hyperlink{cnf_2common_2parsetree__node_8h_a41fcc476e9913613c77322ef08e7a5fa}{implication}}(\mbox{\hyperlink{struct_node}{Node}}*\ leftNode,\ \mbox{\hyperlink{struct_node}{Node}}*\ rightNode)\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}}(-\/1,\ leftNode,\ rightNode);\ \}}
 \DoxyCodeLine{00030\ }
 \DoxyCodeLine{00031\ \textcolor{comment}{//\ Check\ if\ data\ is\ an\ operator}}
-\DoxyCodeLine{00032\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ isOperator(\textcolor{keywordtype}{int}\ c)\ \{}
+\DoxyCodeLine{00032\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{cnf_2common_2parsetree__node_8h_a539510029e126b67f225a212198ff232}{isOperator}}(\textcolor{keywordtype}{int}\ c)\ \{}
 \DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{return}\ c\ <=\ -\/1\ \&\&\ c\ >=\ -\/4;}
 \DoxyCodeLine{00034\ \}}
 \DoxyCodeLine{00035\ }
 \DoxyCodeLine{00036\ \textcolor{comment}{//\ Check\ if\ node\ is\ a\ literal}}
-\DoxyCodeLine{00037\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ is\_literal(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_node}{Node}}*\ node)\ \{}
+\DoxyCodeLine{00037\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{cnf_2common_2parsetree__node_8h_a607050ed9abd2625aa3dfb6b45148a7c}{is\_literal}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_node}{Node}}*\ node)\ \{}
 \DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{if}\ (!node)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{if}\ (node-\/>data\ >\ 0)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \ \textcolor{comment}{//\ positive\ integer\ literal}}
-\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{if}\ (node-\/>data\ ==\ -\/4)\ \{\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ negation}}
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ node-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}}\ \&\&\ node-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}}-\/>data\ >\ 0;}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{if}\ (node-\/>\mbox{\hyperlink{struct_node_a87c003c9f600e3fc58e6e90835f0b605}{data}}\ >\ 0)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \ \textcolor{comment}{//\ positive\ integer\ literal}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{if}\ (node-\/>\mbox{\hyperlink{struct_node_a87c003c9f600e3fc58e6e90835f0b605}{data}}\ ==\ -\/4)\ \{\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ negation}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ node-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}}\ \&\&\ node-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}}-\/>\mbox{\hyperlink{struct_node_a87c003c9f600e3fc58e6e90835f0b605}{data}}\ >\ 0;}
 \DoxyCodeLine{00042\ \ \ \ \ \}}
 \DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ other\ operators}}
 \DoxyCodeLine{00044\ \}}
 \DoxyCodeLine{00045\ }
 \DoxyCodeLine{00046\ \textcolor{comment}{//\ Operator\ precedence}}
-\DoxyCodeLine{00047\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ getPrecedence(\textcolor{keywordtype}{int}\ op)\ \{}
+\DoxyCodeLine{00047\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{cnf_2common_2parsetree__node_8h_a3442c66393fced868c71be3a0191ca03}{getPrecedence}}(\textcolor{keywordtype}{int}\ op)\ \{}
 \DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{switch}\ (op)\ \{}
 \DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ -\/1:\ \textcolor{keywordflow}{return}\ 1;\ \textcolor{comment}{//\ implication}}
 \DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ -\/2:\ \textcolor{keywordflow}{return}\ 2;\ \textcolor{comment}{//\ OR}}
@@ -59,10 +59,10 @@
 \DoxyCodeLine{00055\ \}}
 \DoxyCodeLine{00056\ }
 \DoxyCodeLine{00057\ \textcolor{comment}{//\ Recursively\ destroy\ parse\ tree}}
-\DoxyCodeLine{00058\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ destroyParseTree(\mbox{\hyperlink{struct_node}{Node}}*\ root)\ \{}
+\DoxyCodeLine{00058\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{cnf_2common_2parsetree__node_8h_a058d67a3b3ff474b6358b22debb2259c}{destroyParseTree}}(\mbox{\hyperlink{struct_node}{Node}}*\ root)\ \{}
 \DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{if}\ (!root)\ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00060\ \ \ \ \ destroyParseTree(root-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}});}
-\DoxyCodeLine{00061\ \ \ \ \ destroyParseTree(root-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}});}
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{cnf_2common_2parsetree__node_8h_a058d67a3b3ff474b6358b22debb2259c}{destroyParseTree}}(root-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}});}
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{cnf_2common_2parsetree__node_8h_a058d67a3b3ff474b6358b22debb2259c}{destroyParseTree}}(root-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}});}
 \DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{delete}\ root;}
 \DoxyCodeLine{00063\ \}}
 \DoxyCodeLine{00064\ }

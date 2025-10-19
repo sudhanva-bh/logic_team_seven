@@ -12,27 +12,13 @@ Generates and prints a truth table for a CNF formula.
 {\ttfamily \#include $<$string$>$}\newline
 {\ttfamily \#include $<$vector$>$}\newline
 {\ttfamily \#include "{}../common/parsetree\+\_\+node.\+h"{}}\newline
-\doxysubsubsection*{Namespaces}
-\begin{DoxyCompactItemize}
-\item 
-namespace \mbox{\hyperlink{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03}{anonymous\+\_\+namespace\{task8\+\_\+generate\+\_\+truth\+\_\+table.\+cpp\}}}
-\begin{DoxyCompactList}\small\item\em Contains internal helper functions for truth table generation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+Include dependency graph for task8\+\_\+generate\+\_\+truth\+\_\+table.\+cpp\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_a09b58647a7d164a339f94df93f81a2e8}\label{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_a09b58647a7d164a339f94df93f81a2e8} 
-void {\bfseries anonymous\+\_\+namespace\{task8\+\_\+generate\+\_\+truth\+\_\+table.\+cpp\}\+::get\+Atoms\+Recursive} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}current\+Node, set$<$ char $>$ \&atoms)
-\begin{DoxyCompactList}\small\item\em Recursively collects all unique atoms (variables) from a tree. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_af0eb469f4bb785ba2c54301ba2564491}{anonymous\+\_\+namespace\{task8\+\_\+generate\+\_\+truth\+\_\+table.\+cpp\}\+::collect\+Clauses\+As\+Vector}} (const \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}current\+Node, vector$<$ const \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} $>$ \&clauses)
-\begin{DoxyCompactList}\small\item\em Collects all clauses from a CNF tree into a vector. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_a11a3a15dc5eb601a00c0f21b94319835}{anonymous\+\_\+namespace\{task8\+\_\+generate\+\_\+truth\+\_\+table.\+cpp\}\+::collect\+Literals\+As\+Set}} (const \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}current\+Node, set$<$ char $>$ \&positive, set$<$ char $>$ \&negative)
-\begin{DoxyCompactList}\small\item\em Collects positive and negative literals from a clause tree. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_acf8072b3a45b7188f49ea780101b67e1}{anonymous\+\_\+namespace\{task8\+\_\+generate\+\_\+truth\+\_\+table.\+cpp\}\+::collect\+Clauses\+With\+Literals}} (const \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}cnf\+\_\+root, vector$<$ pair$<$ set$<$ char $>$, set$<$ char $>$ $>$ $>$ \&clause\+\_\+literals)
-\begin{DoxyCompactList}\small\item\em Pre-\/processes a CNF tree into an efficient evaluation structure. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_ac826be3b2afff6ab41a0bb63a2c3fc0b}{anonymous\+\_\+namespace\{task8\+\_\+generate\+\_\+truth\+\_\+table.\+cpp\}\+::evaluate\+CNF}} (const vector$<$ pair$<$ set$<$ char $>$, set$<$ char $>$ $>$ $>$ \&clause\+\_\+literals, const map$<$ char, bool $>$ \&truth\+\_\+values)
-\begin{DoxyCompactList}\small\item\em Evaluates a pre-\/processed CNF formula given a set of truth values. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_a7dc93834bee9c2dac324d899a4f6087d}{anonymous\+\_\+namespace\{task8\+\_\+generate\+\_\+truth\+\_\+table.\+cpp\}\+::assign\+Truth\+Values}} (int bit\+Number, map$<$ char, bool $>$ \&truth\+\_\+values, int num\+Of\+Atoms)
-\begin{DoxyCompactList}\small\item\em Assigns truth values to the atom map based on a row index. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{task8__generate__truth__table_8cpp_a5904b3029b2a162df51df87070670848}{generate\+Truth\+Table}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}cnf\+Root\+Node, set$<$ char $>$ \&atoms)
 \begin{DoxyCompactList}\small\item\em Public interface to generate and print a truth table for a CNF formula. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -79,3 +65,5 @@ Orchestrates the entire process\+:
 {\em atoms} & An output parameter (passed by reference) that will be populated with the set of all atoms found. \\
 \hline
 \end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 2

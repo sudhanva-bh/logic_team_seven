@@ -34,7 +34,11 @@ Contains internal helper functions for the CNF conversion steps.
 
 Step 3 (Main)\+: Recursively applies the CNF distribution. 
 
-Traverses the NNF tree. When it finds a disjunction ({\ttfamily +}), it calls {\ttfamily distr} to handle the distribution of OR over AND. \Hypertarget{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a13e03366efb11c5140d170f6e6c3fb59}\index{anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}}!distr@{distr}}
+Traverses the NNF tree. When it finds a disjunction ({\ttfamily +}), it calls {\ttfamily distr} to handle the distribution of OR over AND. Here is the call graph for this function\+:
+% FIG 0
+Here is the caller graph for this function\+:
+% FIG 1
+\Hypertarget{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a13e03366efb11c5140d170f6e6c3fb59}\index{anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}}!distr@{distr}}
 \index{distr@{distr}!anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}}}
 \doxysubsubsection{\texorpdfstring{distr()}{distr()}}
 {\footnotesize\ttfamily \label{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a13e03366efb11c5140d170f6e6c3fb59} 
@@ -48,7 +52,11 @@ This is the core logic for the final CNF step. It applies the distributive law\+
 \begin{DoxyItemize}
 \item {\ttfamily (A \texorpdfstring{$\ast$}{*} B) + C} becomes {\ttfamily (A + C) \texorpdfstring{$\ast$}{*} (B + C)}
 \item {\ttfamily A + (B \texorpdfstring{$\ast$}{*} C)} becomes {\ttfamily (A + B) \texorpdfstring{$\ast$}{*} (A + C)} 
-\end{DoxyItemize}\Hypertarget{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a0bc4791ce6af34657d373c421075bca1}\index{anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}}!impl\_free@{impl\_free}}
+\end{DoxyItemize}Here is the call graph for this function\+:
+% FIG 2
+Here is the caller graph for this function\+:
+% FIG 3
+\Hypertarget{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a0bc4791ce6af34657d373c421075bca1}\index{anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}}!impl\_free@{impl\_free}}
 \index{impl\_free@{impl\_free}!anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}}}
 \doxysubsubsection{\texorpdfstring{impl\_free()}{impl\_free()}}
 {\footnotesize\ttfamily \label{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a0bc4791ce6af34657d373c421075bca1} 
@@ -58,7 +66,11 @@ This is the core logic for the final CNF step. It applies the distributive law\+
 
 Step 1\+: Recursively removes all implication operators. 
 
-Traverses the tree and replaces every sub-\/expression {\ttfamily A \texorpdfstring{$>$}{>} B} with its equivalent {\ttfamily \texorpdfstring{$\sim$}{\string~}A + B}. This function creates new nodes to form the new tree structure. \Hypertarget{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_ac6a70e2c40ee0d09f472278e551f71ab}\index{anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}}!nnf@{nnf}}
+Traverses the tree and replaces every sub-\/expression {\ttfamily A \texorpdfstring{$>$}{>} B} with its equivalent {\ttfamily \texorpdfstring{$\sim$}{\string~}A + B}. This function creates new nodes to form the new tree structure. Here is the call graph for this function\+:
+% FIG 4
+Here is the caller graph for this function\+:
+% FIG 5
+\Hypertarget{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_ac6a70e2c40ee0d09f472278e551f71ab}\index{anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}}!nnf@{nnf}}
 \index{nnf@{nnf}!anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}}}
 \doxysubsubsection{\texorpdfstring{nnf()}{nnf()}}
 {\footnotesize\ttfamily \label{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_ac6a70e2c40ee0d09f472278e551f71ab} 
@@ -73,4 +85,7 @@ Pushes all negation ({\ttfamily \texorpdfstring{$\sim$}{\string~}}) operators in
 \item {\ttfamily \texorpdfstring{$\sim$}{\string~}(A \texorpdfstring{$\ast$}{*} B)} becomes {\ttfamily \texorpdfstring{$\sim$}{\string~}A + \texorpdfstring{$\sim$}{\string~}B}
 \item {\ttfamily \texorpdfstring{$\sim$}{\string~}(A + B)} becomes {\ttfamily \texorpdfstring{$\sim$}{\string~}A \texorpdfstring{$\ast$}{*} \texorpdfstring{$\sim$}{\string~}B} Also removes double negations\+:
 \item {\ttfamily \texorpdfstring{$\sim$}{\string~}\texorpdfstring{$\sim$}{\string~}A} becomes {\ttfamily A} 
-\end{DoxyItemize}
+\end{DoxyItemize}Here is the call graph for this function\+:
+% FIG 6
+Here is the caller graph for this function\+:
+% FIG 7

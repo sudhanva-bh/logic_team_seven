@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['literal_0',['literal',['../general_2common_2parsetree__node_8h.html#a8de0827dc0082864ca8ba149bde3fc7b',1,'parsetree_node.h']]]
+  ['main_0',['main',['../cnf_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;main.cpp'],['../generate__prepositional__logic__statements_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;generate_prepositional_logic_statements.cpp'],['../general_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;main.cpp']]]
 ];

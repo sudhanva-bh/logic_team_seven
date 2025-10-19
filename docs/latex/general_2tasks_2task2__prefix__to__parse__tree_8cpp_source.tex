@@ -12,7 +12,7 @@
 \DoxyCodeLine{00015\ }
 \DoxyCodeLine{00020\ \textcolor{keyword}{namespace}}
 \DoxyCodeLine{00021\ \{}
-\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *\mbox{\hyperlink{namespaceanonymous__namespace_02task2__prefix__to__parse__tree_8cpp_03_a14175ab5585919514b132b961addd185}{buildTreeFromPrefixRecursive}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&prefix,\ \textcolor{keywordtype}{int}\ \&index)}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *buildTreeFromPrefixRecursive(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&prefix,\ \textcolor{keywordtype}{int}\ \&index)}
 \DoxyCodeLine{00037\ \ \ \ \ \{}
 \DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ ==\ prefix.length())}
 \DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \{}
@@ -22,16 +22,16 @@
 \DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ token\ =\ prefix[index++];}
 \DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *node\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}}(token);}
 \DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (isOperator(token))}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{cnf_2common_2parsetree__node_8h_a539510029e126b67f225a212198ff232}{isOperator}}(token))}
 \DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \{}
 \DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (token\ ==\ \textcolor{charliteral}{'\string~'})}
 \DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ node-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}}\ =\ \mbox{\hyperlink{namespaceanonymous__namespace_02task2__prefix__to__parse__tree_8cpp_03_a14175ab5585919514b132b961addd185}{buildTreeFromPrefixRecursive}}(prefix,\ index);}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ node-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}}\ =\ buildTreeFromPrefixRecursive(prefix,\ index);}
 \DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
 \DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ node-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}}\ =\ \mbox{\hyperlink{namespaceanonymous__namespace_02task2__prefix__to__parse__tree_8cpp_03_a14175ab5585919514b132b961addd185}{buildTreeFromPrefixRecursive}}(prefix,\ index);}
-\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ node-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}}\ =\ \mbox{\hyperlink{namespaceanonymous__namespace_02task2__prefix__to__parse__tree_8cpp_03_a14175ab5585919514b132b961addd185}{buildTreeFromPrefixRecursive}}(prefix,\ index);}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ node-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}}\ =\ buildTreeFromPrefixRecursive(prefix,\ index);}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ node-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}}\ =\ buildTreeFromPrefixRecursive(prefix,\ index);}
 \DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00058\ }
@@ -42,7 +42,7 @@
 \DoxyCodeLine{00072\ \mbox{\hyperlink{struct_node}{Node}}\ *\mbox{\hyperlink{general_2tasks_2task2__prefix__to__parse__tree_8cpp_ae4f96d4a577379adf90ded3c150d4136}{prefixToParseTree}}(\textcolor{keyword}{const}\ std::string\ \&prefix)}
 \DoxyCodeLine{00073\ \{}
 \DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{int}\ index\ =\ 0;}
-\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceanonymous__namespace_02task2__prefix__to__parse__tree_8cpp_03_a14175ab5585919514b132b961addd185}{buildTreeFromPrefixRecursive}}(prefix,\ index);}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{return}\ buildTreeFromPrefixRecursive(prefix,\ index);}
 \DoxyCodeLine{00076\ \}}
 
 \end{DoxyCode}

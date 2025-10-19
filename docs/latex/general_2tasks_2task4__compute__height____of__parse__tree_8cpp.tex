@@ -1,0 +1,46 @@
+\doxysection{general/tasks/task4\+\_\+compute\+\_\+height\+\_\+\+\_\+of\+\_\+parse\+\_\+tree.cpp File Reference}
+\hypertarget{general_2tasks_2task4__compute__height____of__parse__tree_8cpp}{}\label{general_2tasks_2task4__compute__height____of__parse__tree_8cpp}\index{general/tasks/task4\_compute\_height\_\_of\_parse\_tree.cpp@{general/tasks/task4\_compute\_height\_\_of\_parse\_tree.cpp}}
+{\ttfamily \#include "{}../common/parsetree\+\_\+node.\+h"{}}\newline
+Include dependency graph for task4\+\_\+compute\+\_\+height\+\_\+\+\_\+of\+\_\+parse\+\_\+tree.\+cpp\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceinternal}{internal}}
+\begin{DoxyCompactList}\small\item\em Helper functions for parse tree height calculation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespaceinternal_a1aea021445721fdbeb58309d084b56fb}{internal\+::compute\+Height\+Of\+Parse\+Tree\+Recursive}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}current\+Node)
+\begin{DoxyCompactList}\small\item\em Recursively computes the height of a sub-\/tree. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{general_2tasks_2task4__compute__height____of__parse__tree_8cpp_aaf60c3695a12bd056229600e2bb5f79c}{compute\+Height\+Of\+Parse\+Tree}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}root\+Node)
+\begin{DoxyCompactList}\small\item\em Computes the height of the entire parse tree. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{general_2tasks_2task4__compute__height____of__parse__tree_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{general_2tasks_2task4__compute__height____of__parse__tree_8cpp_aaf60c3695a12bd056229600e2bb5f79c}\index{task4\_compute\_height\_\_of\_parse\_tree.cpp@{task4\_compute\_height\_\_of\_parse\_tree.cpp}!computeHeightOfParseTree@{computeHeightOfParseTree}}
+\index{computeHeightOfParseTree@{computeHeightOfParseTree}!task4\_compute\_height\_\_of\_parse\_tree.cpp@{task4\_compute\_height\_\_of\_parse\_tree.cpp}}
+\doxysubsubsection{\texorpdfstring{computeHeightOfParseTree()}{computeHeightOfParseTree()}}
+{\footnotesize\ttfamily \label{general_2tasks_2task4__compute__height____of__parse__tree_8cpp_aaf60c3695a12bd056229600e2bb5f79c} 
+int compute\+Height\+Of\+Parse\+Tree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{root\+Node}{}\end{DoxyParamCaption})}
+
+
+
+Computes the height of the entire parse tree. 
+
+This is the public interface that calls the recursive helper function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em root\+Node} & Pointer to the root node of the parse tree. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The height of the parse tree. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 2

@@ -1,0 +1,15 @@
+digraph "anonymous_namespace{task8_generate_truth_table::cpp}::collectClausesWithLiterals"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="anonymous_namespace\l\{task8_generate_truth\l_table::cpp\}::collectClauses\lWithLiterals",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Pre-processes a CNF tree into an efficient evaluation structure."];
+  Node1 -> Node2 [id="edge5_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="anonymous_namespace\l\{task8_generate_truth\l_table::cpp\}::collectClauses\lAsVector",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03.html#af0eb469f4bb785ba2c54301ba2564491",tooltip="Collects all clauses from a CNF tree into a vector."];
+  Node2 -> Node2 [id="edge6_Node000002_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node3 [id="edge7_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="anonymous_namespace\l\{task8_generate_truth\l_table::cpp\}::collectLiteralsAsSet",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03.html#a11a3a15dc5eb601a00c0f21b94319835",tooltip="Collects positive and negative literals from a clause tree."];
+  Node3 -> Node3 [id="edge8_Node000003_Node000003",color="steelblue1",style="solid",tooltip=" "];
+}

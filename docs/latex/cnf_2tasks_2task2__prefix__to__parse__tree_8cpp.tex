@@ -1,0 +1,65 @@
+\doxysection{cnf/tasks/task2\+\_\+prefix\+\_\+to\+\_\+parse\+\_\+tree.cpp File Reference}
+\hypertarget{cnf_2tasks_2task2__prefix__to__parse__tree_8cpp}{}\label{cnf_2tasks_2task2__prefix__to__parse__tree_8cpp}\index{cnf/tasks/task2\_prefix\_to\_parse\_tree.cpp@{cnf/tasks/task2\_prefix\_to\_parse\_tree.cpp}}
+{\ttfamily \#include $<$cctype$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include "{}../common/parsetree\+\_\+node.\+h"{}}\newline
+Include dependency graph for task2\+\_\+prefix\+\_\+to\+\_\+parse\+\_\+tree.\+cpp\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ string $>$ \mbox{\hyperlink{cnf_2tasks_2task2__prefix__to__parse__tree_8cpp_a4782402f6361cf37942ea922d774d52d}{tokenize\+Prefix}} (const string \&prefix)
+\item 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{cnf_2tasks_2task2__prefix__to__parse__tree_8cpp_a59880798a24d6376f423bb81625f5007}{build\+Tree\+From\+Prefix\+Tokens}} (const vector$<$ string $>$ \&tokens, size\+\_\+t \&index)
+\item 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{cnf_2tasks_2task2__prefix__to__parse__tree_8cpp_a76774a878a20af7e7853f246cfde94de}{prefix\+To\+Parse\+Tree}} (const string \&prefix)
+\item 
+void \mbox{\hyperlink{cnf_2tasks_2task2__prefix__to__parse__tree_8cpp_ac6e540d089be3d044694893a862b0e9c}{print\+Inorder}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}node)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{cnf_2tasks_2task2__prefix__to__parse__tree_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{cnf_2tasks_2task2__prefix__to__parse__tree_8cpp_a59880798a24d6376f423bb81625f5007}\index{task2\_prefix\_to\_parse\_tree.cpp@{task2\_prefix\_to\_parse\_tree.cpp}!buildTreeFromPrefixTokens@{buildTreeFromPrefixTokens}}
+\index{buildTreeFromPrefixTokens@{buildTreeFromPrefixTokens}!task2\_prefix\_to\_parse\_tree.cpp@{task2\_prefix\_to\_parse\_tree.cpp}}
+\doxysubsubsection{\texorpdfstring{buildTreeFromPrefixTokens()}{buildTreeFromPrefixTokens()}}
+{\footnotesize\ttfamily \label{cnf_2tasks_2task2__prefix__to__parse__tree_8cpp_a59880798a24d6376f423bb81625f5007} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} build\+Tree\+From\+Prefix\+Tokens (\begin{DoxyParamCaption}\item[{const vector$<$ string $>$ \&}]{tokens}{, }\item[{size\+\_\+t \&}]{index}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 2
+Here is the caller graph for this function\+:
+% FIG 3
+\Hypertarget{cnf_2tasks_2task2__prefix__to__parse__tree_8cpp_a76774a878a20af7e7853f246cfde94de}\index{task2\_prefix\_to\_parse\_tree.cpp@{task2\_prefix\_to\_parse\_tree.cpp}!prefixToParseTree@{prefixToParseTree}}
+\index{prefixToParseTree@{prefixToParseTree}!task2\_prefix\_to\_parse\_tree.cpp@{task2\_prefix\_to\_parse\_tree.cpp}}
+\doxysubsubsection{\texorpdfstring{prefixToParseTree()}{prefixToParseTree()}}
+{\footnotesize\ttfamily \label{cnf_2tasks_2task2__prefix__to__parse__tree_8cpp_a76774a878a20af7e7853f246cfde94de} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} prefix\+To\+Parse\+Tree (\begin{DoxyParamCaption}\item[{const string \&}]{prefix}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 4
+Here is the caller graph for this function\+:
+% FIG 5
+\Hypertarget{cnf_2tasks_2task2__prefix__to__parse__tree_8cpp_ac6e540d089be3d044694893a862b0e9c}\index{task2\_prefix\_to\_parse\_tree.cpp@{task2\_prefix\_to\_parse\_tree.cpp}!printInorder@{printInorder}}
+\index{printInorder@{printInorder}!task2\_prefix\_to\_parse\_tree.cpp@{task2\_prefix\_to\_parse\_tree.cpp}}
+\doxysubsubsection{\texorpdfstring{printInorder()}{printInorder()}}
+{\footnotesize\ttfamily \label{cnf_2tasks_2task2__prefix__to__parse__tree_8cpp_ac6e540d089be3d044694893a862b0e9c} 
+void print\+Inorder (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{node}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 6
+Here is the caller graph for this function\+:
+% FIG 7
+\Hypertarget{cnf_2tasks_2task2__prefix__to__parse__tree_8cpp_a4782402f6361cf37942ea922d774d52d}\index{task2\_prefix\_to\_parse\_tree.cpp@{task2\_prefix\_to\_parse\_tree.cpp}!tokenizePrefix@{tokenizePrefix}}
+\index{tokenizePrefix@{tokenizePrefix}!task2\_prefix\_to\_parse\_tree.cpp@{task2\_prefix\_to\_parse\_tree.cpp}}
+\doxysubsubsection{\texorpdfstring{tokenizePrefix()}{tokenizePrefix()}}
+{\footnotesize\ttfamily \label{cnf_2tasks_2task2__prefix__to__parse__tree_8cpp_a4782402f6361cf37942ea922d774d52d} 
+vector$<$ string $>$ tokenize\+Prefix (\begin{DoxyParamCaption}\item[{const string \&}]{prefix}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+% FIG 8

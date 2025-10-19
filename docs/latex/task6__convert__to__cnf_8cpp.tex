@@ -10,22 +10,13 @@ Converts a logical expression parse tree into Conjunctive Normal Form (CNF).
 {\ttfamily \#include $<$stack$>$}\newline
 {\ttfamily \#include $<$string$>$}\newline
 {\ttfamily \#include "{}../common/parsetree\+\_\+node.\+h"{}}\newline
-\doxysubsubsection*{Namespaces}
-\begin{DoxyCompactItemize}
-\item 
-namespace \mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03}{anonymous\+\_\+namespace\{task6\+\_\+convert\+\_\+to\+\_\+cnf.\+cpp\}}}
-\begin{DoxyCompactList}\small\item\em Contains internal helper functions for the CNF conversion steps. \end{DoxyCompactList}\end{DoxyCompactItemize}
+Include dependency graph for task6\+\_\+convert\+\_\+to\+\_\+cnf.\+cpp\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a0bc4791ce6af34657d373c421075bca1}{anonymous\+\_\+namespace\{task6\+\_\+convert\+\_\+to\+\_\+cnf.\+cpp\}\+::impl\+\_\+free}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}current\+Node)
-\begin{DoxyCompactList}\small\item\em Step 1\+: Recursively removes all implication operators. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_ac6a70e2c40ee0d09f472278e551f71ab}{anonymous\+\_\+namespace\{task6\+\_\+convert\+\_\+to\+\_\+cnf.\+cpp\}\+::nnf}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}current\+Node)
-\begin{DoxyCompactList}\small\item\em Step 2\+: Recursively converts an implication-\/free tree to Negation Normal Form (NNF). \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a13e03366efb11c5140d170f6e6c3fb59}{anonymous\+\_\+namespace\{task6\+\_\+convert\+\_\+to\+\_\+cnf.\+cpp\}\+::distr}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}node1, \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}node2, int depth=0)
-\begin{DoxyCompactList}\small\item\em Step 3 (Helper)\+: Recursively distributes OR over AND. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a784986985c169dbc4b4d9f4458ec2c87}{anonymous\+\_\+namespace\{task6\+\_\+convert\+\_\+to\+\_\+cnf.\+cpp\}\+::cnf}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}current\+Node, int depth=0)
-\begin{DoxyCompactList}\small\item\em Step 3 (Main)\+: Recursively applies the CNF distribution. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{task6__convert__to__cnf_8cpp_aacc5644443ec502a7cfb121ce23150df}{compute\+Cnf\+From\+Parse\+Tree}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}root\+Node)
 \begin{DoxyCompactList}\small\item\em Public interface to convert a parse tree to CNF. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -70,3 +61,5 @@ Runs the complete three-\/step conversion\+:
 \begin{DoxyReturn}{Returns}
 A pointer to the root of a {\itshape new} tree in CNF. 
 \end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 2

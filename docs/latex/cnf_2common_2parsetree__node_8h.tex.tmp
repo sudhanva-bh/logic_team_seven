@@ -1,0 +1,120 @@
+\doxysection{cnf/common/parsetree\+\_\+node.h File Reference}
+\hypertarget{cnf_2common_2parsetree__node_8h}{}\label{cnf_2common_2parsetree__node_8h}\index{cnf/common/parsetree\_node.h@{cnf/common/parsetree\_node.h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+Include dependency graph for parsetree\+\_\+node.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_node}{Node}}
+\begin{DoxyCompactList}\small\item\em A single node in the logical expression parse tree. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{cnf_2common_2parsetree__node_8h_ab2e81f14ebb3c586790be13f12aaed77}{copy\+Node}} (const \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}src)
+\item 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{cnf_2common_2parsetree__node_8h_afbe9201fdc7feeb5aa013d1ac705f379}{literal}} (int value)
+\item 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{cnf_2common_2parsetree__node_8h_ac2834e8ea6d59d5bb73d8455a9d6ff06}{negation}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}node)
+\item 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{cnf_2common_2parsetree__node_8h_abe157569e5b15aefe5e68255c4fcd50d}{conjunction}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}left\+Node, \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}right\+Node)
+\item 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{cnf_2common_2parsetree__node_8h_a102a1e5d85bdb1118cff856e4516508a}{disjunction}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}left\+Node, \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}right\+Node)
+\item 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{cnf_2common_2parsetree__node_8h_a41fcc476e9913613c77322ef08e7a5fa}{implication}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}left\+Node, \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}right\+Node)
+\item 
+bool \mbox{\hyperlink{cnf_2common_2parsetree__node_8h_a539510029e126b67f225a212198ff232}{is\+Operator}} (int c)
+\item 
+bool \mbox{\hyperlink{cnf_2common_2parsetree__node_8h_a607050ed9abd2625aa3dfb6b45148a7c}{is\+\_\+literal}} (const \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}node)
+\item 
+int \mbox{\hyperlink{cnf_2common_2parsetree__node_8h_a3442c66393fced868c71be3a0191ca03}{get\+Precedence}} (int op)
+\item 
+void \mbox{\hyperlink{cnf_2common_2parsetree__node_8h_a058d67a3b3ff474b6358b22debb2259c}{destroy\+Parse\+Tree}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}root)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{cnf_2common_2parsetree__node_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{cnf_2common_2parsetree__node_8h_abe157569e5b15aefe5e68255c4fcd50d}\index{parsetree\_node.h@{parsetree\_node.h}!conjunction@{conjunction}}
+\index{conjunction@{conjunction}!parsetree\_node.h@{parsetree\_node.h}}
+\doxysubsubsection{\texorpdfstring{conjunction()}{conjunction()}}
+{\footnotesize\ttfamily \label{cnf_2common_2parsetree__node_8h_abe157569e5b15aefe5e68255c4fcd50d} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} conjunction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{left\+Node}{, }\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{right\+Node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+% FIG 2
+\Hypertarget{cnf_2common_2parsetree__node_8h_ab2e81f14ebb3c586790be13f12aaed77}\index{parsetree\_node.h@{parsetree\_node.h}!copyNode@{copyNode}}
+\index{copyNode@{copyNode}!parsetree\_node.h@{parsetree\_node.h}}
+\doxysubsubsection{\texorpdfstring{copyNode()}{copyNode()}}
+{\footnotesize\ttfamily \label{cnf_2common_2parsetree__node_8h_ab2e81f14ebb3c586790be13f12aaed77} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} copy\+Node (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{src}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+% FIG 3
+Here is the caller graph for this function\+:
+% FIG 4
+\Hypertarget{cnf_2common_2parsetree__node_8h_a058d67a3b3ff474b6358b22debb2259c}\index{parsetree\_node.h@{parsetree\_node.h}!destroyParseTree@{destroyParseTree}}
+\index{destroyParseTree@{destroyParseTree}!parsetree\_node.h@{parsetree\_node.h}}
+\doxysubsubsection{\texorpdfstring{destroyParseTree()}{destroyParseTree()}}
+{\footnotesize\ttfamily \label{cnf_2common_2parsetree__node_8h_a058d67a3b3ff474b6358b22debb2259c} 
+void destroy\+Parse\+Tree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{root}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+% FIG 5
+Here is the caller graph for this function\+:
+% FIG 6
+\Hypertarget{cnf_2common_2parsetree__node_8h_a102a1e5d85bdb1118cff856e4516508a}\index{parsetree\_node.h@{parsetree\_node.h}!disjunction@{disjunction}}
+\index{disjunction@{disjunction}!parsetree\_node.h@{parsetree\_node.h}}
+\doxysubsubsection{\texorpdfstring{disjunction()}{disjunction()}}
+{\footnotesize\ttfamily \label{cnf_2common_2parsetree__node_8h_a102a1e5d85bdb1118cff856e4516508a} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} disjunction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{left\+Node}{, }\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{right\+Node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+% FIG 7
+\Hypertarget{cnf_2common_2parsetree__node_8h_a3442c66393fced868c71be3a0191ca03}\index{parsetree\_node.h@{parsetree\_node.h}!getPrecedence@{getPrecedence}}
+\index{getPrecedence@{getPrecedence}!parsetree\_node.h@{parsetree\_node.h}}
+\doxysubsubsection{\texorpdfstring{getPrecedence()}{getPrecedence()}}
+{\footnotesize\ttfamily \label{cnf_2common_2parsetree__node_8h_a3442c66393fced868c71be3a0191ca03} 
+int get\+Precedence (\begin{DoxyParamCaption}\item[{int}]{op}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+% FIG 8
+\Hypertarget{cnf_2common_2parsetree__node_8h_a41fcc476e9913613c77322ef08e7a5fa}\index{parsetree\_node.h@{parsetree\_node.h}!implication@{implication}}
+\index{implication@{implication}!parsetree\_node.h@{parsetree\_node.h}}
+\doxysubsubsection{\texorpdfstring{implication()}{implication()}}
+{\footnotesize\ttfamily \label{cnf_2common_2parsetree__node_8h_a41fcc476e9913613c77322ef08e7a5fa} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} implication (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{left\+Node}{, }\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{right\+Node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{cnf_2common_2parsetree__node_8h_a607050ed9abd2625aa3dfb6b45148a7c}\index{parsetree\_node.h@{parsetree\_node.h}!is\_literal@{is\_literal}}
+\index{is\_literal@{is\_literal}!parsetree\_node.h@{parsetree\_node.h}}
+\doxysubsubsection{\texorpdfstring{is\_literal()}{is\_literal()}}
+{\footnotesize\ttfamily \label{cnf_2common_2parsetree__node_8h_a607050ed9abd2625aa3dfb6b45148a7c} 
+bool is\+\_\+literal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{cnf_2common_2parsetree__node_8h_a539510029e126b67f225a212198ff232}\index{parsetree\_node.h@{parsetree\_node.h}!isOperator@{isOperator}}
+\index{isOperator@{isOperator}!parsetree\_node.h@{parsetree\_node.h}}
+\doxysubsubsection{\texorpdfstring{isOperator()}{isOperator()}}
+{\footnotesize\ttfamily \label{cnf_2common_2parsetree__node_8h_a539510029e126b67f225a212198ff232} 
+bool is\+Operator (\begin{DoxyParamCaption}\item[{int}]{c}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+% FIG 9
+\Hypertarget{cnf_2common_2parsetree__node_8h_afbe9201fdc7feeb5aa013d1ac705f379}\index{parsetree\_node.h@{parsetree\_node.h}!literal@{literal}}
+\index{literal@{literal}!parsetree\_node.h@{parsetree\_node.h}}
+\doxysubsubsection{\texorpdfstring{literal()}{literal()}}
+{\footnotesize\ttfamily \label{cnf_2common_2parsetree__node_8h_afbe9201fdc7feeb5aa013d1ac705f379} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} literal (\begin{DoxyParamCaption}\item[{int}]{value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+% FIG 10
+\Hypertarget{cnf_2common_2parsetree__node_8h_ac2834e8ea6d59d5bb73d8455a9d6ff06}\index{parsetree\_node.h@{parsetree\_node.h}!negation@{negation}}
+\index{negation@{negation}!parsetree\_node.h@{parsetree\_node.h}}
+\doxysubsubsection{\texorpdfstring{negation()}{negation()}}
+{\footnotesize\ttfamily \label{cnf_2common_2parsetree__node_8h_ac2834e8ea6d59d5bb73d8455a9d6ff06} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} negation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+% FIG 11

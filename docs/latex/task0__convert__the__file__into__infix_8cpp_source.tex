@@ -1,6 +1,6 @@
 \doxysection{task0\+\_\+convert\+\_\+the\+\_\+file\+\_\+into\+\_\+infix.\+cpp}
 \hypertarget{task0__convert__the__file__into__infix_8cpp_source}{}\label{task0__convert__the__file__into__infix_8cpp_source}\index{cnf/tasks/task0\_convert\_the\_file\_into\_infix.cpp@{cnf/tasks/task0\_convert\_the\_file\_into\_infix.cpp}}
-
+\mbox{\hyperlink{task0__convert__the__file__into__infix_8cpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <fstream>}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
@@ -11,7 +11,7 @@
 \DoxyCodeLine{00007\ \textcolor{keyword}{using\ namespace\ }std;}
 \DoxyCodeLine{00008\ }
 \DoxyCodeLine{00009\ \textcolor{comment}{//\ Reads\ a\ CNF\ file\ and\ returns\ the\ contents\ as\ a\ string}}
-\DoxyCodeLine{00010\ \textcolor{keywordtype}{string}\ readCNFFile(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&filepath)\ \{}
+\DoxyCodeLine{00010\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{task0__convert__the__file__into__infix_8cpp_a1c51d23af918fb6e19af675ec29c83d9}{readCNFFile}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&filepath)\ \{}
 \DoxyCodeLine{00011\ \ \ \ \ ifstream\ file(filepath);}
 \DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file.is\_open())\ \textcolor{keywordflow}{throw}\ runtime\_error(\textcolor{stringliteral}{"{}Could\ not\ open\ file\ "{}}\ +\ filepath);}
 \DoxyCodeLine{00013\ }
@@ -21,7 +21,7 @@
 \DoxyCodeLine{00017\ \}}
 \DoxyCodeLine{00018\ }
 \DoxyCodeLine{00019\ \textcolor{comment}{//\ Converts\ CNF\ file\ contents\ to\ infix\ expression}}
-\DoxyCodeLine{00020\ \textcolor{keywordtype}{string}\ cnfToInfix(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&cnfContents)\ \{}
+\DoxyCodeLine{00020\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{task0__convert__the__file__into__infix_8cpp_abbbf198759cfb8ccc0564dd29ae34603}{cnfToInfix}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&cnfContents)\ \{}
 \DoxyCodeLine{00021\ \ \ \ \ stringstream\ ss(cnfContents);}
 \DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{string}\ line;}
 \DoxyCodeLine{00023\ \ \ \ \ vector<string>\ clauses;}
@@ -30,13 +30,13 @@
 \DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (line.empty()\ ||\ line[0]\ ==\ \textcolor{charliteral}{'c'}\ ||\ line[0]\ ==\ \textcolor{charliteral}{'p'})\ \textcolor{keywordflow}{continue};}
 \DoxyCodeLine{00027\ }
 \DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ stringstream\ lineSS(line);}
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ literal;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{cnf_2common_2parsetree__node_8h_afbe9201fdc7feeb5aa013d1ac705f379}{literal}};}
 \DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ vector<string>\ clauseLiterals;}
 \DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (lineSS\ >>\ literal)\ \{}
-\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (literal\ ==\ 0)\ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ clauseLiterals.push\_back(literal\ <\ 0\ ?\ \textcolor{stringliteral}{"{}\string~x"{}}\ +\ to\_string(-\/literal)}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}x"{}}\ +\ to\_string(literal));}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (lineSS\ >>\ \mbox{\hyperlink{cnf_2common_2parsetree__node_8h_afbe9201fdc7feeb5aa013d1ac705f379}{literal}})\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{cnf_2common_2parsetree__node_8h_afbe9201fdc7feeb5aa013d1ac705f379}{literal}}\ ==\ 0)\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ clauseLiterals.push\_back(\mbox{\hyperlink{cnf_2common_2parsetree__node_8h_afbe9201fdc7feeb5aa013d1ac705f379}{literal}}\ <\ 0\ ?\ \textcolor{stringliteral}{"{}\string~x"{}}\ +\ to\_string(-\/\mbox{\hyperlink{cnf_2common_2parsetree__node_8h_afbe9201fdc7feeb5aa013d1ac705f379}{literal}})}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}x"{}}\ +\ to\_string(\mbox{\hyperlink{cnf_2common_2parsetree__node_8h_afbe9201fdc7feeb5aa013d1ac705f379}{literal}}));}
 \DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00037\ }
 \DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ clauseInfix;}

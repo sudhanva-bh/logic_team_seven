@@ -1,18 +1,18 @@
 \doxysection{task2\+\_\+prefix\+\_\+to\+\_\+parse\+\_\+tree.\+cpp}
 \hypertarget{cnf_2tasks_2task2__prefix__to__parse__tree_8cpp_source}{}\label{cnf_2tasks_2task2__prefix__to__parse__tree_8cpp_source}\index{cnf/tasks/task2\_prefix\_to\_parse\_tree.cpp@{cnf/tasks/task2\_prefix\_to\_parse\_tree.cpp}}
-
+\mbox{\hyperlink{cnf_2tasks_2task2__prefix__to__parse__tree_8cpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <cctype>}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
 \DoxyCodeLine{00005\ }
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}../common/parsetree\_node.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{cnf_2common_2parsetree__node_8h}{../common/parsetree\_node.h}}"{}}}
 \DoxyCodeLine{00007\ }
 \DoxyCodeLine{00008\ \textcolor{keyword}{using\ namespace\ }std;}
 \DoxyCodeLine{00009\ }
 \DoxyCodeLine{00010\ \textcolor{comment}{//\ Tokenize\ prefix\ string\ into\ multi-\/character\ operands\ and\ operators}}
-\DoxyCodeLine{00011\ vector<string>\ tokenizePrefix(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ prefix)\ \{}
+\DoxyCodeLine{00011\ vector<string>\ \mbox{\hyperlink{cnf_2tasks_2task2__prefix__to__parse__tree_8cpp_a4782402f6361cf37942ea922d774d52d}{tokenizePrefix}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ prefix)\ \{}
 \DoxyCodeLine{00012\ \ \ \ \ vector<string>\ tokens;}
 \DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ prefix.size();)\ \{}
 \DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ c\ =\ prefix[i];}
@@ -31,38 +31,38 @@
 \DoxyCodeLine{00027\ \}}
 \DoxyCodeLine{00028\ }
 \DoxyCodeLine{00029\ \textcolor{comment}{//\ Recursive\ tree\ builder}}
-\DoxyCodeLine{00030\ \mbox{\hyperlink{struct_node}{Node}}*\ buildTreeFromPrefixTokens(\textcolor{keyword}{const}\ vector<string>\&\ tokens,\ \textcolor{keywordtype}{size\_t}\&\ index)\ \{}
+\DoxyCodeLine{00030\ \mbox{\hyperlink{struct_node}{Node}}*\ \mbox{\hyperlink{cnf_2tasks_2task2__prefix__to__parse__tree_8cpp_a59880798a24d6376f423bb81625f5007}{buildTreeFromPrefixTokens}}(\textcolor{keyword}{const}\ vector<string>\&\ tokens,\ \textcolor{keywordtype}{size\_t}\&\ index)\ \{}
 \DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ >=\ tokens.size())\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
 \DoxyCodeLine{00032\ }
 \DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{string}\ token\ =\ tokens[index++];}
 \DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{if}\ (token\ ==\ \textcolor{stringliteral}{"{}\string~"{}})}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ negation(buildTreeFromPrefixTokens(tokens,\ index));}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{cnf_2common_2parsetree__node_8h_ac2834e8ea6d59d5bb73d8455a9d6ff06}{negation}}(\mbox{\hyperlink{cnf_2tasks_2task2__prefix__to__parse__tree_8cpp_a59880798a24d6376f423bb81625f5007}{buildTreeFromPrefixTokens}}(tokens,\ index));}
 \DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (token\ ==\ \textcolor{stringliteral}{"{}+"{}})}
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ disjunction(buildTreeFromPrefixTokens(tokens,\ index),}
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ buildTreeFromPrefixTokens(tokens,\ index));}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{cnf_2common_2parsetree__node_8h_a102a1e5d85bdb1118cff856e4516508a}{disjunction}}(\mbox{\hyperlink{cnf_2tasks_2task2__prefix__to__parse__tree_8cpp_a59880798a24d6376f423bb81625f5007}{buildTreeFromPrefixTokens}}(tokens,\ index),}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{cnf_2tasks_2task2__prefix__to__parse__tree_8cpp_a59880798a24d6376f423bb81625f5007}{buildTreeFromPrefixTokens}}(tokens,\ index));}
 \DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (token\ ==\ \textcolor{stringliteral}{"{}*"{}})}
-\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ conjunction(buildTreeFromPrefixTokens(tokens,\ index),}
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ buildTreeFromPrefixTokens(tokens,\ index));}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{cnf_2common_2parsetree__node_8h_abe157569e5b15aefe5e68255c4fcd50d}{conjunction}}(\mbox{\hyperlink{cnf_2tasks_2task2__prefix__to__parse__tree_8cpp_a59880798a24d6376f423bb81625f5007}{buildTreeFromPrefixTokens}}(tokens,\ index),}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{cnf_2tasks_2task2__prefix__to__parse__tree_8cpp_a59880798a24d6376f423bb81625f5007}{buildTreeFromPrefixTokens}}(tokens,\ index));}
 \DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (token[0]\ ==\ \textcolor{charliteral}{'x'})}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ literal(stoi(token.substr(1)));}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{cnf_2common_2parsetree__node_8h_afbe9201fdc7feeb5aa013d1ac705f379}{literal}}(stoi(token.substr(1)));}
 \DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
 \DoxyCodeLine{00045\ \}}
 \DoxyCodeLine{00046\ }
 \DoxyCodeLine{00047\ \textcolor{comment}{//\ Public\ function}}
-\DoxyCodeLine{00048\ \mbox{\hyperlink{struct_node}{Node}}*\ prefixToParseTree(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ prefix)\ \{}
-\DoxyCodeLine{00049\ \ \ \ \ vector<string>\ tokens\ =\ tokenizePrefix(prefix);}
+\DoxyCodeLine{00048\ \mbox{\hyperlink{struct_node}{Node}}*\ \mbox{\hyperlink{cnf_2tasks_2task2__prefix__to__parse__tree_8cpp_a76774a878a20af7e7853f246cfde94de}{prefixToParseTree}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ prefix)\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ vector<string>\ tokens\ =\ \mbox{\hyperlink{cnf_2tasks_2task2__prefix__to__parse__tree_8cpp_a4782402f6361cf37942ea922d774d52d}{tokenizePrefix}}(prefix);}
 \DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ index\ =\ 0;}
-\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{return}\ buildTreeFromPrefixTokens(tokens,\ index);}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{cnf_2tasks_2task2__prefix__to__parse__tree_8cpp_a59880798a24d6376f423bb81625f5007}{buildTreeFromPrefixTokens}}(tokens,\ index);}
 \DoxyCodeLine{00052\ \}}
 \DoxyCodeLine{00053\ }
 \DoxyCodeLine{00054\ \textcolor{comment}{//\ Optional:\ print\ tree\ inorder\ for\ testing}}
-\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ printInorder(\mbox{\hyperlink{struct_node}{Node}}*\ node)\ \{}
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{cnf_2tasks_2task2__prefix__to__parse__tree_8cpp_ac6e540d089be3d044694893a862b0e9c}{printInorder}}(\mbox{\hyperlink{struct_node}{Node}}*\ node)\ \{}
 \DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{if}\ (!node)\ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{if}\ (node-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}})\ printInorder(node-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}});}
-\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordflow}{if}\ (node-\/>data\ >\ 0)}
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}x"{}}\ <<\ node-\/>data;}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{if}\ (node-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}})\ \mbox{\hyperlink{cnf_2tasks_2task2__prefix__to__parse__tree_8cpp_ac6e540d089be3d044694893a862b0e9c}{printInorder}}(node-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}});}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordflow}{if}\ (node-\/>\mbox{\hyperlink{struct_node_a87c003c9f600e3fc58e6e90835f0b605}{data}}\ >\ 0)}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}x"{}}\ <<\ node-\/>\mbox{\hyperlink{struct_node_a87c003c9f600e3fc58e6e90835f0b605}{data}};}
 \DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (node-\/>data)\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (node-\/>\mbox{\hyperlink{struct_node_a87c003c9f600e3fc58e6e90835f0b605}{data}})\ \{}
 \DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ -\/2:}
 \DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}+"{}};}
 \DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
@@ -76,7 +76,7 @@
 \DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
 \DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00074\ \ \ \ \ \}}
-\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{if}\ (node-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}})\ printInorder(node-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}});}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{if}\ (node-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}})\ \mbox{\hyperlink{cnf_2tasks_2task2__prefix__to__parse__tree_8cpp_ac6e540d089be3d044694893a862b0e9c}{printInorder}}(node-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}});}
 \DoxyCodeLine{00076\ \}}
 
 \end{DoxyCode}

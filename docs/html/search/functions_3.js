@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['destroyparsetree_0',['destroyParseTree',['../general_2common_2parsetree__node_8h.html#a058d67a3b3ff474b6358b22debb2259c',1,'parsetree_node.h']]],
-  ['disjunction_1',['disjunction',['../general_2common_2parsetree__node_8h.html#a102a1e5d85bdb1118cff856e4516508a',1,'parsetree_node.h']]],
-  ['distr_2',['distr',['../namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03.html#a13e03366efb11c5140d170f6e6c3fb59',1,'anonymous_namespace{task6_convert_to_cnf.cpp}']]]
+  ['evaluatetruthvalue_0',['evaluateTruthValue',['../cnf_2tasks_2task5__evaluate__truth__value_8cpp.html#a385c6c118176ec9b1cd291b1168969a4',1,'evaluateTruthValue(Node *rootNode, const map&lt; char, bool &gt; &amp;truthValues):&#160;task5_evaluate_truth_value.cpp'],['../general_2tasks_2task5__evaluate__truth__value_8cpp.html#aaf77e974b01314c7f0dc50ad5e92dc3a',1,'evaluateTruthValue(Node *rootNode, const map&lt; char, bool &gt; truthValues):&#160;task5_evaluate_truth_value.cpp']]]
 ];

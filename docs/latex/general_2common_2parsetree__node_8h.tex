@@ -6,6 +6,10 @@ Defines the core \doxylink{struct_node}{Node} struct and all helper functions.
 
 
 {\ttfamily \#include $<$iostream$>$}\newline
+Include dependency graph for parsetree\+\_\+node.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -82,6 +86,8 @@ Creates a deep copy of a node and all its descendants.
 \begin{DoxyReturn}{Returns}
 A pointer to the root of the new, copied tree. 
 \end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 2
 \Hypertarget{general_2common_2parsetree__node_8h_a058d67a3b3ff474b6358b22debb2259c}\index{parsetree\_node.h@{parsetree\_node.h}!destroyParseTree@{destroyParseTree}}
 \index{destroyParseTree@{destroyParseTree}!parsetree\_node.h@{parsetree\_node.h}}
 \doxysubsubsection{\texorpdfstring{destroyParseTree()}{destroyParseTree()}}
@@ -97,6 +103,8 @@ Recursively deletes a node and all its children to free memory.
 {\em root} & The root of the tree/sub-\/tree to delete. \\
 \hline
 \end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 3
 \Hypertarget{general_2common_2parsetree__node_8h_a102a1e5d85bdb1118cff856e4516508a}\index{parsetree\_node.h@{parsetree\_node.h}!disjunction@{disjunction}}
 \index{disjunction@{disjunction}!parsetree\_node.h@{parsetree\_node.h}}
 \doxysubsubsection{\texorpdfstring{disjunction()}{disjunction()}}

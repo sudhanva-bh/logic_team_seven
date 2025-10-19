@@ -12,25 +12,25 @@
 \DoxyCodeLine{00015\ }
 \DoxyCodeLine{00020\ \textcolor{keyword}{namespace}}
 \DoxyCodeLine{00021\ \{}
-\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{namespaceanonymous__namespace_02task3__parse__tree__to__infix_8cpp_03_ace7befa732f9907521b58c65ccc26b77}{buildParseTreeToInfixRecursive}}(\mbox{\hyperlink{struct_node}{Node}}\ *currentNode,\ \textcolor{keywordtype}{bool}\ isRoot)}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{string}\ buildParseTreeToInfixRecursive(\mbox{\hyperlink{struct_node}{Node}}\ *currentNode,\ \textcolor{keywordtype}{bool}\ isRoot)}
 \DoxyCodeLine{00036\ \ \ \ \ \{}
 \DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (currentNode\ ==\ \textcolor{keyword}{nullptr})}
 \DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \{}
 \DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}"{}};}
 \DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00041\ }
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ token\ =\ currentNode-\/>data;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ token\ =\ currentNode-\/>\mbox{\hyperlink{struct_node_a87c003c9f600e3fc58e6e90835f0b605}{data}};}
 \DoxyCodeLine{00043\ }
 \DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (token\ ==\ \textcolor{charliteral}{'\string~'})}
 \DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \{}
 \DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Parentheses\ are\ not\ needed\ for\ the\ right-\/hand\ side\ of\ NOT}}
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}\string~"{}}\ +\ \mbox{\hyperlink{namespaceanonymous__namespace_02task3__parse__tree__to__infix_8cpp_03_ace7befa732f9907521b58c65ccc26b77}{buildParseTreeToInfixRecursive}}(currentNode-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}},\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}\string~"{}}\ +\ buildParseTreeToInfixRecursive(currentNode-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}},\ \textcolor{keyword}{false});}
 \DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (isOperator(token))}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{cnf_2common_2parsetree__node_8h_a539510029e126b67f225a212198ff232}{isOperator}}(token))}
 \DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ left\ =\ \mbox{\hyperlink{namespaceanonymous__namespace_02task3__parse__tree__to__infix_8cpp_03_ace7befa732f9907521b58c65ccc26b77}{buildParseTreeToInfixRecursive}}(currentNode-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}},\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ left\ =\ buildParseTreeToInfixRecursive(currentNode-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}},\ \textcolor{keyword}{false});}
 \DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ right\ =}
-\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceanonymous__namespace_02task3__parse__tree__to__infix_8cpp_03_ace7befa732f9907521b58c65ccc26b77}{buildParseTreeToInfixRecursive}}(currentNode-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}},\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ buildParseTreeToInfixRecursive(currentNode-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}},\ \textcolor{keyword}{false});}
 \DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ result\ =\ left\ +\ token\ +\ right;}
 \DoxyCodeLine{00055\ }
 \DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Add\ parentheses\ unless\ it's\ the\ top-\/level\ expression}}

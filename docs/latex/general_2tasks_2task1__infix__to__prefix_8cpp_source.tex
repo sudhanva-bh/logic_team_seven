@@ -61,12 +61,12 @@
 \DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ opStack.pop();\ \textcolor{comment}{//\ Pop\ and\ discard\ the\ opening\ parenthesis\ '('.}}
 \DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ the\ token\ is\ an\ operator...}}
-\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (isOperator(token))}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{cnf_2common_2parsetree__node_8h_a539510029e126b67f225a212198ff232}{isOperator}}(token))}
 \DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \{}
 \DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Pop\ operators\ from\ the\ stack\ that\ have\ higher\ precedence}}
 \DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ than\ the\ current\ token.}}
 \DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!opStack.empty()\ \&\&\ opStack.top()\ !=\ \textcolor{charliteral}{'('}\ \&\&}
-\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ getPrecedence(token)\ <\ getPrecedence(opStack.top()))}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{cnf_2common_2parsetree__node_8h_a3442c66393fced868c71be3a0191ca03}{getPrecedence}}(token)\ <\ \mbox{\hyperlink{cnf_2common_2parsetree__node_8h_a3442c66393fced868c71be3a0191ca03}{getPrecedence}}(opStack.top()))}
 \DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
 \DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ postfix\ +=\ opStack.top();}
 \DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ opStack.pop();}

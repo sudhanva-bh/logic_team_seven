@@ -91,16 +91,15 @@ $(function(){initNavTree('cnf_2tasks_2task5__evaluate__truth__value_8cpp_source.
   <div class="headertitle"><div class="title">task5_evaluate_truth_value.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<a href="cnf_2tasks_2task5__evaluate__truth__value_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;map&gt;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;../common/parsetree_node.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="cnf_2common_2parsetree__node_8h.html">../common/parsetree_node.h</a>&quot;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">using namespace </span>std;</div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="foldopen" id="foldopen00009" data-start="{" data-end="}">
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="namespaceanonymous__namespace_02task5__evaluate__truth__value_8cpp_03.html">    9</a></span><span class="keyword">namespace </span>{</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">namespace </span>{</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keywordtype">bool</span> evaluateTruthValueRecursive(<a class="code hl_struct" href="struct_node.html">Node</a>* currentNode,</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>                                 <span class="keyword">const</span> map&lt;char, bool&gt;&amp; truthValues) {</div>
@@ -108,7 +107,7 @@ $(function(){initNavTree('cnf_2tasks_2task5__evaluate__truth__value_8cpp_source.
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    }</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">int</span> token = currentNode-&gt;data;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">int</span> token = currentNode-&gt;<a class="code hl_variable" href="struct_node.html#a87c003c9f600e3fc58e6e90835f0b605">data</a>;</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordflow">switch</span> (token) {</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="keywordflow">case</span> -4:</div>
@@ -132,13 +131,17 @@ $(function(){initNavTree('cnf_2tasks_2task5__evaluate__truth__value_8cpp_source.
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>}</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>}  <span class="comment">// namespace</span></div>
-</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keywordtype">bool</span> evaluateTruthValue(<a class="code hl_struct" href="struct_node.html">Node</a>* rootNode, <span class="keyword">const</span> map&lt;char, bool&gt;&amp; truthValues) {</div>
+<div class="foldopen" id="foldopen00042" data-start="{" data-end="}">
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="cnf_2tasks_2task5__evaluate__truth__value_8cpp.html#a385c6c118176ec9b1cd291b1168969a4">   42</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="cnf_2tasks_2task5__evaluate__truth__value_8cpp.html#a385c6c118176ec9b1cd291b1168969a4">evaluateTruthValue</a>(<a class="code hl_struct" href="struct_node.html">Node</a>* rootNode, <span class="keyword">const</span> map&lt;char, bool&gt;&amp; truthValues) {</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordflow">return</span> evaluateTruthValueRecursive(rootNode, truthValues);</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>}</div>
+</div>
+<div class="ttc" id="acnf_2common_2parsetree__node_8h_html"><div class="ttname"><a href="cnf_2common_2parsetree__node_8h.html">parsetree_node.h</a></div></div>
+<div class="ttc" id="acnf_2tasks_2task5__evaluate__truth__value_8cpp_html_a385c6c118176ec9b1cd291b1168969a4"><div class="ttname"><a href="cnf_2tasks_2task5__evaluate__truth__value_8cpp.html#a385c6c118176ec9b1cd291b1168969a4">evaluateTruthValue</a></div><div class="ttdeci">bool evaluateTruthValue(Node *rootNode, const map&lt; char, bool &gt; &amp;truthValues)</div><div class="ttdef"><b>Definition</b> task5_evaluate_truth_value.cpp:42</div></div>
 <div class="ttc" id="astruct_node_html"><div class="ttname"><a href="struct_node.html">Node</a></div><div class="ttdoc">A single node in the logical expression parse tree.</div><div class="ttdef"><b>Definition</b> parsetree_node.h:6</div></div>
 <div class="ttc" id="astruct_node_html_a3ca572db95a35de41c87e70c3e8fb5a7"><div class="ttname"><a href="struct_node.html#a3ca572db95a35de41c87e70c3e8fb5a7">Node::left</a></div><div class="ttdeci">Node * left</div><div class="ttdoc">Pointer to the left child (used for binary ops).</div><div class="ttdef"><b>Definition</b> parsetree_node.h:8</div></div>
+<div class="ttc" id="astruct_node_html_a87c003c9f600e3fc58e6e90835f0b605"><div class="ttname"><a href="struct_node.html#a87c003c9f600e3fc58e6e90835f0b605">Node::data</a></div><div class="ttdeci">int data</div><div class="ttdef"><b>Definition</b> parsetree_node.h:7</div></div>
 <div class="ttc" id="astruct_node_html_afe5916d969cd32f7de1e4ba15580c989"><div class="ttname"><a href="struct_node.html#afe5916d969cd32f7de1e4ba15580c989">Node::right</a></div><div class="ttdeci">Node * right</div><div class="ttdoc">Pointer to the right child (used for binary and unary ops).</div><div class="ttdef"><b>Definition</b> parsetree_node.h:9</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -146,7 +149,7 @@ $(function(){initNavTree('cnf_2tasks_2task5__evaluate__truth__value_8cpp_source.
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_7f189c4d869fad0d622b6fdd1955b66c.html">cnf</a></li><li class="navelem"><a href="dir_e9efbd4dfb420ab0b2e655cf3064d0da.html">tasks</a></li><li class="navelem"><b>task5_evaluate_truth_value.cpp</b></li>
+    <li class="navelem"><a href="dir_7f189c4d869fad0d622b6fdd1955b66c.html">cnf</a></li><li class="navelem"><a href="dir_e9efbd4dfb420ab0b2e655cf3064d0da.html">tasks</a></li><li class="navelem"><a href="cnf_2tasks_2task5__evaluate__truth__value_8cpp.html">task5_evaluate_truth_value.cpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

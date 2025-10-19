@@ -91,15 +91,14 @@ $(function(){initNavTree('cnf_2tasks_2task7__check__validity_8cpp_source.html','
   <div class="headertitle"><div class="title">task7_check_validity.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &lt;set&gt;</span></div>
+<a href="cnf_2tasks_2task7__check__validity_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &lt;set&gt;</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;../common/parsetree_node.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="cnf_2common_2parsetree__node_8h.html">../common/parsetree_node.h</a>&quot;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">using namespace </span>std;</div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="foldopen" id="foldopen00008" data-start="{" data-end="}">
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="namespaceanonymous__namespace_02task7__check__validity_8cpp_03.html">    8</a></span><span class="keyword">namespace </span>{</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">namespace </span>{</div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>vector&lt;vector&lt;int&gt;&gt; collectClauses(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; cnfString) {</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    vector&lt;vector&lt;int&gt;&gt; clauses;</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    istringstream iss(cnfString);</div>
@@ -110,18 +109,18 @@ $(function(){initNavTree('cnf_2tasks_2task7__check__validity_8cpp_source.html','
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        <span class="keywordflow">if</span> (line.empty() || line[0] == <span class="charliteral">&#39;c&#39;</span> || line[0] == <span class="charliteral">&#39;p&#39;</span>) <span class="keywordflow">continue</span>;</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        istringstream lineStream(line);</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="keywordtype">int</span> literal;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="keywordtype">int</span> <a class="code hl_function" href="cnf_2common_2parsetree__node_8h.html#afbe9201fdc7feeb5aa013d1ac705f379">literal</a>;</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        vector&lt;int&gt; clause;</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="keywordflow">while</span> (lineStream &gt;&gt; literal) {</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            <span class="keywordflow">if</span> (literal == 0) {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="keywordflow">while</span> (lineStream &gt;&gt; <a class="code hl_function" href="cnf_2common_2parsetree__node_8h.html#afbe9201fdc7feeb5aa013d1ac705f379">literal</a>) {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            <span class="keywordflow">if</span> (<a class="code hl_function" href="cnf_2common_2parsetree__node_8h.html#afbe9201fdc7feeb5aa013d1ac705f379">literal</a> == 0) {</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>                <span class="comment">// Clause end marker</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>                <span class="keywordflow">if</span> (!clause.empty()) {</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>                    clauses.push_back(clause);</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>                    clause.clear();</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>                }</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>                clause.push_back(literal);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>                clause.push_back(<a class="code hl_function" href="cnf_2common_2parsetree__node_8h.html#afbe9201fdc7feeb5aa013d1ac705f379">literal</a>);</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            }</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        }</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    }</div>
@@ -129,9 +128,9 @@ $(function(){initNavTree('cnf_2tasks_2task7__check__validity_8cpp_source.html','
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordflow">return</span> clauses;</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>}</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>}  <span class="comment">// namespace</span></div>
-</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keywordtype">bool</span> isValid(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; cnfString, <span class="keywordtype">int</span>&amp; validCount, <span class="keywordtype">int</span>&amp; invalidCount) {</div>
+<div class="foldopen" id="foldopen00039" data-start="{" data-end="}">
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="cnf_2tasks_2task7__check__validity_8cpp.html#a96e6020ae929f574e8cae9067a561294">   39</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="cnf_2tasks_2task7__check__validity_8cpp.html#a96e6020ae929f574e8cae9067a561294">isValid</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; cnfString, <span class="keywordtype">int</span>&amp; validCount, <span class="keywordtype">int</span>&amp; invalidCount) {</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    validCount = 0;</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    invalidCount = 0;</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    vector&lt;vector&lt;int&gt;&gt; clauses = collectClauses(cnfString);</div>
@@ -156,13 +155,17 @@ $(function(){initNavTree('cnf_2tasks_2task7__check__validity_8cpp_source.html','
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="comment">// Return true if all are valid</span></div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordflow">return</span> invalidCount == 0;</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>}</div>
+</div>
+<div class="ttc" id="acnf_2common_2parsetree__node_8h_html"><div class="ttname"><a href="cnf_2common_2parsetree__node_8h.html">parsetree_node.h</a></div></div>
+<div class="ttc" id="acnf_2common_2parsetree__node_8h_html_afbe9201fdc7feeb5aa013d1ac705f379"><div class="ttname"><a href="cnf_2common_2parsetree__node_8h.html#afbe9201fdc7feeb5aa013d1ac705f379">literal</a></div><div class="ttdeci">Node * literal(int value)</div><div class="ttdef"><b>Definition</b> parsetree_node.h:25</div></div>
+<div class="ttc" id="acnf_2tasks_2task7__check__validity_8cpp_html_a96e6020ae929f574e8cae9067a561294"><div class="ttname"><a href="cnf_2tasks_2task7__check__validity_8cpp.html#a96e6020ae929f574e8cae9067a561294">isValid</a></div><div class="ttdeci">bool isValid(const string &amp;cnfString, int &amp;validCount, int &amp;invalidCount)</div><div class="ttdef"><b>Definition</b> task7_check_validity.cpp:39</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_7f189c4d869fad0d622b6fdd1955b66c.html">cnf</a></li><li class="navelem"><a href="dir_e9efbd4dfb420ab0b2e655cf3064d0da.html">tasks</a></li><li class="navelem"><b>task7_check_validity.cpp</b></li>
+    <li class="navelem"><a href="dir_7f189c4d869fad0d622b6fdd1955b66c.html">cnf</a></li><li class="navelem"><a href="dir_e9efbd4dfb420ab0b2e655cf3064d0da.html">tasks</a></li><li class="navelem"><a href="cnf_2tasks_2task7__check__validity_8cpp.html">task7_check_validity.cpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

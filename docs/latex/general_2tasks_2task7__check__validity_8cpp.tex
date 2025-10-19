@@ -8,20 +8,13 @@ Checks if a CNF formula is valid (a tautology).
 {\ttfamily \#include $<$set$>$}\newline
 {\ttfamily \#include $<$vector$>$}\newline
 {\ttfamily \#include "{}../common/parsetree\+\_\+node.\+h"{}}\newline
-\doxysubsubsection*{Namespaces}
-\begin{DoxyCompactItemize}
-\item 
-namespace \mbox{\hyperlink{namespaceanonymous__namespace_02task7__check__validity_8cpp_03}{anonymous\+\_\+namespace\{task7\+\_\+check\+\_\+validity.\+cpp\}}}
-\begin{DoxyCompactList}\small\item\em Contains internal helper functions for validity checking. \end{DoxyCompactList}\end{DoxyCompactItemize}
+Include dependency graph for task7\+\_\+check\+\_\+validity.\+cpp\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{namespaceanonymous__namespace_02task7__check__validity_8cpp_03_ae91db2778ea9abf1708d121becd994a5}{anonymous\+\_\+namespace\{task7\+\_\+check\+\_\+validity.\+cpp\}\+::collect\+Clauses}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}current\+Cnf\+Node, vector$<$ \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} $>$ \&clauses)
-\begin{DoxyCompactList}\small\item\em Collects all clauses from a CNF tree. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespaceanonymous__namespace_02task7__check__validity_8cpp_03_a3c25024be977e506ac3479c87ede914b}{anonymous\+\_\+namespace\{task7\+\_\+check\+\_\+validity.\+cpp\}\+::collect\+Literals}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}clause\+Node, set$<$ char $>$ \&positive, set$<$ char $>$ \&negative)
-\begin{DoxyCompactList}\small\item\em Collects all positive and negative literals within a single clause. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{namespaceanonymous__namespace_02task7__check__validity_8cpp_03_aa5b37816883b0a920a403381ebfebad8}{anonymous\+\_\+namespace\{task7\+\_\+check\+\_\+validity.\+cpp\}\+::is\+Tautological\+Clause}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}clause\+Node)
-\begin{DoxyCompactList}\small\item\em Checks if a single clause is a tautology. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{general_2tasks_2task7__check__validity_8cpp_a3873207fa02550d10d2b501f8523df86}{is\+Valid}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}cnf\+\_\+root, int \&valid\+Count, int \&invalid\+Count)
 \begin{DoxyCompactList}\small\item\em Public interface to check if a CNF formula is valid (a tautology). \end{DoxyCompactList}\end{DoxyCompactItemize}
 

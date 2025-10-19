@@ -8,8 +8,7 @@ Contains internal helper functions for validity checking.
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{namespaceanonymous__namespace_02task7__check__validity_8cpp_03_ac54af77ad2d0a18e51d6dbb79d537462}\label{namespaceanonymous__namespace_02task7__check__validity_8cpp_03_ac54af77ad2d0a18e51d6dbb79d537462} 
-vector$<$ vector$<$ int $>$ $>$ {\bfseries collect\+Clauses} (const string \&cnf\+String)
+vector$<$ vector$<$ int $>$ $>$ \mbox{\hyperlink{namespaceanonymous__namespace_02task7__check__validity_8cpp_03_ac54af77ad2d0a18e51d6dbb79d537462}{collect\+Clauses}} (const string \&cnf\+String)
 \item 
 void \mbox{\hyperlink{namespaceanonymous__namespace_02task7__check__validity_8cpp_03_ae91db2778ea9abf1708d121becd994a5}{collect\+Clauses}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}current\+Cnf\+Node, vector$<$ \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} $>$ \&clauses)
 \begin{DoxyCompactList}\small\item\em Collects all clauses from a CNF tree. \end{DoxyCompactList}\item 
@@ -25,9 +24,19 @@ Contains internal helper functions for validity checking.
 \label{doc-func-members}
 \Hypertarget{namespaceanonymous__namespace_02task7__check__validity_8cpp_03_doc-func-members}
 \doxysubsection{Function Documentation}
+\Hypertarget{namespaceanonymous__namespace_02task7__check__validity_8cpp_03_ac54af77ad2d0a18e51d6dbb79d537462}\index{anonymous\_namespace\lcurly{}task7\_check\_validity.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task7\_check\_validity.cpp\rcurly{}}!collectClauses@{collectClauses}}
+\index{collectClauses@{collectClauses}!anonymous\_namespace\lcurly{}task7\_check\_validity.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task7\_check\_validity.cpp\rcurly{}}}
+\doxysubsubsection{\texorpdfstring{collectClauses()}{collectClauses()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{namespaceanonymous__namespace_02task7__check__validity_8cpp_03_ac54af77ad2d0a18e51d6dbb79d537462} 
+vector$<$ vector$<$ int $>$ $>$ anonymous\+\_\+namespace\{task7\+\_\+check\+\_\+validity.\+cpp\}\+::collect\+Clauses (\begin{DoxyParamCaption}\item[{const string \&}]{cnf\+String}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 0
+Here is the caller graph for this function\+:
+% FIG 1
 \Hypertarget{namespaceanonymous__namespace_02task7__check__validity_8cpp_03_ae91db2778ea9abf1708d121becd994a5}\index{anonymous\_namespace\lcurly{}task7\_check\_validity.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task7\_check\_validity.cpp\rcurly{}}!collectClauses@{collectClauses}}
 \index{collectClauses@{collectClauses}!anonymous\_namespace\lcurly{}task7\_check\_validity.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task7\_check\_validity.cpp\rcurly{}}}
-\doxysubsubsection{\texorpdfstring{collectClauses()}{collectClauses()}}
+\doxysubsubsection{\texorpdfstring{collectClauses()}{collectClauses()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily \label{namespaceanonymous__namespace_02task7__check__validity_8cpp_03_ae91db2778ea9abf1708d121becd994a5} 
 void anonymous\+\_\+namespace\{task7\+\_\+check\+\_\+validity.\+cpp\}\+::collect\+Clauses (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{current\+Cnf\+Node}{, }\item[{vector$<$ \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} $>$ \&}]{clauses}{}\end{DoxyParamCaption})}
 
@@ -35,7 +44,11 @@ void anonymous\+\_\+namespace\{task7\+\_\+check\+\_\+validity.\+cpp\}\+::collect
 
 Collects all clauses from a CNF tree. 
 
-A CNF tree is a top-\/level conjunction ({\ttfamily \texorpdfstring{$\ast$}{*}}) of clauses. This function traverses the tree and collects all the sub-\/trees that are arguments to the top-\/level {\ttfamily \texorpdfstring{$\ast$}{*}} operators. \Hypertarget{namespaceanonymous__namespace_02task7__check__validity_8cpp_03_a3c25024be977e506ac3479c87ede914b}\index{anonymous\_namespace\lcurly{}task7\_check\_validity.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task7\_check\_validity.cpp\rcurly{}}!collectLiterals@{collectLiterals}}
+A CNF tree is a top-\/level conjunction ({\ttfamily \texorpdfstring{$\ast$}{*}}) of clauses. This function traverses the tree and collects all the sub-\/trees that are arguments to the top-\/level {\ttfamily \texorpdfstring{$\ast$}{*}} operators. Here is the call graph for this function\+:
+% FIG 2
+Here is the caller graph for this function\+:
+% FIG 3
+\Hypertarget{namespaceanonymous__namespace_02task7__check__validity_8cpp_03_a3c25024be977e506ac3479c87ede914b}\index{anonymous\_namespace\lcurly{}task7\_check\_validity.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task7\_check\_validity.cpp\rcurly{}}!collectLiterals@{collectLiterals}}
 \index{collectLiterals@{collectLiterals}!anonymous\_namespace\lcurly{}task7\_check\_validity.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task7\_check\_validity.cpp\rcurly{}}}
 \doxysubsubsection{\texorpdfstring{collectLiterals()}{collectLiterals()}}
 {\footnotesize\ttfamily \label{namespaceanonymous__namespace_02task7__check__validity_8cpp_03_a3c25024be977e506ac3479c87ede914b} 
@@ -45,7 +58,11 @@ void anonymous\+\_\+namespace\{task7\+\_\+check\+\_\+validity.\+cpp\}\+::collect
 
 Collects all positive and negative literals within a single clause. 
 
-A clause is a disjunction ({\ttfamily +}) of literals. This function traverses the clause tree and stores the literals in two sets\+: one for positive literals (e.\+g., {\ttfamily A}) and one for negative literals (e.\+g., {\ttfamily B} from {\ttfamily \texorpdfstring{$\sim$}{\string~}B}). \Hypertarget{namespaceanonymous__namespace_02task7__check__validity_8cpp_03_aa5b37816883b0a920a403381ebfebad8}\index{anonymous\_namespace\lcurly{}task7\_check\_validity.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task7\_check\_validity.cpp\rcurly{}}!isTautologicalClause@{isTautologicalClause}}
+A clause is a disjunction ({\ttfamily +}) of literals. This function traverses the clause tree and stores the literals in two sets\+: one for positive literals (e.\+g., {\ttfamily A}) and one for negative literals (e.\+g., {\ttfamily B} from {\ttfamily \texorpdfstring{$\sim$}{\string~}B}). Here is the call graph for this function\+:
+% FIG 4
+Here is the caller graph for this function\+:
+% FIG 5
+\Hypertarget{namespaceanonymous__namespace_02task7__check__validity_8cpp_03_aa5b37816883b0a920a403381ebfebad8}\index{anonymous\_namespace\lcurly{}task7\_check\_validity.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task7\_check\_validity.cpp\rcurly{}}!isTautologicalClause@{isTautologicalClause}}
 \index{isTautologicalClause@{isTautologicalClause}!anonymous\_namespace\lcurly{}task7\_check\_validity.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task7\_check\_validity.cpp\rcurly{}}}
 \doxysubsubsection{\texorpdfstring{isTautologicalClause()}{isTautologicalClause()}}
 {\footnotesize\ttfamily \label{namespaceanonymous__namespace_02task7__check__validity_8cpp_03_aa5b37816883b0a920a403381ebfebad8} 
@@ -55,4 +72,7 @@ bool anonymous\+\_\+namespace\{task7\+\_\+check\+\_\+validity.\+cpp\}\+::is\+Tau
 
 Checks if a single clause is a tautology. 
 
-A clause is a tautology if and only if it contains at least one complementary pair of literals (e.\+g., {\ttfamily A} and {\ttfamily \texorpdfstring{$\sim$}{\string~}A}). 
+A clause is a tautology if and only if it contains at least one complementary pair of literals (e.\+g., {\ttfamily A} and {\ttfamily \texorpdfstring{$\sim$}{\string~}A}). Here is the call graph for this function\+:
+% FIG 6
+Here is the caller graph for this function\+:
+% FIG 7

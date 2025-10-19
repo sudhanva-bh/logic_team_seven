@@ -1,11 +1,11 @@
 \doxysection{task7\+\_\+check\+\_\+validity.\+cpp}
 \hypertarget{cnf_2tasks_2task7__check__validity_8cpp_source}{}\label{cnf_2tasks_2task7__check__validity_8cpp_source}\index{cnf/tasks/task7\_check\_validity.cpp@{cnf/tasks/task7\_check\_validity.cpp}}
-
+\mbox{\hyperlink{cnf_2tasks_2task7__check__validity_8cpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <set>}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <vector>}}
 \DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}../common/parsetree\_node.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{cnf_2common_2parsetree__node_8h}{../common/parsetree\_node.h}}"{}}}
 \DoxyCodeLine{00005\ }
 \DoxyCodeLine{00006\ \textcolor{keyword}{using\ namespace\ }std;}
 \DoxyCodeLine{00007\ }
@@ -20,18 +20,18 @@
 \DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (line.empty()\ ||\ line[0]\ ==\ \textcolor{charliteral}{'c'}\ ||\ line[0]\ ==\ \textcolor{charliteral}{'p'})\ \textcolor{keywordflow}{continue};}
 \DoxyCodeLine{00017\ }
 \DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ istringstream\ lineStream(line);}
-\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ literal;}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{cnf_2common_2parsetree__node_8h_afbe9201fdc7feeb5aa013d1ac705f379}{literal}};}
 \DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ vector<int>\ clause;}
 \DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (lineStream\ >>\ literal)\ \{}
-\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (literal\ ==\ 0)\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (lineStream\ >>\ \mbox{\hyperlink{cnf_2common_2parsetree__node_8h_afbe9201fdc7feeb5aa013d1ac705f379}{literal}})\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{cnf_2common_2parsetree__node_8h_afbe9201fdc7feeb5aa013d1ac705f379}{literal}}\ ==\ 0)\ \{}
 \DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Clause\ end\ marker}}
 \DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!clause.empty())\ \{}
 \DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clauses.push\_back(clause);}
 \DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clause.clear();}
 \DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clause.push\_back(literal);}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clause.push\_back(\mbox{\hyperlink{cnf_2common_2parsetree__node_8h_afbe9201fdc7feeb5aa013d1ac705f379}{literal}});}
 \DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00033\ \ \ \ \ \}}
@@ -40,7 +40,7 @@
 \DoxyCodeLine{00036\ \}}
 \DoxyCodeLine{00037\ \}\ \ \textcolor{comment}{//\ namespace}}
 \DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \textcolor{keywordtype}{bool}\ isValid(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ cnfString,\ \textcolor{keywordtype}{int}\&\ validCount,\ \textcolor{keywordtype}{int}\&\ invalidCount)\ \{}
+\DoxyCodeLine{00039\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{cnf_2tasks_2task7__check__validity_8cpp_a96e6020ae929f574e8cae9067a561294}{isValid}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ cnfString,\ \textcolor{keywordtype}{int}\&\ validCount,\ \textcolor{keywordtype}{int}\&\ invalidCount)\ \{}
 \DoxyCodeLine{00040\ \ \ \ \ validCount\ =\ 0;}
 \DoxyCodeLine{00041\ \ \ \ \ invalidCount\ =\ 0;}
 \DoxyCodeLine{00042\ \ \ \ \ vector<vector<int>>\ clauses\ =\ collectClauses(cnfString);}

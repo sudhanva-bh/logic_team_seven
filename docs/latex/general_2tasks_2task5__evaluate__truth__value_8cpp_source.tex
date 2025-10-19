@@ -14,7 +14,7 @@
 \DoxyCodeLine{00017\ \textcolor{keyword}{using\ namespace\ }std;}
 \DoxyCodeLine{00018\ }
 \DoxyCodeLine{00023\ \textcolor{keyword}{namespace\ }\{}
-\DoxyCodeLine{00032\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespaceanonymous__namespace_02task5__evaluate__truth__value_8cpp_03_a55f1e19c8a89f1389f842a9899fc190d}{getTruthValueRecursion}}(\mbox{\hyperlink{struct_node}{Node}}*\ currentNode,}
+\DoxyCodeLine{00032\ \textcolor{keywordtype}{bool}\ getTruthValueRecursion(\mbox{\hyperlink{struct_node}{Node}}*\ currentNode,}
 \DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ map<char,\ bool>\&\ truthValues)\ \{}
 \DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{if}\ (currentNode\ ==\ \textcolor{keyword}{nullptr})\ \{}
 \DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ This\ case\ should\ ideally\ not\ be\ hit\ in\ a\ well-\/formed\ tree}}
@@ -22,20 +22,20 @@
 \DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
 \DoxyCodeLine{00038\ \ \ \ \ \}}
 \DoxyCodeLine{00039\ }
-\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{char}\ token\ =\ currentNode-\/>data;}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{char}\ token\ =\ currentNode-\/>\mbox{\hyperlink{struct_node_a87c003c9f600e3fc58e6e90835f0b605}{data}};}
 \DoxyCodeLine{00041\ }
 \DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{switch}\ (token)\ \{}
 \DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'\string~'}:\ \textcolor{comment}{//\ NOT}}
-\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !\mbox{\hyperlink{namespaceanonymous__namespace_02task5__evaluate__truth__value_8cpp_03_a55f1e19c8a89f1389f842a9899fc190d}{getTruthValueRecursion}}(currentNode-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}},\ truthValues);}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !getTruthValueRecursion(currentNode-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}},\ truthValues);}
 \DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'*'}:\ \textcolor{comment}{//\ AND}}
-\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceanonymous__namespace_02task5__evaluate__truth__value_8cpp_03_a55f1e19c8a89f1389f842a9899fc190d}{getTruthValueRecursion}}(currentNode-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}},\ truthValues)\ \&\&}
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceanonymous__namespace_02task5__evaluate__truth__value_8cpp_03_a55f1e19c8a89f1389f842a9899fc190d}{getTruthValueRecursion}}(currentNode-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}},\ truthValues);}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ getTruthValueRecursion(currentNode-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}},\ truthValues)\ \&\&}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ getTruthValueRecursion(currentNode-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}},\ truthValues);}
 \DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'+'}:\ \textcolor{comment}{//\ OR}}
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceanonymous__namespace_02task5__evaluate__truth__value_8cpp_03_a55f1e19c8a89f1389f842a9899fc190d}{getTruthValueRecursion}}(currentNode-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}},\ truthValues)\ ||}
-\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceanonymous__namespace_02task5__evaluate__truth__value_8cpp_03_a55f1e19c8a89f1389f842a9899fc190d}{getTruthValueRecursion}}(currentNode-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}},\ truthValues);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ getTruthValueRecursion(currentNode-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}},\ truthValues)\ ||}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ getTruthValueRecursion(currentNode-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}},\ truthValues);}
 \DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'>'}:\ \textcolor{comment}{//\ IMPLIES\ (A\ >\ B\ is\ equivalent\ to\ !A\ or\ B)}}
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !\mbox{\hyperlink{namespaceanonymous__namespace_02task5__evaluate__truth__value_8cpp_03_a55f1e19c8a89f1389f842a9899fc190d}{getTruthValueRecursion}}(currentNode-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}},\ truthValues)\ ||}
-\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceanonymous__namespace_02task5__evaluate__truth__value_8cpp_03_a55f1e19c8a89f1389f842a9899fc190d}{getTruthValueRecursion}}(currentNode-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}},\ truthValues);}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !getTruthValueRecursion(currentNode-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}},\ truthValues)\ ||}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ getTruthValueRecursion(currentNode-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}},\ truthValues);}
 \DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
 \DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Operand\ (atom):\ Look\ up\ its\ value\ in\ the\ map}}
 \DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ truthValues.at(token);}
@@ -44,7 +44,7 @@
 \DoxyCodeLine{00059\ \}\ \ \textcolor{comment}{//\ namespace}}
 \DoxyCodeLine{00060\ }
 \DoxyCodeLine{00069\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{general_2tasks_2task5__evaluate__truth__value_8cpp_aaf77e974b01314c7f0dc50ad5e92dc3a}{evaluateTruthValue}}(\mbox{\hyperlink{struct_node}{Node}}*\ rootNode,\ \textcolor{keyword}{const}\ map<char,\ bool>\ truthValues)\ \{}
-\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceanonymous__namespace_02task5__evaluate__truth__value_8cpp_03_a55f1e19c8a89f1389f842a9899fc190d}{getTruthValueRecursion}}(rootNode,\ truthValues);}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{return}\ getTruthValueRecursion(rootNode,\ truthValues);}
 \DoxyCodeLine{00071\ \}}
 
 \end{DoxyCode}

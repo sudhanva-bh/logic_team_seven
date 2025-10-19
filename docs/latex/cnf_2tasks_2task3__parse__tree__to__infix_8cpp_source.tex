@@ -1,46 +1,46 @@
 \doxysection{task3\+\_\+parse\+\_\+tree\+\_\+to\+\_\+infix.\+cpp}
 \hypertarget{cnf_2tasks_2task3__parse__tree__to__infix_8cpp_source}{}\label{cnf_2tasks_2task3__parse__tree__to__infix_8cpp_source}\index{cnf/tasks/task3\_parse\_tree\_to\_infix.cpp@{cnf/tasks/task3\_parse\_tree\_to\_infix.cpp}}
-
+\mbox{\hyperlink{cnf_2tasks_2task3__parse__tree__to__infix_8cpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <string>}}
 \DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}../common/parsetree\_node.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{cnf_2common_2parsetree__node_8h}{../common/parsetree\_node.h}}"{}}}
 \DoxyCodeLine{00004\ }
 \DoxyCodeLine{00005\ \textcolor{keyword}{using\ namespace\ }std;}
 \DoxyCodeLine{00006\ }
 \DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\{}
-\DoxyCodeLine{00008\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{namespaceanonymous__namespace_02task3__parse__tree__to__infix_8cpp_03_ace7befa732f9907521b58c65ccc26b77}{buildParseTreeToInfixRecursive}}(\mbox{\hyperlink{struct_node}{Node}}*\ node,\ \textcolor{keywordtype}{bool}\ isRoot)\ \{}
+\DoxyCodeLine{00008\ \textcolor{keywordtype}{string}\ buildParseTreeToInfixRecursive(\mbox{\hyperlink{struct_node}{Node}}*\ node,\ \textcolor{keywordtype}{bool}\ isRoot)\ \{}
 \DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordflow}{if}\ (!node)\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}"{}};}
 \DoxyCodeLine{00010\ }
 \DoxyCodeLine{00011\ \ \ \ \ \textcolor{comment}{//\ Negation}}
-\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordflow}{if}\ (node-\/>data\ ==\ -\/4)\ \{}
-\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}\string~"{}}\ +\ \mbox{\hyperlink{namespaceanonymous__namespace_02task3__parse__tree__to__infix_8cpp_03_ace7befa732f9907521b58c65ccc26b77}{buildParseTreeToInfixRecursive}}(node-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}},\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordflow}{if}\ (node-\/>\mbox{\hyperlink{struct_node_a87c003c9f600e3fc58e6e90835f0b605}{data}}\ ==\ -\/4)\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}\string~"{}}\ +\ buildParseTreeToInfixRecursive(node-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}},\ \textcolor{keyword}{false});}
 \DoxyCodeLine{00014\ \ \ \ \ \}}
 \DoxyCodeLine{00015\ \ \ \ \ \textcolor{comment}{//\ Disjunction}}
-\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (node-\/>data\ ==\ -\/2)\ \{}
-\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ left\ =\ \mbox{\hyperlink{namespaceanonymous__namespace_02task3__parse__tree__to__infix_8cpp_03_ace7befa732f9907521b58c65ccc26b77}{buildParseTreeToInfixRecursive}}(node-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}},\ \textcolor{keyword}{false});}
-\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ right\ =\ \mbox{\hyperlink{namespaceanonymous__namespace_02task3__parse__tree__to__infix_8cpp_03_ace7befa732f9907521b58c65ccc26b77}{buildParseTreeToInfixRecursive}}(node-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}},\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (node-\/>\mbox{\hyperlink{struct_node_a87c003c9f600e3fc58e6e90835f0b605}{data}}\ ==\ -\/2)\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ left\ =\ buildParseTreeToInfixRecursive(node-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}},\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ right\ =\ buildParseTreeToInfixRecursive(node-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}},\ \textcolor{keyword}{false});}
 \DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ result\ =\ left\ +\ \textcolor{stringliteral}{"{}+"{}}\ +\ right;}
 \DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ isRoot\ ?\ result\ :\ \textcolor{stringliteral}{"{}("{}}\ +\ result\ +\ \textcolor{stringliteral}{"{})"{}};}
 \DoxyCodeLine{00021\ \ \ \ \ \}}
 \DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{//\ Conjunction}}
-\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (node-\/>data\ ==\ -\/3)\ \{}
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ left\ =\ \mbox{\hyperlink{namespaceanonymous__namespace_02task3__parse__tree__to__infix_8cpp_03_ace7befa732f9907521b58c65ccc26b77}{buildParseTreeToInfixRecursive}}(node-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}},\ \textcolor{keyword}{false});}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ right\ =\ \mbox{\hyperlink{namespaceanonymous__namespace_02task3__parse__tree__to__infix_8cpp_03_ace7befa732f9907521b58c65ccc26b77}{buildParseTreeToInfixRecursive}}(node-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}},\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (node-\/>\mbox{\hyperlink{struct_node_a87c003c9f600e3fc58e6e90835f0b605}{data}}\ ==\ -\/3)\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ left\ =\ buildParseTreeToInfixRecursive(node-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}},\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ right\ =\ buildParseTreeToInfixRecursive(node-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}},\ \textcolor{keyword}{false});}
 \DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ result\ =\ left\ +\ \textcolor{stringliteral}{"{}*"{}}\ +\ right;}
 \DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ isRoot\ ?\ result\ :\ \textcolor{stringliteral}{"{}("{}}\ +\ result\ +\ \textcolor{stringliteral}{"{})"{}};}
 \DoxyCodeLine{00028\ \ \ \ \ \}}
 \DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{//\ Literal}}
-\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (node-\/>data\ >\ 0)\ \{}
-\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}x"{}}\ +\ to\_string(node-\/>data);}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (node-\/>\mbox{\hyperlink{struct_node_a87c003c9f600e3fc58e6e90835f0b605}{data}}\ >\ 0)\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}x"{}}\ +\ to\_string(node-\/>\mbox{\hyperlink{struct_node_a87c003c9f600e3fc58e6e90835f0b605}{data}});}
 \DoxyCodeLine{00032\ \ \ \ \ \}}
 \DoxyCodeLine{00033\ }
 \DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}"{}};\ \ \textcolor{comment}{//\ fallback\ (should\ not\ happen)}}
 \DoxyCodeLine{00035\ \}}
 \DoxyCodeLine{00036\ \}\ \ \textcolor{comment}{//\ namespace}}
 \DoxyCodeLine{00037\ }
-\DoxyCodeLine{00038\ \textcolor{keywordtype}{string}\ parseTreeToInfix(\mbox{\hyperlink{struct_node}{Node}}*\ rootNode)\ \{}
-\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceanonymous__namespace_02task3__parse__tree__to__infix_8cpp_03_ace7befa732f9907521b58c65ccc26b77}{buildParseTreeToInfixRecursive}}(rootNode,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00038\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{cnf_2tasks_2task3__parse__tree__to__infix_8cpp_a786debd4db1976ffa46047030030edc6}{parseTreeToInfix}}(\mbox{\hyperlink{struct_node}{Node}}*\ rootNode)\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{return}\ buildParseTreeToInfixRecursive(rootNode,\ \textcolor{keyword}{true});}
 \DoxyCodeLine{00040\ \}}
 
 \end{DoxyCode}

@@ -101,29 +101,21 @@ $(function(){initNavTree('task8__generate__truth__table_8cpp.html','',''); });
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &quot;<a class="el" href="general_2common_2parsetree__node_8h_source.html">../common/parsetree_node.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for task8_generate_truth_table.cpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="task8__generate__truth__table_8cpp__incl.png" border="0" usemap="#ageneral_2tasks_2task8__generate__truth__table_8cpp" loading="lazy" alt=""/></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="task8__generate__truth__table_8cpp__dep__incl.png" border="0" usemap="#ageneral_2tasks_2task8__generate__truth__table_8cppdep" loading="lazy" alt=""/></div>
+</div>
 </div>
 <p><a href="task8__generate__truth__table_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:anonymous_5Fnamespace_7Btask8_5Fgenerate_5Ftruth_5Ftable_2Ecpp_7D" id="r_anonymous_5Fnamespace_7Btask8_5Fgenerate_5Ftruth_5Ftable_2Ecpp_7D"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03.html">anonymous_namespace{task8_generate_truth_table.cpp}</a></td></tr>
-<tr class="memdesc:namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains internal helper functions for truth table generation. <br /></td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a09b58647a7d164a339f94df93f81a2e8" id="r_a09b58647a7d164a339f94df93f81a2e8"><td class="memItemLeft" align="right" valign="top"><a id="a09b58647a7d164a339f94df93f81a2e8" name="a09b58647a7d164a339f94df93f81a2e8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>anonymous_namespace{task8_generate_truth_table.cpp}::getAtomsRecursive</b> (<a class="el" href="struct_node.html">Node</a> *currentNode, set&lt; char &gt; &amp;atoms)</td></tr>
-<tr class="memdesc:a09b58647a7d164a339f94df93f81a2e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively collects all unique atoms (variables) from a tree. <br /></td></tr>
-<tr class="memitem:af0eb469f4bb785ba2c54301ba2564491" id="r_af0eb469f4bb785ba2c54301ba2564491"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03.html#af0eb469f4bb785ba2c54301ba2564491">anonymous_namespace{task8_generate_truth_table.cpp}::collectClausesAsVector</a> (const <a class="el" href="struct_node.html">Node</a> *currentNode, vector&lt; const <a class="el" href="struct_node.html">Node</a> * &gt; &amp;clauses)</td></tr>
-<tr class="memdesc:af0eb469f4bb785ba2c54301ba2564491"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collects all clauses from a CNF tree into a vector.  <br /></td></tr>
-<tr class="memitem:a11a3a15dc5eb601a00c0f21b94319835" id="r_a11a3a15dc5eb601a00c0f21b94319835"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03.html#a11a3a15dc5eb601a00c0f21b94319835">anonymous_namespace{task8_generate_truth_table.cpp}::collectLiteralsAsSet</a> (const <a class="el" href="struct_node.html">Node</a> *currentNode, set&lt; char &gt; &amp;positive, set&lt; char &gt; &amp;negative)</td></tr>
-<tr class="memdesc:a11a3a15dc5eb601a00c0f21b94319835"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collects positive and negative literals from a clause tree.  <br /></td></tr>
-<tr class="memitem:acf8072b3a45b7188f49ea780101b67e1" id="r_acf8072b3a45b7188f49ea780101b67e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03.html#acf8072b3a45b7188f49ea780101b67e1">anonymous_namespace{task8_generate_truth_table.cpp}::collectClausesWithLiterals</a> (const <a class="el" href="struct_node.html">Node</a> *cnf_root, vector&lt; pair&lt; set&lt; char &gt;, set&lt; char &gt; &gt; &gt; &amp;clause_literals)</td></tr>
-<tr class="memdesc:acf8072b3a45b7188f49ea780101b67e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pre-processes a CNF tree into an efficient evaluation structure.  <br /></td></tr>
-<tr class="memitem:ac826be3b2afff6ab41a0bb63a2c3fc0b" id="r_ac826be3b2afff6ab41a0bb63a2c3fc0b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03.html#ac826be3b2afff6ab41a0bb63a2c3fc0b">anonymous_namespace{task8_generate_truth_table.cpp}::evaluateCNF</a> (const vector&lt; pair&lt; set&lt; char &gt;, set&lt; char &gt; &gt; &gt; &amp;clause_literals, const map&lt; char, bool &gt; &amp;truth_values)</td></tr>
-<tr class="memdesc:ac826be3b2afff6ab41a0bb63a2c3fc0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates a pre-processed CNF formula given a set of truth values.  <br /></td></tr>
-<tr class="memitem:a7dc93834bee9c2dac324d899a4f6087d" id="r_a7dc93834bee9c2dac324d899a4f6087d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03.html#a7dc93834bee9c2dac324d899a4f6087d">anonymous_namespace{task8_generate_truth_table.cpp}::assignTruthValues</a> (int bitNumber, map&lt; char, bool &gt; &amp;truth_values, int numOfAtoms)</td></tr>
-<tr class="memdesc:a7dc93834bee9c2dac324d899a4f6087d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns truth values to the atom map based on a row index.  <br /></td></tr>
 <tr class="memitem:a5904b3029b2a162df51df87070670848" id="r_a5904b3029b2a162df51df87070670848"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5904b3029b2a162df51df87070670848">generateTruthTable</a> (<a class="el" href="struct_node.html">Node</a> *cnfRootNode, set&lt; char &gt; &amp;atoms)</td></tr>
 <tr class="memdesc:a5904b3029b2a162df51df87070670848"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public interface to generate and print a truth table for a CNF formula.  <br /></td></tr>
 </table>
@@ -171,6 +163,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>anonymous_namespace{t
   </table>
   </dd>
 </dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="task8__generate__truth__table_8cpp_a5904b3029b2a162df51df87070670848_icgraph.png" border="0" usemap="#atask8__generate__truth__table_8cpp_a5904b3029b2a162df51df87070670848_icgraph" loading="lazy" alt=""/></div>
+</div>
 
 </div>
 </div>

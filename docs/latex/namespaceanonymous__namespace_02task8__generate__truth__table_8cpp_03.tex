@@ -8,8 +8,7 @@ Contains internal helper functions for truth table generation.
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_a09b58647a7d164a339f94df93f81a2e8}\label{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_a09b58647a7d164a339f94df93f81a2e8} 
-void {\bfseries get\+Atoms\+Recursive} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}current\+Node, set$<$ char $>$ \&atoms)
+void \mbox{\hyperlink{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_a09b58647a7d164a339f94df93f81a2e8}{get\+Atoms\+Recursive}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}current\+Node, set$<$ char $>$ \&atoms)
 \begin{DoxyCompactList}\small\item\em Recursively collects all unique atoms (variables) from a tree. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_af0eb469f4bb785ba2c54301ba2564491}{collect\+Clauses\+As\+Vector}} (const \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}current\+Node, vector$<$ const \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} $>$ \&clauses)
 \begin{DoxyCompactList}\small\item\em Collects all clauses from a CNF tree into a vector. \end{DoxyCompactList}\item 
@@ -39,7 +38,9 @@ void anonymous\+\_\+namespace\{task8\+\_\+generate\+\_\+truth\+\_\+table.\+cpp\}
 
 Assigns truth values to the atom map based on a row index. 
 
-Uses bit manipulation to set the T/F value for each atom, corresponding to one row of the truth table. \Hypertarget{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_af0eb469f4bb785ba2c54301ba2564491}\index{anonymous\_namespace\lcurly{}task8\_generate\_truth\_table.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task8\_generate\_truth\_table.cpp\rcurly{}}!collectClausesAsVector@{collectClausesAsVector}}
+Uses bit manipulation to set the T/F value for each atom, corresponding to one row of the truth table. Here is the caller graph for this function\+:
+% FIG 0
+\Hypertarget{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_af0eb469f4bb785ba2c54301ba2564491}\index{anonymous\_namespace\lcurly{}task8\_generate\_truth\_table.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task8\_generate\_truth\_table.cpp\rcurly{}}!collectClausesAsVector@{collectClausesAsVector}}
 \index{collectClausesAsVector@{collectClausesAsVector}!anonymous\_namespace\lcurly{}task8\_generate\_truth\_table.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task8\_generate\_truth\_table.cpp\rcurly{}}}
 \doxysubsubsection{\texorpdfstring{collectClausesAsVector()}{collectClausesAsVector()}}
 {\footnotesize\ttfamily \label{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_af0eb469f4bb785ba2c54301ba2564491} 
@@ -49,7 +50,11 @@ void anonymous\+\_\+namespace\{task8\+\_\+generate\+\_\+truth\+\_\+table.\+cpp\}
 
 Collects all clauses from a CNF tree into a vector. 
 
-(Same as in task7) Traverses the top-\/level ANDs to get a list of all clause sub-\/trees. \Hypertarget{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_acf8072b3a45b7188f49ea780101b67e1}\index{anonymous\_namespace\lcurly{}task8\_generate\_truth\_table.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task8\_generate\_truth\_table.cpp\rcurly{}}!collectClausesWithLiterals@{collectClausesWithLiterals}}
+(Same as in task7) Traverses the top-\/level ANDs to get a list of all clause sub-\/trees. Here is the call graph for this function\+:
+% FIG 1
+Here is the caller graph for this function\+:
+% FIG 2
+\Hypertarget{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_acf8072b3a45b7188f49ea780101b67e1}\index{anonymous\_namespace\lcurly{}task8\_generate\_truth\_table.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task8\_generate\_truth\_table.cpp\rcurly{}}!collectClausesWithLiterals@{collectClausesWithLiterals}}
 \index{collectClausesWithLiterals@{collectClausesWithLiterals}!anonymous\_namespace\lcurly{}task8\_generate\_truth\_table.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task8\_generate\_truth\_table.cpp\rcurly{}}}
 \doxysubsubsection{\texorpdfstring{collectClausesWithLiterals()}{collectClausesWithLiterals()}}
 {\footnotesize\ttfamily \label{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_acf8072b3a45b7188f49ea780101b67e1} 
@@ -59,7 +64,11 @@ void anonymous\+\_\+namespace\{task8\+\_\+generate\+\_\+truth\+\_\+table.\+cpp\}
 
 Pre-\/processes a CNF tree into an efficient evaluation structure. 
 
-Converts the entire CNF tree into a {\ttfamily vector} of clauses, where each clause is represented by a {\ttfamily pair} of {\ttfamily set}s\+: one for its positive literals and one for its negative literals. This is much faster to evaluate repeatedly than traversing the tree. \Hypertarget{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_a11a3a15dc5eb601a00c0f21b94319835}\index{anonymous\_namespace\lcurly{}task8\_generate\_truth\_table.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task8\_generate\_truth\_table.cpp\rcurly{}}!collectLiteralsAsSet@{collectLiteralsAsSet}}
+Converts the entire CNF tree into a {\ttfamily vector} of clauses, where each clause is represented by a {\ttfamily pair} of {\ttfamily set}s\+: one for its positive literals and one for its negative literals. This is much faster to evaluate repeatedly than traversing the tree. Here is the call graph for this function\+:
+% FIG 3
+Here is the caller graph for this function\+:
+% FIG 4
+\Hypertarget{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_a11a3a15dc5eb601a00c0f21b94319835}\index{anonymous\_namespace\lcurly{}task8\_generate\_truth\_table.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task8\_generate\_truth\_table.cpp\rcurly{}}!collectLiteralsAsSet@{collectLiteralsAsSet}}
 \index{collectLiteralsAsSet@{collectLiteralsAsSet}!anonymous\_namespace\lcurly{}task8\_generate\_truth\_table.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task8\_generate\_truth\_table.cpp\rcurly{}}}
 \doxysubsubsection{\texorpdfstring{collectLiteralsAsSet()}{collectLiteralsAsSet()}}
 {\footnotesize\ttfamily \label{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_a11a3a15dc5eb601a00c0f21b94319835} 
@@ -69,7 +78,11 @@ void anonymous\+\_\+namespace\{task8\+\_\+generate\+\_\+truth\+\_\+table.\+cpp\}
 
 Collects positive and negative literals from a clause tree. 
 
-(Same as in task7) Traverses a clause (ORs) and populates sets of positive and negative literals. \Hypertarget{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_ac826be3b2afff6ab41a0bb63a2c3fc0b}\index{anonymous\_namespace\lcurly{}task8\_generate\_truth\_table.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task8\_generate\_truth\_table.cpp\rcurly{}}!evaluateCNF@{evaluateCNF}}
+(Same as in task7) Traverses a clause (ORs) and populates sets of positive and negative literals. Here is the call graph for this function\+:
+% FIG 5
+Here is the caller graph for this function\+:
+% FIG 6
+\Hypertarget{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_ac826be3b2afff6ab41a0bb63a2c3fc0b}\index{anonymous\_namespace\lcurly{}task8\_generate\_truth\_table.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task8\_generate\_truth\_table.cpp\rcurly{}}!evaluateCNF@{evaluateCNF}}
 \index{evaluateCNF@{evaluateCNF}!anonymous\_namespace\lcurly{}task8\_generate\_truth\_table.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task8\_generate\_truth\_table.cpp\rcurly{}}}
 \doxysubsubsection{\texorpdfstring{evaluateCNF()}{evaluateCNF()}}
 {\footnotesize\ttfamily \label{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_ac826be3b2afff6ab41a0bb63a2c3fc0b} 
@@ -79,4 +92,19 @@ bool anonymous\+\_\+namespace\{task8\+\_\+generate\+\_\+truth\+\_\+table.\+cpp\}
 
 Evaluates a pre-\/processed CNF formula given a set of truth values. 
 
-Checks if the CNF formula is true for the given assignment. A CNF is true if {\itshape all} of its clauses are true. A clause is true if {\itshape at least one} of its literals is true. 
+Checks if the CNF formula is true for the given assignment. A CNF is true if {\itshape all} of its clauses are true. A clause is true if {\itshape at least one} of its literals is true. Here is the caller graph for this function\+:
+% FIG 7
+\Hypertarget{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_a09b58647a7d164a339f94df93f81a2e8}\index{anonymous\_namespace\lcurly{}task8\_generate\_truth\_table.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task8\_generate\_truth\_table.cpp\rcurly{}}!getAtomsRecursive@{getAtomsRecursive}}
+\index{getAtomsRecursive@{getAtomsRecursive}!anonymous\_namespace\lcurly{}task8\_generate\_truth\_table.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task8\_generate\_truth\_table.cpp\rcurly{}}}
+\doxysubsubsection{\texorpdfstring{getAtomsRecursive()}{getAtomsRecursive()}}
+{\footnotesize\ttfamily \label{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_a09b58647a7d164a339f94df93f81a2e8} 
+void anonymous\+\_\+namespace\{task8\+\_\+generate\+\_\+truth\+\_\+table.\+cpp\}\+::get\+Atoms\+Recursive (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{current\+Node}{, }\item[{set$<$ char $>$ \&}]{atoms}{}\end{DoxyParamCaption})}
+
+
+
+Recursively collects all unique atoms (variables) from a tree. 
+
+Here is the call graph for this function\+:
+% FIG 8
+Here is the caller graph for this function\+:
+% FIG 9

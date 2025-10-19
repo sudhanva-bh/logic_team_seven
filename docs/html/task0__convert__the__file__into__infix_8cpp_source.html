@@ -91,7 +91,7 @@ $(function(){initNavTree('task0__convert__the__file__into__infix_8cpp_source.htm
   <div class="headertitle"><div class="title">task0_convert_the_file_into_infix.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<a href="task0__convert__the__file__into__infix_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;sstream&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string&gt;</span></div>
@@ -100,7 +100,8 @@ $(function(){initNavTree('task0__convert__the__file__into__infix_8cpp_source.htm
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">using namespace </span>std;</div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">// Reads a CNF file and returns the contents as a string</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keywordtype">string</span> readCNFFile(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;filepath) {</div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="}">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="task0__convert__the__file__into__infix_8cpp.html#a1c51d23af918fb6e19af675ec29c83d9">   10</a></span><span class="keywordtype">string</span> <a class="code hl_function" href="task0__convert__the__file__into__infix_8cpp.html#a1c51d23af918fb6e19af675ec29c83d9">readCNFFile</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;filepath) {</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    ifstream file(filepath);</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordflow">if</span> (!file.is_open()) <span class="keywordflow">throw</span> runtime_error(<span class="stringliteral">&quot;Could not open file &quot;</span> + filepath);</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
@@ -108,9 +109,11 @@ $(function(){initNavTree('task0__convert__the__file__into__infix_8cpp_source.htm
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    buffer &lt;&lt; file.rdbuf();</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordflow">return</span> buffer.str();</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>}</div>
+</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">// Converts CNF file contents to infix expression</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keywordtype">string</span> cnfToInfix(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;cnfContents) {</div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="}">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="task0__convert__the__file__into__infix_8cpp.html#abbbf198759cfb8ccc0564dd29ae34603">   20</a></span><span class="keywordtype">string</span> <a class="code hl_function" href="task0__convert__the__file__into__infix_8cpp.html#abbbf198759cfb8ccc0564dd29ae34603">cnfToInfix</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;cnfContents) {</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    stringstream ss(cnfContents);</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">string</span> line;</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    vector&lt;string&gt; clauses;</div>
@@ -119,13 +122,13 @@ $(function(){initNavTree('task0__convert__the__file__into__infix_8cpp_source.htm
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keywordflow">if</span> (line.empty() || line[0] == <span class="charliteral">&#39;c&#39;</span> || line[0] == <span class="charliteral">&#39;p&#39;</span>) <span class="keywordflow">continue</span>;</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        stringstream lineSS(line);</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="keywordtype">int</span> literal;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="keywordtype">int</span> <a class="code hl_function" href="cnf_2common_2parsetree__node_8h.html#afbe9201fdc7feeb5aa013d1ac705f379">literal</a>;</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        vector&lt;string&gt; clauseLiterals;</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordflow">while</span> (lineSS &gt;&gt; literal) {</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            <span class="keywordflow">if</span> (literal == 0) <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            clauseLiterals.push_back(literal &lt; 0 ? <span class="stringliteral">&quot;~x&quot;</span> + to_string(-literal)</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>                                                 : <span class="stringliteral">&quot;x&quot;</span> + to_string(literal));</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordflow">while</span> (lineSS &gt;&gt; <a class="code hl_function" href="cnf_2common_2parsetree__node_8h.html#afbe9201fdc7feeb5aa013d1ac705f379">literal</a>) {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            <span class="keywordflow">if</span> (<a class="code hl_function" href="cnf_2common_2parsetree__node_8h.html#afbe9201fdc7feeb5aa013d1ac705f379">literal</a> == 0) <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            clauseLiterals.push_back(<a class="code hl_function" href="cnf_2common_2parsetree__node_8h.html#afbe9201fdc7feeb5aa013d1ac705f379">literal</a> &lt; 0 ? <span class="stringliteral">&quot;~x&quot;</span> + to_string(-<a class="code hl_function" href="cnf_2common_2parsetree__node_8h.html#afbe9201fdc7feeb5aa013d1ac705f379">literal</a>)</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>                                                 : <span class="stringliteral">&quot;x&quot;</span> + to_string(<a class="code hl_function" href="cnf_2common_2parsetree__node_8h.html#afbe9201fdc7feeb5aa013d1ac705f379">literal</a>));</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        }</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keywordtype">string</span> clauseInfix;</div>
@@ -144,13 +147,17 @@ $(function(){initNavTree('task0__convert__the__file__into__infix_8cpp_source.htm
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordflow">return</span> infix;</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>}</div>
+</div>
+<div class="ttc" id="acnf_2common_2parsetree__node_8h_html_afbe9201fdc7feeb5aa013d1ac705f379"><div class="ttname"><a href="cnf_2common_2parsetree__node_8h.html#afbe9201fdc7feeb5aa013d1ac705f379">literal</a></div><div class="ttdeci">Node * literal(int value)</div><div class="ttdef"><b>Definition</b> parsetree_node.h:25</div></div>
+<div class="ttc" id="atask0__convert__the__file__into__infix_8cpp_html_a1c51d23af918fb6e19af675ec29c83d9"><div class="ttname"><a href="task0__convert__the__file__into__infix_8cpp.html#a1c51d23af918fb6e19af675ec29c83d9">readCNFFile</a></div><div class="ttdeci">string readCNFFile(const string &amp;filepath)</div><div class="ttdef"><b>Definition</b> task0_convert_the_file_into_infix.cpp:10</div></div>
+<div class="ttc" id="atask0__convert__the__file__into__infix_8cpp_html_abbbf198759cfb8ccc0564dd29ae34603"><div class="ttname"><a href="task0__convert__the__file__into__infix_8cpp.html#abbbf198759cfb8ccc0564dd29ae34603">cnfToInfix</a></div><div class="ttdeci">string cnfToInfix(const string &amp;cnfContents)</div><div class="ttdef"><b>Definition</b> task0_convert_the_file_into_infix.cpp:20</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_7f189c4d869fad0d622b6fdd1955b66c.html">cnf</a></li><li class="navelem"><a href="dir_e9efbd4dfb420ab0b2e655cf3064d0da.html">tasks</a></li><li class="navelem"><b>task0_convert_the_file_into_infix.cpp</b></li>
+    <li class="navelem"><a href="dir_7f189c4d869fad0d622b6fdd1955b66c.html">cnf</a></li><li class="navelem"><a href="dir_e9efbd4dfb420ab0b2e655cf3064d0da.html">tasks</a></li><li class="navelem"><a href="task0__convert__the__file__into__infix_8cpp.html">task0_convert_the_file_into_infix.cpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

@@ -130,6 +130,16 @@ Functions</h2></td></tr>
 
 <p>Step 3 (Main): Recursively applies the CNF distribution. </p>
 <p>Traverses the NNF tree. When it finds a disjunction (<span class="tt">+</span>), it calls <span class="tt">distr</span> to handle the distribution of OR over AND. </p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a784986985c169dbc4b4d9f4458ec2c87_cgraph.png" border="0" usemap="#anamespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a784986985c169dbc4b4d9f4458ec2c87_cgraph" loading="lazy" alt=""/></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a784986985c169dbc4b4d9f4458ec2c87_icgraph.png" border="0" usemap="#anamespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a784986985c169dbc4b4d9f4458ec2c87_icgraph" loading="lazy" alt=""/></div>
+</div>
 
 </div>
 </div>
@@ -162,6 +172,16 @@ Functions</h2></td></tr>
 <li><span class="tt">(A * B) + C</span> becomes <span class="tt">(A + C) * (B + C)</span></li>
 <li><span class="tt">A + (B * C)</span> becomes <span class="tt">(A + B) * (A + C)</span> </li>
 </ul>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a13e03366efb11c5140d170f6e6c3fb59_cgraph.png" border="0" usemap="#anamespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a13e03366efb11c5140d170f6e6c3fb59_cgraph" loading="lazy" alt=""/></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a13e03366efb11c5140d170f6e6c3fb59_icgraph.png" border="0" usemap="#anamespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a13e03366efb11c5140d170f6e6c3fb59_icgraph" loading="lazy" alt=""/></div>
+</div>
 
 </div>
 </div>
@@ -182,6 +202,16 @@ Functions</h2></td></tr>
 
 <p>Step 1: Recursively removes all implication operators. </p>
 <p>Traverses the tree and replaces every sub-expression <span class="tt">A &gt; B</span> with its equivalent <span class="tt">~A + B</span>. This function creates new nodes to form the new tree structure. </p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a0bc4791ce6af34657d373c421075bca1_cgraph.png" border="0" usemap="#anamespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a0bc4791ce6af34657d373c421075bca1_cgraph" loading="lazy" alt=""/></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a0bc4791ce6af34657d373c421075bca1_icgraph.png" border="0" usemap="#anamespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a0bc4791ce6af34657d373c421075bca1_icgraph" loading="lazy" alt=""/></div>
+</div>
 
 </div>
 </div>
@@ -206,6 +236,16 @@ Functions</h2></td></tr>
 <li><span class="tt">~(A + B)</span> becomes <span class="tt">~A * ~B</span> Also removes double negations:</li>
 <li><span class="tt">~~A</span> becomes <span class="tt">A</span> </li>
 </ul>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_ac6a70e2c40ee0d09f472278e551f71ab_cgraph.png" border="0" usemap="#anamespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_ac6a70e2c40ee0d09f472278e551f71ab_cgraph" loading="lazy" alt=""/></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_ac6a70e2c40ee0d09f472278e551f71ab_icgraph.png" border="0" usemap="#anamespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_ac6a70e2c40ee0d09f472278e551f71ab_icgraph" loading="lazy" alt=""/></div>
+</div>
 
 </div>
 </div>

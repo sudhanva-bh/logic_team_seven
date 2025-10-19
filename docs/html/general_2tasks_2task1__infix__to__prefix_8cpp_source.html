@@ -151,12 +151,12 @@ $(function(){initNavTree('general_2tasks_2task1__infix__to__prefix_8cpp_source.h
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            opStack.pop(); <span class="comment">// Pop and discard the opening parenthesis &#39;(&#39;.</span></div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        }</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="comment">// If the token is an operator...</span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (isOperator(token))</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_function" href="cnf_2common_2parsetree__node_8h.html#a539510029e126b67f225a212198ff232">isOperator</a>(token))</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        {</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            <span class="comment">// Pop operators from the stack that have higher precedence</span></div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            <span class="comment">// than the current token.</span></div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            <span class="keywordflow">while</span> (!opStack.empty() &amp;&amp; opStack.top() != <span class="charliteral">&#39;(&#39;</span> &amp;&amp;</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>                   getPrecedence(token) &lt; getPrecedence(opStack.top()))</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>                   <a class="code hl_function" href="cnf_2common_2parsetree__node_8h.html#a3442c66393fced868c71be3a0191ca03">getPrecedence</a>(token) &lt; <a class="code hl_function" href="cnf_2common_2parsetree__node_8h.html#a3442c66393fced868c71be3a0191ca03">getPrecedence</a>(opStack.top()))</div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            {</div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>                postfix += opStack.top();</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>                opStack.pop();</div>
@@ -179,6 +179,8 @@ $(function(){initNavTree('general_2tasks_2task1__infix__to__prefix_8cpp_source.h
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keywordflow">return</span> postfix;</div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>}</div>
 </div>
+<div class="ttc" id="acnf_2common_2parsetree__node_8h_html_a3442c66393fced868c71be3a0191ca03"><div class="ttname"><a href="cnf_2common_2parsetree__node_8h.html#a3442c66393fced868c71be3a0191ca03">getPrecedence</a></div><div class="ttdeci">int getPrecedence(int op)</div><div class="ttdef"><b>Definition</b> parsetree_node.h:47</div></div>
+<div class="ttc" id="acnf_2common_2parsetree__node_8h_html_a539510029e126b67f225a212198ff232"><div class="ttname"><a href="cnf_2common_2parsetree__node_8h.html#a539510029e126b67f225a212198ff232">isOperator</a></div><div class="ttdeci">bool isOperator(int c)</div><div class="ttdef"><b>Definition</b> parsetree_node.h:32</div></div>
 <div class="ttc" id="ageneral_2common_2parsetree__node_8h_html"><div class="ttname"><a href="general_2common_2parsetree__node_8h.html">parsetree_node.h</a></div><div class="ttdoc">Defines the core Node struct and all helper functions.</div></div>
 <div class="ttc" id="ageneral_2tasks_2task1__infix__to__prefix_8cpp_html_adcb4031b2dee72ddd4c6a1a934145a9b"><div class="ttname"><a href="general_2tasks_2task1__infix__to__prefix_8cpp.html#adcb4031b2dee72ddd4c6a1a934145a9b">infixToPrefix</a></div><div class="ttdeci">string infixToPrefix(string infix)</div><div class="ttdoc">Converts an infix propositional logic expression to prefix notation.</div><div class="ttdef"><b>Definition</b> task1_infix_to_prefix.cpp:40</div></div>
 </div><!-- fragment --></div><!-- contents -->

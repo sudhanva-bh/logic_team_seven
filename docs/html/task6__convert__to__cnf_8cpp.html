@@ -99,24 +99,21 @@ $(function(){initNavTree('task6__convert__to__cnf_8cpp.html','',''); });
 <code>#include &lt;stack&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &quot;<a class="el" href="general_2common_2parsetree__node_8h_source.html">../common/parsetree_node.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for task6_convert_to_cnf.cpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="task6__convert__to__cnf_8cpp__incl.png" border="0" usemap="#ageneral_2tasks_2task6__convert__to__cnf_8cpp" loading="lazy" alt=""/></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="task6__convert__to__cnf_8cpp__dep__incl.png" border="0" usemap="#ageneral_2tasks_2task6__convert__to__cnf_8cppdep" loading="lazy" alt=""/></div>
+</div>
 </div>
 <p><a href="task6__convert__to__cnf_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:anonymous_5Fnamespace_7Btask6_5Fconvert_5Fto_5Fcnf_2Ecpp_7D" id="r_anonymous_5Fnamespace_7Btask6_5Fconvert_5Fto_5Fcnf_2Ecpp_7D"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03.html">anonymous_namespace{task6_convert_to_cnf.cpp}</a></td></tr>
-<tr class="memdesc:namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains internal helper functions for the CNF conversion steps. <br /></td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0bc4791ce6af34657d373c421075bca1" id="r_a0bc4791ce6af34657d373c421075bca1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03.html#a0bc4791ce6af34657d373c421075bca1">anonymous_namespace{task6_convert_to_cnf.cpp}::impl_free</a> (<a class="el" href="struct_node.html">Node</a> *currentNode)</td></tr>
-<tr class="memdesc:a0bc4791ce6af34657d373c421075bca1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Step 1: Recursively removes all implication operators.  <br /></td></tr>
-<tr class="memitem:ac6a70e2c40ee0d09f472278e551f71ab" id="r_ac6a70e2c40ee0d09f472278e551f71ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03.html#ac6a70e2c40ee0d09f472278e551f71ab">anonymous_namespace{task6_convert_to_cnf.cpp}::nnf</a> (<a class="el" href="struct_node.html">Node</a> *currentNode)</td></tr>
-<tr class="memdesc:ac6a70e2c40ee0d09f472278e551f71ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Step 2: Recursively converts an implication-free tree to Negation Normal Form (NNF).  <br /></td></tr>
-<tr class="memitem:a13e03366efb11c5140d170f6e6c3fb59" id="r_a13e03366efb11c5140d170f6e6c3fb59"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03.html#a13e03366efb11c5140d170f6e6c3fb59">anonymous_namespace{task6_convert_to_cnf.cpp}::distr</a> (<a class="el" href="struct_node.html">Node</a> *node1, <a class="el" href="struct_node.html">Node</a> *node2, int depth=0)</td></tr>
-<tr class="memdesc:a13e03366efb11c5140d170f6e6c3fb59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Step 3 (Helper): Recursively distributes OR over AND.  <br /></td></tr>
-<tr class="memitem:a784986985c169dbc4b4d9f4458ec2c87" id="r_a784986985c169dbc4b4d9f4458ec2c87"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03.html#a784986985c169dbc4b4d9f4458ec2c87">anonymous_namespace{task6_convert_to_cnf.cpp}::cnf</a> (<a class="el" href="struct_node.html">Node</a> *currentNode, int depth=0)</td></tr>
-<tr class="memdesc:a784986985c169dbc4b4d9f4458ec2c87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Step 3 (Main): Recursively applies the CNF distribution.  <br /></td></tr>
 <tr class="memitem:aacc5644443ec502a7cfb121ce23150df" id="r_aacc5644443ec502a7cfb121ce23150df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aacc5644443ec502a7cfb121ce23150df">computeCnfFromParseTree</a> (<a class="el" href="struct_node.html">Node</a> *rootNode)</td></tr>
 <tr class="memdesc:aacc5644443ec502a7cfb121ce23150df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public interface to convert a parse tree to CNF.  <br /></td></tr>
 </table>
@@ -157,6 +154,11 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the root of a <em>new</em> tree in CNF. </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="task6__convert__to__cnf_8cpp_aacc5644443ec502a7cfb121ce23150df_icgraph.png" border="0" usemap="#atask6__convert__to__cnf_8cpp_aacc5644443ec502a7cfb121ce23150df_icgraph" loading="lazy" alt=""/></div>
+</div>
 
 </div>
 </div>

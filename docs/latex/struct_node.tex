@@ -9,28 +9,27 @@ A single node in the logical expression parse tree.
 
 {\ttfamily \#include $<$parsetree\+\_\+node.\+h$>$}
 
+
+
+Collaboration diagram for Node\+:
+% FIG 0
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{struct_node_a03ffb8209d9cf4d007b14b1322f960eb}\label{struct_node_a03ffb8209d9cf4d007b14b1322f960eb} 
-{\bfseries Node} (int val, \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}l=nullptr, \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}r=nullptr)
+\mbox{\hyperlink{struct_node_a03ffb8209d9cf4d007b14b1322f960eb}{Node}} (int val, \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}l=nullptr, \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}r=nullptr)
 \item 
 \mbox{\hyperlink{struct_node_a296d7f2644f89e9c99835f57793da161}{Node}} (char val, \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}l=nullptr, \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}r=nullptr)
 \begin{DoxyCompactList}\small\item\em Construct a new \doxylink{struct_node}{Node} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{struct_node_a87c003c9f600e3fc58e6e90835f0b605}\label{struct_node_a87c003c9f600e3fc58e6e90835f0b605} 
-int {\bfseries data}
+int \mbox{\hyperlink{struct_node_a87c003c9f600e3fc58e6e90835f0b605}{data}}
 \item 
-\Hypertarget{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}\label{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7} 
-\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} {\bfseries left}
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}}
 \begin{DoxyCompactList}\small\item\em Pointer to the left child (used for binary ops). \end{DoxyCompactList}\item 
-\Hypertarget{struct_node_afe5916d969cd32f7de1e4ba15580c989}\label{struct_node_afe5916d969cd32f7de1e4ba15580c989} 
-\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} {\bfseries right}
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}}
 \begin{DoxyCompactList}\small\item\em Pointer to the right child (used for binary and unary ops). \end{DoxyCompactList}\item 
-\Hypertarget{struct_node_a94c9686e27f05bedd604d347d5bad449}\label{struct_node_a94c9686e27f05bedd604d347d5bad449} 
-char {\bfseries data}
+char \mbox{\hyperlink{struct_node_a94c9686e27f05bedd604d347d5bad449}{data}}
 \begin{DoxyCompactList}\small\item\em The operator (e.\+g., \textquotesingle{}+\textquotesingle{}, \textquotesingle{}\texorpdfstring{$\ast$}{*}\textquotesingle{}) or operand (e.\+g., \textquotesingle{}A\textquotesingle{}). \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -42,9 +41,19 @@ Each node holds a single character ({\ttfamily data}) which is either an operato
 \label{doc-constructors}
 \Hypertarget{struct_node_doc-constructors}
 \doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{struct_node_a03ffb8209d9cf4d007b14b1322f960eb}\index{Node@{Node}!Node@{Node}}
+\index{Node@{Node}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{Node()}{Node()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{struct_node_a03ffb8209d9cf4d007b14b1322f960eb} 
+Node\+::\+Node (\begin{DoxyParamCaption}\item[{int}]{val}{, }\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{l}{ = {\ttfamily nullptr}, }\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{r}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+% FIG 1
+Here is the caller graph for this function\+:
+% FIG 2
 \Hypertarget{struct_node_a296d7f2644f89e9c99835f57793da161}\index{Node@{Node}!Node@{Node}}
 \index{Node@{Node}!Node@{Node}}
-\doxysubsubsection{\texorpdfstring{Node()}{Node()}}
+\doxysubsubsection{\texorpdfstring{Node()}{Node()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily \label{struct_node_a296d7f2644f89e9c99835f57793da161} 
 Node\+::\+Node (\begin{DoxyParamCaption}\item[{char}]{val}{, }\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{l}{ = {\ttfamily nullptr}, }\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{r}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -61,9 +70,52 @@ Construct a new \doxylink{struct_node}{Node} object.
 {\em r} & Optional. Pointer to the right child. \\
 \hline
 \end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 3
+
+
+\label{doc-variable-members}
+\Hypertarget{struct_node_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{struct_node_a87c003c9f600e3fc58e6e90835f0b605}\index{Node@{Node}!data@{data}}
+\index{data@{data}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{data}{data}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{struct_node_a87c003c9f600e3fc58e6e90835f0b605} 
+int Node\+::data}
+
+\Hypertarget{struct_node_a94c9686e27f05bedd604d347d5bad449}\index{Node@{Node}!data@{data}}
+\index{data@{data}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{data}{data}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{struct_node_a94c9686e27f05bedd604d347d5bad449} 
+char Node\+::data}
+
+
+
+The operator (e.\+g., \textquotesingle{}+\textquotesingle{}, \textquotesingle{}\texorpdfstring{$\ast$}{*}\textquotesingle{}) or operand (e.\+g., \textquotesingle{}A\textquotesingle{}). 
+
+\Hypertarget{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}\index{Node@{Node}!left@{left}}
+\index{left@{left}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{left}{left}}
+{\footnotesize\ttfamily \label{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} Node\+::left}
+
+
+
+Pointer to the left child (used for binary ops). 
+
+\Hypertarget{struct_node_afe5916d969cd32f7de1e4ba15580c989}\index{Node@{Node}!right@{right}}
+\index{right@{right}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{right}{right}}
+{\footnotesize\ttfamily \label{struct_node_afe5916d969cd32f7de1e4ba15580c989} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} Node\+::right}
+
+
+
+Pointer to the right child (used for binary and unary ops). 
+
 
 
 The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-cnf/common/parsetree\+\_\+node.\+h\item 
+cnf/common/\mbox{\hyperlink{cnf_2common_2parsetree__node_8h}{parsetree\+\_\+node.\+h}}\item 
 general/common/\mbox{\hyperlink{general_2common_2parsetree__node_8h}{parsetree\+\_\+node.\+h}}\end{DoxyCompactItemize}

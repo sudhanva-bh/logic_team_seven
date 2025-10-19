@@ -95,35 +95,79 @@ $(function(){initNavTree('struct_node.html','','struct_node-members'); });
 <p>A single node in the logical expression parse tree.  
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="general_2common_2parsetree__node_8h_source.html">parsetree_node.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="cnf_2common_2parsetree__node_8h_source.html">parsetree_node.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for Node:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_node__coll__graph.png" border="0" usemap="#a_node_coll__map" loading="lazy" alt="Collaboration graph"/></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a03ffb8209d9cf4d007b14b1322f960eb" id="r_a03ffb8209d9cf4d007b14b1322f960eb"><td class="memItemLeft" align="right" valign="top"><a id="a03ffb8209d9cf4d007b14b1322f960eb" name="a03ffb8209d9cf4d007b14b1322f960eb"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Node</b> (int val, <a class="el" href="struct_node.html">Node</a> *l=nullptr, <a class="el" href="struct_node.html">Node</a> *r=nullptr)</td></tr>
+<tr class="memitem:a03ffb8209d9cf4d007b14b1322f960eb" id="r_a03ffb8209d9cf4d007b14b1322f960eb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a03ffb8209d9cf4d007b14b1322f960eb">Node</a> (int val, <a class="el" href="struct_node.html">Node</a> *l=nullptr, <a class="el" href="struct_node.html">Node</a> *r=nullptr)</td></tr>
 <tr class="memitem:a296d7f2644f89e9c99835f57793da161" id="r_a296d7f2644f89e9c99835f57793da161"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a296d7f2644f89e9c99835f57793da161">Node</a> (char val, <a class="el" href="struct_node.html">Node</a> *l=nullptr, <a class="el" href="struct_node.html">Node</a> *r=nullptr)</td></tr>
 <tr class="memdesc:a296d7f2644f89e9c99835f57793da161"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="struct_node.html" title="A single node in the logical expression parse tree.">Node</a> object.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a87c003c9f600e3fc58e6e90835f0b605" id="r_a87c003c9f600e3fc58e6e90835f0b605"><td class="memItemLeft" align="right" valign="top"><a id="a87c003c9f600e3fc58e6e90835f0b605" name="a87c003c9f600e3fc58e6e90835f0b605"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>data</b></td></tr>
-<tr class="memitem:a3ca572db95a35de41c87e70c3e8fb5a7" id="r_a3ca572db95a35de41c87e70c3e8fb5a7"><td class="memItemLeft" align="right" valign="top"><a id="a3ca572db95a35de41c87e70c3e8fb5a7" name="a3ca572db95a35de41c87e70c3e8fb5a7"></a>
-<a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>left</b></td></tr>
-<tr class="memdesc:a3ca572db95a35de41c87e70c3e8fb5a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the left child (used for binary ops). <br /></td></tr>
-<tr class="memitem:afe5916d969cd32f7de1e4ba15580c989" id="r_afe5916d969cd32f7de1e4ba15580c989"><td class="memItemLeft" align="right" valign="top"><a id="afe5916d969cd32f7de1e4ba15580c989" name="afe5916d969cd32f7de1e4ba15580c989"></a>
-<a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>right</b></td></tr>
-<tr class="memdesc:afe5916d969cd32f7de1e4ba15580c989"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the right child (used for binary and unary ops). <br /></td></tr>
-<tr class="memitem:a94c9686e27f05bedd604d347d5bad449" id="r_a94c9686e27f05bedd604d347d5bad449"><td class="memItemLeft" align="right" valign="top"><a id="a94c9686e27f05bedd604d347d5bad449" name="a94c9686e27f05bedd604d347d5bad449"></a>
-char&#160;</td><td class="memItemRight" valign="bottom"><b>data</b></td></tr>
-<tr class="memdesc:a94c9686e27f05bedd604d347d5bad449"><td class="mdescLeft">&#160;</td><td class="mdescRight">The operator (e.g., '+', '*') or operand (e.g., 'A'). <br /></td></tr>
+<tr class="memitem:a87c003c9f600e3fc58e6e90835f0b605" id="r_a87c003c9f600e3fc58e6e90835f0b605"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87c003c9f600e3fc58e6e90835f0b605">data</a></td></tr>
+<tr class="memitem:a3ca572db95a35de41c87e70c3e8fb5a7" id="r_a3ca572db95a35de41c87e70c3e8fb5a7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ca572db95a35de41c87e70c3e8fb5a7">left</a></td></tr>
+<tr class="memdesc:a3ca572db95a35de41c87e70c3e8fb5a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the left child (used for binary ops).  <br /></td></tr>
+<tr class="memitem:afe5916d969cd32f7de1e4ba15580c989" id="r_afe5916d969cd32f7de1e4ba15580c989"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe5916d969cd32f7de1e4ba15580c989">right</a></td></tr>
+<tr class="memdesc:afe5916d969cd32f7de1e4ba15580c989"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the right child (used for binary and unary ops).  <br /></td></tr>
+<tr class="memitem:a94c9686e27f05bedd604d347d5bad449" id="r_a94c9686e27f05bedd604d347d5bad449"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a94c9686e27f05bedd604d347d5bad449">data</a></td></tr>
+<tr class="memdesc:a94c9686e27f05bedd604d347d5bad449"><td class="mdescLeft">&#160;</td><td class="mdescRight">The operator (e.g., '+', '*') or operand (e.g., 'A').  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A single node in the logical expression parse tree. </p>
 <p>Each node holds a single character (<span class="tt">data</span>) which is either an operator or an operand. It also holds pointers to its left and right children. </p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a03ffb8209d9cf4d007b14b1322f960eb" name="a03ffb8209d9cf4d007b14b1322f960eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03ffb8209d9cf4d007b14b1322f960eb">&#9670;&#160;</a></span>Node() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Node::Node </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>val</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_node.html">Node</a> *</td>          <td class="paramname"><span class="paramname"><em>l</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_node.html">Node</a> *</td>          <td class="paramname"><span class="paramname"><em>r</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_node_a03ffb8209d9cf4d007b14b1322f960eb_cgraph.png" border="0" usemap="#astruct_node_a03ffb8209d9cf4d007b14b1322f960eb_cgraph" loading="lazy" alt=""/></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_node_a03ffb8209d9cf4d007b14b1322f960eb_icgraph.png" border="0" usemap="#astruct_node_a03ffb8209d9cf4d007b14b1322f960eb_icgraph" loading="lazy" alt=""/></div>
+</div>
+
+</div>
+</div>
 <a id="a296d7f2644f89e9c99835f57793da161" name="a296d7f2644f89e9c99835f57793da161"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a296d7f2644f89e9c99835f57793da161">&#9670;&#160;</a></span>Node()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a296d7f2644f89e9c99835f57793da161">&#9670;&#160;</a></span>Node() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -163,6 +207,74 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>data</b></td></tr>
   </table>
   </dd>
 </dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_node_a296d7f2644f89e9c99835f57793da161_cgraph.png" border="0" usemap="#astruct_node_a296d7f2644f89e9c99835f57793da161_cgraph" loading="lazy" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a87c003c9f600e3fc58e6e90835f0b605" name="a87c003c9f600e3fc58e6e90835f0b605"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87c003c9f600e3fc58e6e90835f0b605">&#9670;&#160;</a></span>data <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Node::data</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a94c9686e27f05bedd604d347d5bad449" name="a94c9686e27f05bedd604d347d5bad449"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94c9686e27f05bedd604d347d5bad449">&#9670;&#160;</a></span>data <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char Node::data</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The operator (e.g., '+', '*') or operand (e.g., 'A'). </p>
+
+</div>
+</div>
+<a id="a3ca572db95a35de41c87e70c3e8fb5a7" name="a3ca572db95a35de41c87e70c3e8fb5a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ca572db95a35de41c87e70c3e8fb5a7">&#9670;&#160;</a></span>left</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_node.html">Node</a> * Node::left</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pointer to the left child (used for binary ops). </p>
+
+</div>
+</div>
+<a id="afe5916d969cd32f7de1e4ba15580c989" name="afe5916d969cd32f7de1e4ba15580c989"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe5916d969cd32f7de1e4ba15580c989">&#9670;&#160;</a></span>right</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_node.html">Node</a> * Node::right</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pointer to the right child (used for binary and unary ops). </p>
 
 </div>
 </div>

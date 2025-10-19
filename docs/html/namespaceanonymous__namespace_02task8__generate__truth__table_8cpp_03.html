@@ -97,9 +97,8 @@ $(function(){initNavTree('namespaceanonymous__namespace_02task8__generate__truth
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a09b58647a7d164a339f94df93f81a2e8" id="r_a09b58647a7d164a339f94df93f81a2e8"><td class="memItemLeft" align="right" valign="top"><a id="a09b58647a7d164a339f94df93f81a2e8" name="a09b58647a7d164a339f94df93f81a2e8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>getAtomsRecursive</b> (<a class="el" href="struct_node.html">Node</a> *currentNode, set&lt; char &gt; &amp;atoms)</td></tr>
-<tr class="memdesc:a09b58647a7d164a339f94df93f81a2e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively collects all unique atoms (variables) from a tree. <br /></td></tr>
+<tr class="memitem:a09b58647a7d164a339f94df93f81a2e8" id="r_a09b58647a7d164a339f94df93f81a2e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a09b58647a7d164a339f94df93f81a2e8">getAtomsRecursive</a> (<a class="el" href="struct_node.html">Node</a> *currentNode, set&lt; char &gt; &amp;atoms)</td></tr>
+<tr class="memdesc:a09b58647a7d164a339f94df93f81a2e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively collects all unique atoms (variables) from a tree.  <br /></td></tr>
 <tr class="memitem:af0eb469f4bb785ba2c54301ba2564491" id="r_af0eb469f4bb785ba2c54301ba2564491"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af0eb469f4bb785ba2c54301ba2564491">collectClausesAsVector</a> (const <a class="el" href="struct_node.html">Node</a> *currentNode, vector&lt; const <a class="el" href="struct_node.html">Node</a> * &gt; &amp;clauses)</td></tr>
 <tr class="memdesc:af0eb469f4bb785ba2c54301ba2564491"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collects all clauses from a CNF tree into a vector.  <br /></td></tr>
 <tr class="memitem:a11a3a15dc5eb601a00c0f21b94319835" id="r_a11a3a15dc5eb601a00c0f21b94319835"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a11a3a15dc5eb601a00c0f21b94319835">collectLiteralsAsSet</a> (const <a class="el" href="struct_node.html">Node</a> *currentNode, set&lt; char &gt; &amp;positive, set&lt; char &gt; &amp;negative)</td></tr>
@@ -140,6 +139,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getAtomsRecursive</b>
 
 <p>Assigns truth values to the atom map based on a row index. </p>
 <p>Uses bit manipulation to set the T/F value for each atom, corresponding to one row of the truth table. </p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_a7dc93834bee9c2dac324d899a4f6087d_icgraph.png" border="0" usemap="#anamespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_a7dc93834bee9c2dac324d899a4f6087d_icgraph" loading="lazy" alt=""/></div>
+</div>
 
 </div>
 </div>
@@ -164,6 +168,16 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getAtomsRecursive</b>
 
 <p>Collects all clauses from a CNF tree into a vector. </p>
 <p>(Same as in task7) Traverses the top-level ANDs to get a list of all clause sub-trees. </p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_af0eb469f4bb785ba2c54301ba2564491_cgraph.png" border="0" usemap="#anamespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_af0eb469f4bb785ba2c54301ba2564491_cgraph" loading="lazy" alt=""/></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_af0eb469f4bb785ba2c54301ba2564491_icgraph.png" border="0" usemap="#anamespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_af0eb469f4bb785ba2c54301ba2564491_icgraph" loading="lazy" alt=""/></div>
+</div>
 
 </div>
 </div>
@@ -188,6 +202,16 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getAtomsRecursive</b>
 
 <p>Pre-processes a CNF tree into an efficient evaluation structure. </p>
 <p>Converts the entire CNF tree into a <span class="tt">vector</span> of clauses, where each clause is represented by a <span class="tt">pair</span> of <span class="tt">set</span>s: one for its positive literals and one for its negative literals. This is much faster to evaluate repeatedly than traversing the tree. </p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_acf8072b3a45b7188f49ea780101b67e1_cgraph.png" border="0" usemap="#anamespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_acf8072b3a45b7188f49ea780101b67e1_cgraph" loading="lazy" alt=""/></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_acf8072b3a45b7188f49ea780101b67e1_icgraph.png" border="0" usemap="#anamespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_acf8072b3a45b7188f49ea780101b67e1_icgraph" loading="lazy" alt=""/></div>
+</div>
 
 </div>
 </div>
@@ -217,6 +241,16 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getAtomsRecursive</b>
 
 <p>Collects positive and negative literals from a clause tree. </p>
 <p>(Same as in task7) Traverses a clause (ORs) and populates sets of positive and negative literals. </p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_a11a3a15dc5eb601a00c0f21b94319835_cgraph.png" border="0" usemap="#anamespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_a11a3a15dc5eb601a00c0f21b94319835_cgraph" loading="lazy" alt=""/></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_a11a3a15dc5eb601a00c0f21b94319835_icgraph.png" border="0" usemap="#anamespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_a11a3a15dc5eb601a00c0f21b94319835_icgraph" loading="lazy" alt=""/></div>
+</div>
 
 </div>
 </div>
@@ -241,6 +275,44 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getAtomsRecursive</b>
 
 <p>Evaluates a pre-processed CNF formula given a set of truth values. </p>
 <p>Checks if the CNF formula is true for the given assignment. A CNF is true if <em>all</em> of its clauses are true. A clause is true if <em>at least one</em> of its literals is true. </p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_ac826be3b2afff6ab41a0bb63a2c3fc0b_icgraph.png" border="0" usemap="#anamespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_ac826be3b2afff6ab41a0bb63a2c3fc0b_icgraph" loading="lazy" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a09b58647a7d164a339f94df93f81a2e8" name="a09b58647a7d164a339f94df93f81a2e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09b58647a7d164a339f94df93f81a2e8">&#9670;&#160;</a></span>getAtomsRecursive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void anonymous_namespace{task8_generate_truth_table.cpp}::getAtomsRecursive </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_node.html">Node</a> *</td>          <td class="paramname"><span class="paramname"><em>currentNode</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">set&lt; char &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>atoms</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Recursively collects all unique atoms (variables) from a tree. </p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_a09b58647a7d164a339f94df93f81a2e8_cgraph.png" border="0" usemap="#anamespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_a09b58647a7d164a339f94df93f81a2e8_cgraph" loading="lazy" alt=""/></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_a09b58647a7d164a339f94df93f81a2e8_icgraph.png" border="0" usemap="#anamespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_a09b58647a7d164a339f94df93f81a2e8_icgraph" loading="lazy" alt=""/></div>
+</div>
 
 </div>
 </div>
