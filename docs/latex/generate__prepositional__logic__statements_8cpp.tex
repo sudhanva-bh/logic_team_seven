@@ -1,0 +1,45 @@
+\doxysection{general/common/generate\+\_\+prepositional\+\_\+logic\+\_\+statements.cpp File Reference}
+\hypertarget{generate__prepositional__logic__statements_8cpp}{}\label{generate__prepositional__logic__statements_8cpp}\index{general/common/generate\_prepositional\_logic\_statements.cpp@{general/common/generate\_prepositional\_logic\_statements.cpp}}
+
+
+Main runner for the Logic Team Seven project.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include "{}common/parsetree\+\_\+node.\+h"{}}\newline
+{\ttfamily \#include "{}common/tasks.\+h"{}}\newline
+{\ttfamily \#include "{}common/random\+\_\+formula\+\_\+generator.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{generate__prepositional__logic__statements_8cpp_aa8165246642991f007f24facccf818ae}\label{generate__prepositional__logic__statements_8cpp_aa8165246642991f007f24facccf818ae} 
+void {\bfseries print\+Separator} ()
+\item 
+\Hypertarget{generate__prepositional__logic__statements_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{generate__prepositional__logic__statements_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int {\bfseries main} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main runner for the Logic Team Seven project. 
+
+This file demonstrates the full pipeline of the logic toolkit. It performs the following steps\+:
+\begin{DoxyEnumerate}
+\item Generates a random infix formula.
+\item (Task 1) Converts the infix formula to prefix.
+\item (Task 2) Builds a parse tree from the prefix string.
+\item (Task 3) Converts the tree back to infix for verification.
+\item (Task 4) Computes the height of the parse tree.
+\item (Task 5) Evaluates the tree with a sample set of truth values.
+\item (Task 6) Converts the original tree to Conjunctive Normal Form (CNF).
+\item (Task 7) Checks the validity (tautology) of the resulting CNF.
+\item (Task 8) Generates a full truth table for the CNF.
+\end{DoxyEnumerate}
+
+It ensures all created trees are properly deleted to prevent memory leaks. 

@@ -1,0 +1,71 @@
+\doxysection{parsetree\+\_\+node.\+h}
+\hypertarget{cnf_2common_2parsetree__node_8h_source}{}\label{cnf_2common_2parsetree__node_8h_source}\index{cnf/common/parsetree\_node.h@{cnf/common/parsetree\_node.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ INT\_PARSETREE\_NODE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ INT\_PARSETREE\_NODE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{struct\ }Node\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keywordtype}{int}\ data;\ \ \ \ \ \ \textcolor{comment}{//\ positive\ integer\ literal\ or\ negative\ operator}}
+\DoxyCodeLine{00008\ \ \ \ \ Node*\ \mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}};}
+\DoxyCodeLine{00009\ \ \ \ \ Node*\ \mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ Node(\textcolor{keywordtype}{int}\ val,\ Node*\ l\ =\ \textcolor{keyword}{nullptr},\ Node*\ r\ =\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ :\ data(val),\ \mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}}(l),\ \mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}}(r)\ \{\}}
+\DoxyCodeLine{00013\ \};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ Copy\ a\ node\ recursively}}
+\DoxyCodeLine{00016\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{struct_node}{Node}}*\ copyNode(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_node}{Node}}*\ src)\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordflow}{if}\ (!src)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}*\ out\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}}(src-\/>data);}
+\DoxyCodeLine{00019\ \ \ \ \ out-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}}\ =\ copyNode(src-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}});}
+\DoxyCodeLine{00020\ \ \ \ \ out-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}}\ =\ copyNode(src-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}});}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{00022\ \}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{comment}{//\ Node\ constructors\ for\ operators\ and\ literals}}
+\DoxyCodeLine{00025\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{struct_node}{Node}}*\ literal(\textcolor{keywordtype}{int}\ value)\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}}(value);\ \}\ \ \ \textcolor{comment}{//\ value\ >\ 0}}
+\DoxyCodeLine{00026\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{struct_node}{Node}}*\ negation(\mbox{\hyperlink{struct_node}{Node}}*\ node)\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}}(-\/4,\ \textcolor{keyword}{nullptr},\ node);\ \}}
+\DoxyCodeLine{00027\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{struct_node}{Node}}*\ conjunction(\mbox{\hyperlink{struct_node}{Node}}*\ leftNode,\ \mbox{\hyperlink{struct_node}{Node}}*\ rightNode)\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}}(-\/3,\ leftNode,\ rightNode);\ \}}
+\DoxyCodeLine{00028\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{struct_node}{Node}}*\ disjunction(\mbox{\hyperlink{struct_node}{Node}}*\ leftNode,\ \mbox{\hyperlink{struct_node}{Node}}*\ rightNode)\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}}(-\/2,\ leftNode,\ rightNode);\ \}}
+\DoxyCodeLine{00029\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{struct_node}{Node}}*\ implication(\mbox{\hyperlink{struct_node}{Node}}*\ leftNode,\ \mbox{\hyperlink{struct_node}{Node}}*\ rightNode)\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}}(-\/1,\ leftNode,\ rightNode);\ \}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{comment}{//\ Check\ if\ data\ is\ an\ operator}}
+\DoxyCodeLine{00032\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ isOperator(\textcolor{keywordtype}{int}\ c)\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{return}\ c\ <=\ -\/1\ \&\&\ c\ >=\ -\/4;}
+\DoxyCodeLine{00034\ \}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{comment}{//\ Check\ if\ node\ is\ a\ literal}}
+\DoxyCodeLine{00037\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ is\_literal(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_node}{Node}}*\ node)\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{if}\ (!node)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{if}\ (node-\/>data\ >\ 0)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \ \textcolor{comment}{//\ positive\ integer\ literal}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{if}\ (node-\/>data\ ==\ -\/4)\ \{\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ negation}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ node-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}}\ \&\&\ node-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}}-\/>data\ >\ 0;}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ other\ operators}}
+\DoxyCodeLine{00044\ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{comment}{//\ Operator\ precedence}}
+\DoxyCodeLine{00047\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ getPrecedence(\textcolor{keywordtype}{int}\ op)\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{switch}\ (op)\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ -\/1:\ \textcolor{keywordflow}{return}\ 1;\ \textcolor{comment}{//\ implication}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ -\/2:\ \textcolor{keywordflow}{return}\ 2;\ \textcolor{comment}{//\ OR}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ -\/3:\ \textcolor{keywordflow}{return}\ 3;\ \textcolor{comment}{//\ AND}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ -\/4:\ \textcolor{keywordflow}{return}\ 4;\ \textcolor{comment}{//\ negation}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:\ \textcolor{keywordflow}{return}\ 0;\ \textcolor{comment}{//\ literals}}
+\DoxyCodeLine{00054\ \ \ \ \ \}}
+\DoxyCodeLine{00055\ \}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{comment}{//\ Recursively\ destroy\ parse\ tree}}
+\DoxyCodeLine{00058\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ destroyParseTree(\mbox{\hyperlink{struct_node}{Node}}*\ root)\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{if}\ (!root)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00060\ \ \ \ \ destroyParseTree(root-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}});}
+\DoxyCodeLine{00061\ \ \ \ \ destroyParseTree(root-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}});}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{delete}\ root;}
+\DoxyCodeLine{00063\ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ INT\_PARSETREE\_NODE\_H}}
+
+\end{DoxyCode}

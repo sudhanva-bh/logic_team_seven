@@ -1,0 +1,54 @@
+\doxysection{general/tasks/task1\+\_\+infix\+\_\+to\+\_\+prefix.cpp File Reference}
+\hypertarget{general_2tasks_2task1__infix__to__prefix_8cpp}{}\label{general_2tasks_2task1__infix__to__prefix_8cpp}\index{general/tasks/task1\_infix\_to\_prefix.cpp@{general/tasks/task1\_infix\_to\_prefix.cpp}}
+
+
+Converts an infix logical expression to prefix (Polish) notation.  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$stack$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include "{}../common/parsetree\+\_\+node.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{general_2tasks_2task1__infix__to__prefix_8cpp_adcb4031b2dee72ddd4c6a1a934145a9b}{infix\+To\+Prefix}} (string infix)
+\begin{DoxyCompactList}\small\item\em Converts an infix propositional logic expression to prefix notation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Converts an infix logical expression to prefix (Polish) notation. 
+
+This file defines a function that transforms a propositional logic expression from its standard infix form (e.\+g., A \texorpdfstring{$\ast$}{*} B) to its equivalent prefix form (e.\+g., \texorpdfstring{$\ast$}{*}\+AB). This notation is unambiguous and ideal for parsing and evaluation in logic solvers or for building expression trees. 
+
+\label{doc-func-members}
+\Hypertarget{general_2tasks_2task1__infix__to__prefix_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{general_2tasks_2task1__infix__to__prefix_8cpp_adcb4031b2dee72ddd4c6a1a934145a9b}\index{task1\_infix\_to\_prefix.cpp@{task1\_infix\_to\_prefix.cpp}!infixToPrefix@{infixToPrefix}}
+\index{infixToPrefix@{infixToPrefix}!task1\_infix\_to\_prefix.cpp@{task1\_infix\_to\_prefix.cpp}}
+\doxysubsubsection{\texorpdfstring{infixToPrefix()}{infixToPrefix()}}
+{\footnotesize\ttfamily \label{general_2tasks_2task1__infix__to__prefix_8cpp_adcb4031b2dee72ddd4c6a1a934145a9b} 
+string infix\+To\+Prefix (\begin{DoxyParamCaption}\item[{string}]{infix}{}\end{DoxyParamCaption})}
+
+
+
+Converts an infix propositional logic expression to prefix notation. 
+
+This function implements the standard algorithm for infix-\/to-\/prefix conversion by adapting the Shunting-\/yard (infix-\/to-\/postfix) algorithm.
+
+The algorithm proceeds in four steps\+:
+\begin{DoxyEnumerate}
+\item {\bfseries{Reverse}} the original infix string.
+\item {\bfseries{Swap}} all parentheses. \textquotesingle{}(\textquotesingle{} becomes \textquotesingle{})\textquotesingle{} and \textquotesingle{})\textquotesingle{} becomes \textquotesingle{}(\textquotesingle{}. This adapts the expression for the upcoming postfix conversion, as the reversal also reversed operator associativity.
+\item {\bfseries{Convert}} the modified (reversed and swapped-\/paren) string to {\itshape postfix} notation using a stack-\/based algorithm.
+\item {\bfseries{Reverse}} the resulting postfix string. This final reversal yields the correct prefix notation.
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parameters}
+{\em infix} & The input expression in infix notation (e.\+g., "{}\+A\texorpdfstring{$\ast$}{*}(\+B\texorpdfstring{$\vert$}{|}\+C)"{}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A string containing the expression in prefix notation (e.\+g., "{}\texorpdfstring{$\ast$}{*}\+A\texorpdfstring{$\vert$}{|}\+BC"{}). 
+\end{DoxyReturn}

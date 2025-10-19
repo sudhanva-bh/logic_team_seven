@@ -1,0 +1,211 @@
+\doxysection{task8\+\_\+generate\+\_\+truth\+\_\+table.\+cpp}
+\hypertarget{task8__generate__truth__table_8cpp_source}{}\label{task8__generate__truth__table_8cpp_source}\index{general/tasks/task8\_generate\_truth\_table.cpp@{general/tasks/task8\_generate\_truth\_table.cpp}}
+\mbox{\hyperlink{task8__generate__truth__table_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <iomanip>}\ \ \textcolor{comment}{//\ For\ setw,\ left}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <iostream>}\ \textcolor{comment}{//\ For\ cout,\ endl}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <set>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{general_2common_2parsetree__node_8h}{../common/parsetree\_node.h}}"{}}\ \textcolor{comment}{//\ Assumed\ to\ contain\ Node,\ isOperator}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{namespace}}
+\DoxyCodeLine{00031\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_a09b58647a7d164a339f94df93f81a2e8}{getAtomsRecursive}}(\mbox{\hyperlink{struct_node}{Node}}\ *currentNode,\ set<char>\ \&atoms)}
+\DoxyCodeLine{00040\ \ \ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (currentNode\ ==\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ token\ =\ currentNode-\/>data;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (token\ ==\ \textcolor{charliteral}{'\string~'})}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_a09b58647a7d164a339f94df93f81a2e8}{getAtomsRecursive}}(currentNode-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}},\ atoms);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (isOperator(token))}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_a09b58647a7d164a339f94df93f81a2e8}{getAtomsRecursive}}(currentNode-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}},\ atoms);}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_a09b58647a7d164a339f94df93f81a2e8}{getAtomsRecursive}}(currentNode-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}},\ atoms);}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ It's\ an\ operand\ (atom),\ insert\ it\ into\ the\ set.}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ atoms.insert(token);}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \ \ \ \ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_af0eb469f4bb785ba2c54301ba2564491}{collectClausesAsVector}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_node}{Node}}\ *currentNode,}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vector<const\ Node\ *>\ \&clauses)}
+\DoxyCodeLine{00074\ \ \ \ \ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!currentNode)}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (currentNode-\/>data\ ==\ \textcolor{charliteral}{'*'})}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_af0eb469f4bb785ba2c54301ba2564491}{collectClausesAsVector}}(currentNode-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}},\ clauses);}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_af0eb469f4bb785ba2c54301ba2564491}{collectClausesAsVector}}(currentNode-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}},\ clauses);}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ clauses.push\_back(currentNode);}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00086\ \ \ \ \ \}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_a11a3a15dc5eb601a00c0f21b94319835}{collectLiteralsAsSet}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_node}{Node}}\ *currentNode,\ set<char>\ \&positive,}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ set<char>\ \&negative)}
+\DoxyCodeLine{00101\ \ \ \ \ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!currentNode)}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (currentNode-\/>data\ ==\ \textcolor{charliteral}{'+'})}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_a11a3a15dc5eb601a00c0f21b94319835}{collectLiteralsAsSet}}(currentNode-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}},\ positive,\ negative);}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_a11a3a15dc5eb601a00c0f21b94319835}{collectLiteralsAsSet}}(currentNode-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}},\ positive,\ negative);}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (currentNode-\/>data\ ==\ \textcolor{charliteral}{'\string~'})}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (currentNode-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}})}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ negative.insert(currentNode-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}}-\/>data);}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ positive.insert(currentNode-\/>data);}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00120\ \ \ \ \ \}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_acf8072b3a45b7188f49ea780101b67e1}{collectClausesWithLiterals}}(}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_node}{Node}}\ *cnf\_root,\ vector<pair<set<char>,\ set<char>>>\ \&clause\_literals)}
+\DoxyCodeLine{00136\ \ \ \ \ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ vector<const\ Node\ *>\ clauses;}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_af0eb469f4bb785ba2c54301ba2564491}{collectClausesAsVector}}(cnf\_root,\ clauses);}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_node}{Node}}\ *clause\ :\ clauses)}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ set<char>\ positive,\ negative;}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_a11a3a15dc5eb601a00c0f21b94319835}{collectLiteralsAsSet}}(clause,\ positive,\ negative);}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ clause\_literals.push\_back(\{positive,\ negative\});}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00146\ \ \ \ \ \}}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_ac826be3b2afff6ab41a0bb63a2c3fc0b}{evaluateCNF}}(\textcolor{keyword}{const}\ vector<pair<set<char>,\ set<char>>>\ \&clause\_literals,}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ map<char,\ bool>\ \&truth\_values)}
+\DoxyCodeLine{00162\ \ \ \ \ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Iterate\ over\ all\ clauses\ (Conjunction)}}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&clause\ :\ clause\_literals)}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ set<char>\ \&positive\ =\ clause.first;}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ set<char>\ \&negative\ =\ clause.second;}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ clause\_value\ =\ \textcolor{keyword}{false};\ \textcolor{comment}{//\ Is\ this\ clause\ true?}}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ all\ positive\ literals\ (Disjunction)}}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{char}\ p\ :\ positive)}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ truth\_values.find(p);}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ truth\_values.end()\ \&\&\ it-\/>second)}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \textcolor{comment}{//\ if\ p\ is\ 'T'}}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clause\_value\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ all\ negative\ literals\ (Disjunction)}}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!clause\_value)}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{char}\ n\ :\ negative)}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ truth\_values.find(n);}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ truth\_values.end()\ \&\&\ !it-\/>second)}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \textcolor{comment}{//\ if\ n\ is\ 'F'\ (so\ \string~n\ is\ 'T')}}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clause\_value\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ even\ one\ clause\ is\ false,\ the\ whole\ CNF\ is\ false}}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!clause\_value)}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ All\ clauses\ were\ true,\ so\ the\ CNF\ is\ true}}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00204\ \ \ \ \ \}}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_a7dc93834bee9c2dac324d899a4f6087d}{assignTruthValues}}(\textcolor{keywordtype}{int}\ bitNumber,\ map<char,\ bool>\ \&truth\_values,}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ numOfAtoms)}
+\DoxyCodeLine{00219\ \ \ \ \ \{}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Extract\ keys\ into\ a\ vector\ to\ ensure\ consistent\ order}}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ vector<char>\ atoms;}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&kv\ :\ truth\_values)}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ atoms.push\_back(kv.first);}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assign\ truth\ values\ based\ on\ the\ bits\ of\ bitNumber}}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ numOfAtoms;\ ++i)}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ bit\ =\ (bitNumber\ >>\ i)\ \&\ 1;}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assign\ bits\ in\ reverse\ to\ match\ standard\ truth\ table\ order}}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ truth\_values[atoms[numOfAtoms\ -\/\ 1\ -\/\ i]]\ =\ bit;}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00234\ \ \ \ \ \}}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ \}\ \textcolor{comment}{//\ namespace}}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00253\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{task8__generate__truth__table_8cpp_a5904b3029b2a162df51df87070670848}{generateTruthTable}}(\mbox{\hyperlink{struct_node}{Node}}\ *cnfRootNode,\ set<char>\ \&atoms)}
+\DoxyCodeLine{00254\ \{}
+\DoxyCodeLine{00255\ \ \ \ \ \mbox{\hyperlink{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_a09b58647a7d164a339f94df93f81a2e8}{getAtomsRecursive}}(cnfRootNode,\ atoms);}
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{keywordtype}{int}\ numOfAtoms\ =\ atoms.size();}
+\DoxyCodeLine{00257\ \ \ \ \ map<char,\ bool>\ truth\_values;}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{comment}{//\ Initialize\ map\ with\ all\ atoms\ (defaulting\ to\ false)}}
+\DoxyCodeLine{00260\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{char}\ atom\ :\ atoms)}
+\DoxyCodeLine{00261\ \ \ \ \ \{}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ truth\_values[atom]\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00263\ \ \ \ \ \}}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00265\ \ \ \ \ \textcolor{comment}{//\ Pre-\/process\ the\ CNF\ tree\ for\ efficient\ evaluation}}
+\DoxyCodeLine{00266\ \ \ \ \ vector<pair<set<char>,\ set<char>>>\ clause\_literals;}
+\DoxyCodeLine{00267\ \ \ \ \ \mbox{\hyperlink{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_acf8072b3a45b7188f49ea780101b67e1}{collectClausesWithLiterals}}(cnfRootNode,\ clause\_literals);}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00269\ \ \ \ \ \textcolor{keywordtype}{int}\ max\ =\ (1\ <<\ numOfAtoms)\ -\/\ 1;\ \textcolor{comment}{//\ e.g.,\ for\ 3\ atoms,\ max\ is\ 7\ (111)}}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \ \ \ \ \textcolor{comment}{//\ Print\ table\ header}}
+\DoxyCodeLine{00272\ \ \ \ \ cout\ <<\ string(numOfAtoms\ *\ 5\ +\ 3,\ \textcolor{charliteral}{'-\/'})\ <<\ endl;}
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{char}\ atom\ :\ atoms)}
+\DoxyCodeLine{00274\ \ \ \ \ \{}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ cout\ <<\ left\ <<\ setw(5)\ <<\ atom;}
+\DoxyCodeLine{00276\ \ \ \ \ \}}
+\DoxyCodeLine{00277\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}OUT"{}}\ <<\ endl;}
+\DoxyCodeLine{00278\ \ \ \ \ cout\ <<\ string(numOfAtoms\ *\ 5\ +\ 3,\ \textcolor{charliteral}{'-\/'})\ <<\ endl;}
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00280\ \ \ \ \ \textcolor{comment}{//\ Iterate\ through\ all\ \$2\string^N\$\ rows}}
+\DoxyCodeLine{00281\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ max;\ i\ >=\ 0;\ i-\/-\/)}
+\DoxyCodeLine{00282\ \ \ \ \ \{}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_a7dc93834bee9c2dac324d899a4f6087d}{assignTruthValues}}(i,\ truth\_values,\ numOfAtoms);}
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Evaluate\ and\ get\ the\ result\ for\ this\ row}}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ result\ =\ \mbox{\hyperlink{namespaceanonymous__namespace_02task8__generate__truth__table_8cpp_03_ac826be3b2afff6ab41a0bb63a2c3fc0b}{evaluateCNF}}(clause\_literals,\ truth\_values)\ ?\ \textcolor{charliteral}{'T'}\ :\ \textcolor{charliteral}{'F'};}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Print\ the\ T/F\ values\ for\ each\ atom}}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&kv\ :\ truth\_values)}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ left\ <<\ setw(5)\ <<\ (kv.second\ ?\ \textcolor{charliteral}{'T'}\ :\ \textcolor{charliteral}{'F'});}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Print\ the\ final\ result\ for\ the\ row}}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ cout\ <<\ result\ <<\ endl;}
+\DoxyCodeLine{00296\ \ \ \ \ \}}
+\DoxyCodeLine{00297\ \}}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ }
+
+\end{DoxyCode}

@@ -1,0 +1,92 @@
+\doxysection{task1\+\_\+infix\+\_\+to\+\_\+prefix.\+cpp}
+\hypertarget{general_2tasks_2task1__infix__to__prefix_8cpp_source}{}\label{general_2tasks_2task1__infix__to__prefix_8cpp_source}\index{general/tasks/task1\_infix\_to\_prefix.cpp@{general/tasks/task1\_infix\_to\_prefix.cpp}}
+\mbox{\hyperlink{general_2tasks_2task1__infix__to__prefix_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <algorithm>}\ \textcolor{comment}{//\ For\ std::reverse}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <stack>}\ \ \ \ \ \textcolor{comment}{//\ For\ std::stack}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <string>}\ \ \ \ \textcolor{comment}{//\ For\ std::string}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ This\ file\ is\ assumed\ to\ provide\ the\ isOperator()\ and\ getPrecedence()\ helpers.}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{general_2common_2parsetree__node_8h}{../common/parsetree\_node.h}}"{}}\ }
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{general_2tasks_2task1__infix__to__prefix_8cpp_adcb4031b2dee72ddd4c6a1a934145a9b}{infixToPrefix}}(\textcolor{keywordtype}{string}\ infix)}
+\DoxyCodeLine{00041\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{comment}{//\ Step\ 1:\ Reverse\ the\ infix\ expression.}}
+\DoxyCodeLine{00043\ \ \ \ \ reverse(infix.begin(),\ infix.end());}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{//\ Step\ 2:\ Swap\ opening\ and\ closing\ parentheses.}}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{comment}{//\ This\ is\ crucial\ for\ correctly\ handling\ operator\ precedence}}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{comment}{//\ after\ the\ string\ has\ been\ reversed.}}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ infix.length();\ ++i)}
+\DoxyCodeLine{00049\ \ \ \ \ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (infix[i]\ ==\ \textcolor{charliteral}{'('})}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ infix[i]\ =\ \textcolor{charliteral}{')'};}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (infix[i]\ ==\ \textcolor{charliteral}{')'})}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ infix[i]\ =\ \textcolor{charliteral}{'('};}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//\ Step\ 3:\ Convert\ the\ modified\ infix\ string\ to\ postfix.}}
+\DoxyCodeLine{00061\ \ \ \ \ stack<char>\ opStack;}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{string}\ postfix;}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{char}\ token\ :\ infix)}
+\DoxyCodeLine{00065\ \ \ \ \ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ the\ token\ is\ an\ operand\ (letter\ or\ number),\ add\ it\ to\ the\ output.}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (isalnum(token))}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ postfix\ +=\ token;}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ it's\ an\ opening\ parenthesis,\ push\ it\ onto\ the\ operator\ stack.}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (token\ ==\ \textcolor{charliteral}{'('})}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ opStack.push(token);}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ it's\ a\ closing\ parenthesis,\ pop\ operators\ from\ the\ stack}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ to\ the\ output\ until\ the\ matching\ opening\ parenthesis\ is\ found.}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (token\ ==\ \textcolor{charliteral}{')'})}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!opStack.empty()\ \&\&\ opStack.top()\ !=\ \textcolor{charliteral}{'('})}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ postfix\ +=\ opStack.top();}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ opStack.pop();}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ opStack.pop();\ \textcolor{comment}{//\ Pop\ and\ discard\ the\ opening\ parenthesis\ '('.}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ the\ token\ is\ an\ operator...}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (isOperator(token))}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Pop\ operators\ from\ the\ stack\ that\ have\ higher\ precedence}}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ than\ the\ current\ token.}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!opStack.empty()\ \&\&\ opStack.top()\ !=\ \textcolor{charliteral}{'('}\ \&\&}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ getPrecedence(token)\ <\ getPrecedence(opStack.top()))}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ postfix\ +=\ opStack.top();}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ opStack.pop();}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Push\ the\ current\ operator\ onto\ the\ stack.}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ opStack.push(token);}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \ \ \ \ \}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{comment}{//\ After\ processing\ all\ tokens,\ pop\ any\ remaining\ operators\ from\ the\ stack.}}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordflow}{while}\ (!opStack.empty())}
+\DoxyCodeLine{00105\ \ \ \ \ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ postfix\ +=\ opStack.top();}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ opStack.pop();}
+\DoxyCodeLine{00108\ \ \ \ \ \}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{comment}{//\ Step\ 4:\ Reverse\ the\ postfix\ string\ to\ get\ the\ final\ prefix.}}
+\DoxyCodeLine{00111\ \ \ \ \ reverse(postfix.begin(),\ postfix.end());}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordflow}{return}\ postfix;}
+\DoxyCodeLine{00114\ \}}
+
+\end{DoxyCode}

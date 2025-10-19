@@ -1,0 +1,197 @@
+\doxysection{task6\+\_\+convert\+\_\+to\+\_\+cnf.\+cpp}
+\hypertarget{task6__convert__to__cnf_8cpp_source}{}\label{task6__convert__to__cnf_8cpp_source}\index{general/tasks/task6\_convert\_to\_cnf.cpp@{general/tasks/task6\_convert\_to\_cnf.cpp}}
+\mbox{\hyperlink{task6__convert__to__cnf_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <iostream>}\ \textcolor{comment}{//\ for\ debug}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <stack>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{general_2common_2parsetree__node_8h}{../common/parsetree\_node.h}}"{}}\ \textcolor{comment}{//\ Assumed\ to\ contain\ Node\ and\ helpers}}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ like\ negation(),\ disjunction(),\ etc.}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{namespace}}
+\DoxyCodeLine{00029\ \{}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *\mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a0bc4791ce6af34657d373c421075bca1}{impl\_free}}(\mbox{\hyperlink{struct_node}{Node}}\ *currentNode)}
+\DoxyCodeLine{00043\ \ \ \ \ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!currentNode)}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Recursively\ process\ children\ first}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *left\ =\ \mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a0bc4791ce6af34657d373c421075bca1}{impl\_free}}(currentNode-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}});}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *right\ =\ \mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a0bc4791ce6af34657d373c421075bca1}{impl\_free}}(currentNode-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}});}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *result\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (currentNode-\/>data)}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'>'}:}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Replace\ (A\ >\ B)\ with\ (\string~A\ +\ B)}}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ result\ =\ disjunction(negation(left),\ right);}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'\string~'}:}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ result\ =\ negation(right);}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'*'}:}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ result\ =\ conjunction(left,\ right);}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'+'}:}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ result\ =\ disjunction(left,\ right);}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Operand\ (leaf)}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ result\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}}(currentNode-\/>data);}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *\mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_ac6a70e2c40ee0d09f472278e551f71ab}{nnf}}(\mbox{\hyperlink{struct_node}{Node}}\ *currentNode)}
+\DoxyCodeLine{00092\ \ \ \ \ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!currentNode)}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *result\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (currentNode-\/>data)}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'+'}:}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ NNF(A\ +\ B)\ =>\ NNF(A)\ +\ NNF(B)}}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ result\ =}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ disjunction(\mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_ac6a70e2c40ee0d09f472278e551f71ab}{nnf}}(currentNode-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}}),\ \mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_ac6a70e2c40ee0d09f472278e551f71ab}{nnf}}(currentNode-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}}));}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'*'}:}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ NNF(A\ *\ B)\ =>\ NNF(A)\ *\ NNF(B)}}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ result\ =}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ conjunction(\mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_ac6a70e2c40ee0d09f472278e551f71ab}{nnf}}(currentNode-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}}),\ \mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_ac6a70e2c40ee0d09f472278e551f71ab}{nnf}}(currentNode-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}}));}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'\string~'}:}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *innerNode\ =\ currentNode-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}};}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (innerNode-\/>data)}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'\string~'}:\ \textcolor{comment}{//\ \string~(\string~A)\ =>\ NNF(A)}}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result\ =\ \mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_ac6a70e2c40ee0d09f472278e551f71ab}{nnf}}(innerNode-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}});}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'+'}:\ \textcolor{comment}{//\ \string~(A\ +\ B)\ =>\ NNF(\string~A)\ *\ NNF(\string~B)}}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result\ =\ conjunction(\mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_ac6a70e2c40ee0d09f472278e551f71ab}{nnf}}(negation(innerNode-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}})),}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_ac6a70e2c40ee0d09f472278e551f71ab}{nnf}}(negation(innerNode-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}})));}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'*'}:\ \textcolor{comment}{//\ \string~(A\ *\ B)\ =>\ NNF(\string~A)\ +\ NNF(\string~B)}}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result\ =\ disjunction(\mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_ac6a70e2c40ee0d09f472278e551f71ab}{nnf}}(negation(innerNode-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}})),}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_ac6a70e2c40ee0d09f472278e551f71ab}{nnf}}(negation(innerNode-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}})));}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:\ \textcolor{comment}{//\ \string~A\ (A\ is\ an\ atom)}}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result\ =\ negation(innerNode);}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Operand\ (leaf)}}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ result\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_node}{Node}}(currentNode-\/>data);}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00138\ \ \ \ \ \}}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00154\ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *\mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a13e03366efb11c5140d170f6e6c3fb59}{distr}}(\mbox{\hyperlink{struct_node}{Node}}\ *node1,\ \mbox{\hyperlink{struct_node}{Node}}\ *node2,\ \textcolor{keywordtype}{int}\ depth\ =\ 0)}
+\DoxyCodeLine{00155\ \ \ \ \ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!node1\ ||\ !node2)}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Safety\ check\ to\ prevent\ stack\ overflow\ on\ deep\ recursion}}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ MAX\_DEPTH\ =\ 2000;\ \textcolor{comment}{//\ tune\ as\ needed}}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (depth\ >\ MAX\_DEPTH)}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}disjunction\ copy\(\backslash\)n"{}};\ \textcolor{comment}{//\ Debug\ string\ literal,\ no-\/op}}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ disjunction(copyNode(node1),\ copyNode(node2));}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ left\ is\ a\ conjunction,\ distribute:\ (A*B)+C\ =>\ (A+C)*(B+C)}}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (node1-\/>data\ ==\ \textcolor{charliteral}{'*'})}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *a\ =\ \mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a13e03366efb11c5140d170f6e6c3fb59}{distr}}(node1-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}},\ node2,\ depth\ +\ 1);}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *b\ =\ \mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a13e03366efb11c5140d170f6e6c3fb59}{distr}}(node1-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}},\ node2,\ depth\ +\ 1);}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ conjunction(a,\ b);}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ right\ is\ a\ conjunction,\ distribute:\ A+(B*C)\ =>\ (A+B)*(A+C)}}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (node2-\/>data\ ==\ \textcolor{charliteral}{'*'})}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *a\ =\ \mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a13e03366efb11c5140d170f6e6c3fb59}{distr}}(node1,\ node2-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}},\ depth\ +\ 1);}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *b\ =\ \mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a13e03366efb11c5140d170f6e6c3fb59}{distr}}(node1,\ node2-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}},\ depth\ +\ 1);}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ conjunction(a,\ b);}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Base\ case:\ Neither\ side\ is\ a\ conjunction.}}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ disjunction(copyNode(node1),\ copyNode(node2));}
+\DoxyCodeLine{00185\ \ \ \ \ \}}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00198\ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *\mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a784986985c169dbc4b4d9f4458ec2c87}{cnf}}(\mbox{\hyperlink{struct_node}{Node}}\ *currentNode,\ \textcolor{keywordtype}{int}\ depth\ =\ 0)}
+\DoxyCodeLine{00199\ \ \ \ \ \{}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!currentNode)}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ MAX\_DEPTH\ =\ 2000;}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ indent(depth\ *\ 2,\ \textcolor{charliteral}{'\ '});\ \textcolor{comment}{//\ Debug\ variable,\ unused\ in\ logic}}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (depth\ >\ MAX\_DEPTH)}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ copyNode(currentNode);}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *result\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (currentNode-\/>data)}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'*'}:}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ CNF(A\ *\ B)\ =>\ CNF(A)\ *\ CNF(B)}}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *leftCNF\ =\ \mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a784986985c169dbc4b4d9f4458ec2c87}{cnf}}(currentNode-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}},\ depth\ +\ 1);}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *rightCNF\ =\ \mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a784986985c169dbc4b4d9f4458ec2c87}{cnf}}(currentNode-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}},\ depth\ +\ 1);}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ result\ =\ conjunction(leftCNF,\ rightCNF);}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'+'}:}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ CNF(A\ +\ B)\ =>\ distr(CNF(A),\ CNF(B))}}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *leftCNF\ =\ \mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a784986985c169dbc4b4d9f4458ec2c87}{cnf}}(currentNode-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}},\ depth\ +\ 1);}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *rightCNF\ =\ \mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a784986985c169dbc4b4d9f4458ec2c87}{cnf}}(currentNode-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}},\ depth\ +\ 1);}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ result\ =\ \mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a13e03366efb11c5140d170f6e6c3fb59}{distr}}(leftCNF,\ rightCNF,\ depth\ +\ 1);}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Literal\ (atom\ or\ \string~atom)}}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ result\ =\ copyNode(currentNode);\ \textcolor{comment}{//\ Always\ return\ a\ safe\ copy}}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00238\ \ \ \ \ \}}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00240\ \}\ \textcolor{comment}{//\ namespace}}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00253\ \mbox{\hyperlink{struct_node}{Node}}\ *\mbox{\hyperlink{task6__convert__to__cnf_8cpp_aacc5644443ec502a7cfb121ce23150df}{computeCnfFromParseTree}}(\mbox{\hyperlink{struct_node}{Node}}\ *rootNode)}
+\DoxyCodeLine{00254\ \{}
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{keywordflow}{if}\ (!rootNode)}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{comment}{//\ Step\ 1:\ Remove\ implications}}
+\DoxyCodeLine{00259\ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *implFreeTree\ =\ \mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a0bc4791ce6af34657d373c421075bca1}{impl\_free}}(rootNode);}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00261\ \ \ \ \ \textcolor{comment}{//\ Step\ 2:\ Convert\ to\ NNF}}
+\DoxyCodeLine{00262\ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *nnfTree\ =\ \mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_ac6a70e2c40ee0d09f472278e551f71ab}{nnf}}(implFreeTree);}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{comment}{//\ Step\ 3:\ Apply\ distributive\ laws\ to\ get\ CNF}}
+\DoxyCodeLine{00265\ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *cnfTree\ =\ \mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a784986985c169dbc4b4d9f4458ec2c87}{cnf}}(nnfTree);}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \ \ \ \ \textcolor{keywordflow}{return}\ cnfTree;}
+\DoxyCodeLine{00268\ \}}
+
+\end{DoxyCode}

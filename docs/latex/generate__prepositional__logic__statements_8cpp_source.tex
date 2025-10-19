@@ -1,0 +1,103 @@
+\doxysection{generate\+\_\+prepositional\+\_\+logic\+\_\+statements.\+cpp}
+\hypertarget{generate__prepositional__logic__statements_8cpp_source}{}\label{generate__prepositional__logic__statements_8cpp_source}\index{general/common/generate\_prepositional\_logic\_statements.cpp@{general/common/generate\_prepositional\_logic\_statements.cpp}}
+\mbox{\hyperlink{generate__prepositional__logic__statements_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <set>}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <cstdlib>}\ \textcolor{comment}{//\ For\ srand}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <ctime>}\ \ \ \textcolor{comment}{//\ For\ time}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{comment}{//\ -\/-\/-\/\ Core\ Project\ Headers\ -\/-\/-\/}}
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ Defines\ the\ Node\ struct\ and\ all\ helper\ functions\ (e.g.,\ isOperator)}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ "{}common/parsetree\_node.h"{}}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{comment}{//\ Declares\ all\ 8\ task\ functions}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ "{}common/tasks.h"{}}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{comment}{//\ Declares\ the\ random\ formula\ generator}}
+\DoxyCodeLine{00036\ \textcolor{comment}{//\ (Ensure\ random\_formula\_generator.h\ is\ in\ your\ common\ folder\ or\ adjust\ path)}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ "{}common/random\_formula\_generator.h"{}}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{//\ Function\ to\ print\ a\ separator\ line}}
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{void}\ printSeparator()}
+\DoxyCodeLine{00041\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::string(60,\ \textcolor{charliteral}{'-\/'})\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{00044\ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keywordtype}{int}\ main()}
+\DoxyCodeLine{00047\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{comment}{//\ Seed\ the\ random\ number\ generator}}
+\DoxyCodeLine{00049\ \ \ \ \ srand(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\textcolor{keyword}{>}(time(0)));}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ Generate\ a\ Random\ Formula\ -\/-\/-\/}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{comment}{//\ Generate\ 1\ formula,\ using\ 3\ variables\ ('a',\ 'b',\ 'c'),\ min\ depth\ 2,\ max\ 3}}
+\DoxyCodeLine{00053\ \ \ \ \ std::vector<string>\ formulas\ =\ generateRandomFormulas(1,\ 3,\ 2,\ 3);}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{string}\ infix\ =\ formulas[0];}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Starting\ Full\ Pipeline\ Test..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00057\ \ \ \ \ printSeparator();}
+\DoxyCodeLine{00058\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Original\ Infix:\ \ \ "{}}\ <<\ infix\ <<\ std::endl;}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ Task\ 1:\ Infix\ to\ Prefix\ -\/-\/-\/}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{string}\ prefix\ =\ infixToPrefix(infix);}
+\DoxyCodeLine{00062\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Task\ 1\ (Prefix):\ \ "{}}\ <<\ prefix\ <<\ std::endl;}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ Task\ 2:\ Prefix\ to\ Parse\ Tree\ -\/-\/-\/}}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *root\ =\ prefixToParseTree(prefix);}
+\DoxyCodeLine{00066\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Task\ 2\ (Prefix\ to\ Tree):\ Success"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ Task\ 3:\ Parse\ Tree\ to\ Infix\ -\/-\/-\/}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{string}\ infix\_check\ =\ parseTreeToInfix(root);}
+\DoxyCodeLine{00070\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Task\ 3\ (Tree\ to\ Infix):\ "{}}\ <<\ infix\_check\ <<\ std::endl;}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ Task\ 4:\ Compute\ Height\ -\/-\/-\/}}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{int}\ height\ =\ computeHeightOfParseTree(root);}
+\DoxyCodeLine{00074\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Task\ 4\ (Height):\ \ "{}}\ <<\ height\ <<\ std::endl;}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ Task\ 5:\ Evaluate\ Truth\ Value\ -\/-\/-\/}}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{//\ Create\ a\ sample\ truth\ assignment\ for\ atoms\ 'a',\ 'b',\ 'c'}}
+\DoxyCodeLine{00078\ \ \ \ \ map<char,\ bool>\ truthValues\ =\ \{\{\textcolor{charliteral}{'a'},\ \textcolor{keyword}{true}\},\ \{\textcolor{charliteral}{'b'},\ \textcolor{keyword}{false}\},\ \{\textcolor{charliteral}{'c'},\ \textcolor{keyword}{true}\}\};}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{bool}\ result\ =\ evaluateTruthValue(root,\ truthValues);}
+\DoxyCodeLine{00080\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Task\ 5\ (Evaluate\ 'a=T,\ b=F,\ c=T'):\ "{}}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ (result\ ?\ \textcolor{stringliteral}{"{}True"{}}\ :\ \textcolor{stringliteral}{"{}False"{}})\ <<\ std::endl;}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ printSeparator();}
+\DoxyCodeLine{00084\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Starting\ CNF\ Conversion..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ Task\ 6:\ Convert\ to\ CNF\ -\/-\/-\/}}
+\DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ *cnfRoot\ =\ \mbox{\hyperlink{task6__convert__to__cnf_8cpp_aacc5644443ec502a7cfb121ce23150df}{computeCnfFromParseTree}}(root);}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{string}\ cnf\_infix\ =\ parseTreeToInfix(cnfRoot);}
+\DoxyCodeLine{00089\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Task\ 6\ (CNF\ Tree):\ "{}}\ <<\ cnf\_infix\ <<\ std::endl;}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ Task\ 7:\ Check\ Validity\ -\/-\/-\/}}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{int}\ validClauses\ =\ 0;}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{int}\ invalidClauses\ =\ 0;}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_valid\ =\ isValid(cnfRoot,\ validClauses,\ invalidClauses);}
+\DoxyCodeLine{00095\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Task\ 7\ (Is\ Valid):\ "{}}\ <<\ (is\_valid\ ?\ \textcolor{stringliteral}{"{}Yes\ (Tautology)"{}}\ :\ \textcolor{stringliteral}{"{}No"{}})\ <<\ std::endl;}
+\DoxyCodeLine{00096\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \ Valid\ Clauses:\ "{}}\ <<\ validClauses}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ |\ Invalid\ Clauses:\ "{}}\ <<\ invalidClauses\ <<\ std::endl;}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ Task\ 8:\ Generate\ Truth\ Table\ -\/-\/-\/}}
+\DoxyCodeLine{00100\ \ \ \ \ set<char>\ atoms;}
+\DoxyCodeLine{00101\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nTask\ 8\ (Truth\ Table\ for\ CNF):"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00102\ \ \ \ \ \mbox{\hyperlink{task8__generate__truth__table_8cpp_a5904b3029b2a162df51df87070670848}{generateTruthTable}}(cnfRoot,\ atoms);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ printSeparator();}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ Cleanup\ -\/-\/-\/}}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{comment}{//\ IMPORTANT:\ Free\ all\ memory\ allocated\ for\ both\ trees}}
+\DoxyCodeLine{00108\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Cleaning\ up\ memory..."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00109\ \ \ \ \ destroyParseTree(root);}
+\DoxyCodeLine{00110\ \ \ \ \ destroyParseTree(cnfRoot);}
+\DoxyCodeLine{00111\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Pipeline\ complete."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00114\ \}}
+
+\end{DoxyCode}

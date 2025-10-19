@@ -1,0 +1,82 @@
+\doxysection{task7\+\_\+check\+\_\+validity.\+cpp}
+\hypertarget{general_2tasks_2task7__check__validity_8cpp_source}{}\label{general_2tasks_2task7__check__validity_8cpp_source}\index{general/tasks/task7\_check\_validity.cpp@{general/tasks/task7\_check\_validity.cpp}}
+\mbox{\hyperlink{general_2tasks_2task7__check__validity_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <set>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{general_2common_2parsetree__node_8h}{../common/parsetree\_node.h}}"{}}\ \textcolor{comment}{//\ Assumed\ to\ contain\ Node}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{namespace\ }\{}
+\DoxyCodeLine{00035\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceanonymous__namespace_02task7__check__validity_8cpp_03_ae91db2778ea9abf1708d121becd994a5}{collectClauses}}(\mbox{\hyperlink{struct_node}{Node}}*\ currentCnfNode,\ vector<Node*>\&\ clauses)\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{if}\ (!currentCnfNode)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{if}\ (currentCnfNode-\/>data\ ==\ \textcolor{charliteral}{'*'})\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ This\ is\ an\ AND,\ so\ its\ children\ are\ either\ clauses\ or\ more\ ANDs}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceanonymous__namespace_02task7__check__validity_8cpp_03_ae91db2778ea9abf1708d121becd994a5}{collectClauses}}(currentCnfNode-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}},\ clauses);}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceanonymous__namespace_02task7__check__validity_8cpp_03_ae91db2778ea9abf1708d121becd994a5}{collectClauses}}(currentCnfNode-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}},\ clauses);}
+\DoxyCodeLine{00041\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ This\ is\ not\ an\ AND,\ so\ it's\ a\ clause\ (e.g.,\ A,\ \string~A,\ A+B)}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ clauses.push\_back(currentCnfNode);}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+\DoxyCodeLine{00045\ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00060\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceanonymous__namespace_02task7__check__validity_8cpp_03_a3c25024be977e506ac3479c87ede914b}{collectLiterals}}(\mbox{\hyperlink{struct_node}{Node}}*\ clauseNode,\ set<char>\&\ positive,}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ set<char>\&\ negative)\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{if}\ (!clauseNode)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{if}\ (clauseNode-\/>data\ ==\ \textcolor{charliteral}{'+'})\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ This\ is\ an\ OR,\ process\ both\ sides}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceanonymous__namespace_02task7__check__validity_8cpp_03_a3c25024be977e506ac3479c87ede914b}{collectLiterals}}(clauseNode-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}},\ positive,\ negative);}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceanonymous__namespace_02task7__check__validity_8cpp_03_a3c25024be977e506ac3479c87ede914b}{collectLiterals}}(clauseNode-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}},\ positive,\ negative);}
+\DoxyCodeLine{00067\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (clauseNode-\/>data\ ==\ \textcolor{charliteral}{'\string~'})\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ This\ is\ a\ NOT,\ add\ its\ child\ to\ the\ negative\ set}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (clauseNode-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}})\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ negative.insert(clauseNode-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}}-\/>data);}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00072\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ This\ is\ an\ atom,\ add\ to\ the\ positive\ set}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ positive.insert(clauseNode-\/>data);}
+\DoxyCodeLine{00075\ \ \ \ \ \}}
+\DoxyCodeLine{00076\ \}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00088\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespaceanonymous__namespace_02task7__check__validity_8cpp_03_aa5b37816883b0a920a403381ebfebad8}{isTautologicalClause}}(\mbox{\hyperlink{struct_node}{Node}}*\ clauseNode)\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ set<char>\ positive\_literals;}
+\DoxyCodeLine{00090\ \ \ \ \ set<char>\ negative\_literals;}
+\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{namespaceanonymous__namespace_02task7__check__validity_8cpp_03_a3c25024be977e506ac3479c87ede914b}{collectLiterals}}(clauseNode,\ positive\_literals,\ negative\_literals);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{comment}{//\ Check\ for\ any\ intersection\ between\ the\ two\ sets}}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{char}\ p\_literal\ :\ positive\_literals)\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (negative\_literals.count(p\_literal))\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \ \textcolor{comment}{//\ Found\ a\ pair\ like\ p\ and\ \string~p}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00100\ \}}
+\DoxyCodeLine{00101\ \}\ \ \textcolor{comment}{//\ namespace}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00118\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{general_2tasks_2task7__check__validity_8cpp_a3873207fa02550d10d2b501f8523df86}{isValid}}(\mbox{\hyperlink{struct_node}{Node}}*\ cnf\_root,\ \textcolor{keywordtype}{int}\&\ validCount,\ \textcolor{keywordtype}{int}\&\ invalidCount)\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ validCount\ =\ 0;}
+\DoxyCodeLine{00120\ \ \ \ \ invalidCount\ =\ 0;}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordflow}{if}\ (!cnf\_root)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \textcolor{comment}{//\ An\ empty\ formula\ is\ valid}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ vector<Node*>\ clauses;}
+\DoxyCodeLine{00125\ \ \ \ \ \mbox{\hyperlink{namespaceanonymous__namespace_02task7__check__validity_8cpp_03_ae91db2778ea9abf1708d121becd994a5}{collectClauses}}(cnf\_root,\ clauses);}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordflow}{if}\ (clauses.empty())\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \textcolor{comment}{//\ Also\ valid}}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{struct_node}{Node}}*\ clause\ :\ clauses)\ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespaceanonymous__namespace_02task7__check__validity_8cpp_03_aa5b37816883b0a920a403381ebfebad8}{isTautologicalClause}}(clause))}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ ++validCount;}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ ++invalidCount;}
+\DoxyCodeLine{00134\ \ \ \ \ \}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{comment}{//\ The\ formula\ is\ valid\ if\ and\ only\ if\ there\ are\ no\ invalid\ clauses.}}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordflow}{return}\ invalidCount\ ==\ 0;}
+\DoxyCodeLine{00138\ \}}
+
+\end{DoxyCode}

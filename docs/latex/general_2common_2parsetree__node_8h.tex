@@ -1,0 +1,231 @@
+\doxysection{general/common/parsetree\+\_\+node.h File Reference}
+\hypertarget{general_2common_2parsetree__node_8h}{}\label{general_2common_2parsetree__node_8h}\index{general/common/parsetree\_node.h@{general/common/parsetree\_node.h}}
+
+
+Defines the core \doxylink{struct_node}{Node} struct and all helper functions.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_node}{Node}}
+\begin{DoxyCompactList}\small\item\em A single node in the logical expression parse tree. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{general_2common_2parsetree__node_8h_ab2e81f14ebb3c586790be13f12aaed77}{copy\+Node}} (const \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}src)
+\begin{DoxyCompactList}\small\item\em Creates a deep copy of a node and all its descendants. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{general_2common_2parsetree__node_8h_a8de0827dc0082864ca8ba149bde3fc7b}{literal}} (char s)
+\begin{DoxyCompactList}\small\item\em Creates a new leaf node (a literal/operand). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{general_2common_2parsetree__node_8h_ac2834e8ea6d59d5bb73d8455a9d6ff06}{negation}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}node)
+\begin{DoxyCompactList}\small\item\em Creates a new negation (NOT) node. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{general_2common_2parsetree__node_8h_abe157569e5b15aefe5e68255c4fcd50d}{conjunction}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}left\+Node, \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}right\+Node)
+\begin{DoxyCompactList}\small\item\em Creates a new conjunction (AND) node. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{general_2common_2parsetree__node_8h_a102a1e5d85bdb1118cff856e4516508a}{disjunction}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}left\+Node, \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}right\+Node)
+\begin{DoxyCompactList}\small\item\em Creates a new disjunction (OR) node. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{general_2common_2parsetree__node_8h_a41fcc476e9913613c77322ef08e7a5fa}{implication}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}left\+Node, \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}right\+Node)
+\begin{DoxyCompactList}\small\item\em Creates a new implication (IMPLIES) node. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{general_2common_2parsetree__node_8h_ac792f08ed5f8708833ac64a61310dd03}{is\+Operator}} (char c)
+\begin{DoxyCompactList}\small\item\em Checks if a character is a supported logical operator. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{general_2common_2parsetree__node_8h_a607050ed9abd2625aa3dfb6b45148a7c}{is\+\_\+literal}} (const \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}node)
+\begin{DoxyCompactList}\small\item\em Checks if a node represents a literal. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{general_2common_2parsetree__node_8h_a0cf0fba67810f8bc1e9dc8520818d157}{get\+Precedence}} (char op)
+\begin{DoxyCompactList}\small\item\em Gets the precedence of a logical operator. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{general_2common_2parsetree__node_8h_a058d67a3b3ff474b6358b22debb2259c}{destroy\+Parse\+Tree}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}root)
+\begin{DoxyCompactList}\small\item\em Recursively deletes a node and all its children to free memory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines the core \doxylink{struct_node}{Node} struct and all helper functions. 
+
+This is the central header for the parse tree. It defines the \doxylink{struct_node}{Node} data structure and provides inline helper functions for creating, copying, destroying, and analyzing nodes and their properties. 
+
+\label{doc-func-members}
+\Hypertarget{general_2common_2parsetree__node_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{general_2common_2parsetree__node_8h_abe157569e5b15aefe5e68255c4fcd50d}\index{parsetree\_node.h@{parsetree\_node.h}!conjunction@{conjunction}}
+\index{conjunction@{conjunction}!parsetree\_node.h@{parsetree\_node.h}}
+\doxysubsubsection{\texorpdfstring{conjunction()}{conjunction()}}
+{\footnotesize\ttfamily \label{general_2common_2parsetree__node_8h_abe157569e5b15aefe5e68255c4fcd50d} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} conjunction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{left\+Node}{, }\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{right\+Node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a new conjunction (AND) node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left\+Node} & The left child. \\
+\hline
+{\em right\+Node} & The right child. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \textquotesingle{}\texorpdfstring{$\ast$}{*}\textquotesingle{} \doxylink{struct_node}{Node}. 
+\end{DoxyReturn}
+\Hypertarget{general_2common_2parsetree__node_8h_ab2e81f14ebb3c586790be13f12aaed77}\index{parsetree\_node.h@{parsetree\_node.h}!copyNode@{copyNode}}
+\index{copyNode@{copyNode}!parsetree\_node.h@{parsetree\_node.h}}
+\doxysubsubsection{\texorpdfstring{copyNode()}{copyNode()}}
+{\footnotesize\ttfamily \label{general_2common_2parsetree__node_8h_ab2e81f14ebb3c586790be13f12aaed77} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} copy\+Node (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{src}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a deep copy of a node and all its descendants. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & The node to copy. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the root of the new, copied tree. 
+\end{DoxyReturn}
+\Hypertarget{general_2common_2parsetree__node_8h_a058d67a3b3ff474b6358b22debb2259c}\index{parsetree\_node.h@{parsetree\_node.h}!destroyParseTree@{destroyParseTree}}
+\index{destroyParseTree@{destroyParseTree}!parsetree\_node.h@{parsetree\_node.h}}
+\doxysubsubsection{\texorpdfstring{destroyParseTree()}{destroyParseTree()}}
+{\footnotesize\ttfamily \label{general_2common_2parsetree__node_8h_a058d67a3b3ff474b6358b22debb2259c} 
+void destroy\+Parse\+Tree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{root}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Recursively deletes a node and all its children to free memory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em root} & The root of the tree/sub-\/tree to delete. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{general_2common_2parsetree__node_8h_a102a1e5d85bdb1118cff856e4516508a}\index{parsetree\_node.h@{parsetree\_node.h}!disjunction@{disjunction}}
+\index{disjunction@{disjunction}!parsetree\_node.h@{parsetree\_node.h}}
+\doxysubsubsection{\texorpdfstring{disjunction()}{disjunction()}}
+{\footnotesize\ttfamily \label{general_2common_2parsetree__node_8h_a102a1e5d85bdb1118cff856e4516508a} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} disjunction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{left\+Node}{, }\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{right\+Node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a new disjunction (OR) node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left\+Node} & The left child. \\
+\hline
+{\em right\+Node} & The right child. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \textquotesingle{}+\textquotesingle{} \doxylink{struct_node}{Node}. 
+\end{DoxyReturn}
+\Hypertarget{general_2common_2parsetree__node_8h_a0cf0fba67810f8bc1e9dc8520818d157}\index{parsetree\_node.h@{parsetree\_node.h}!getPrecedence@{getPrecedence}}
+\index{getPrecedence@{getPrecedence}!parsetree\_node.h@{parsetree\_node.h}}
+\doxysubsubsection{\texorpdfstring{getPrecedence()}{getPrecedence()}}
+{\footnotesize\ttfamily \label{general_2common_2parsetree__node_8h_a0cf0fba67810f8bc1e9dc8520818d157} 
+int get\+Precedence (\begin{DoxyParamCaption}\item[{char}]{op}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the precedence of a logical operator. 
+
+Precedence order\+: 4\+: \texorpdfstring{$\sim$}{\string~} (NOT) 3\+: \texorpdfstring{$\ast$}{*} (AND) 2\+: + (OR) 1\+: \texorpdfstring{$>$}{>} (IMPLIES)
+
+
+\begin{DoxyParams}{Parameters}
+{\em op} & The operator character. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An integer representing the operator\textquotesingle{}s precedence. 
+\end{DoxyReturn}
+\Hypertarget{general_2common_2parsetree__node_8h_a41fcc476e9913613c77322ef08e7a5fa}\index{parsetree\_node.h@{parsetree\_node.h}!implication@{implication}}
+\index{implication@{implication}!parsetree\_node.h@{parsetree\_node.h}}
+\doxysubsubsection{\texorpdfstring{implication()}{implication()}}
+{\footnotesize\ttfamily \label{general_2common_2parsetree__node_8h_a41fcc476e9913613c77322ef08e7a5fa} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} implication (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{left\+Node}{, }\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{right\+Node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a new implication (IMPLIES) node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left\+Node} & The left child (antecedent). \\
+\hline
+{\em right\+Node} & The right child (consequent). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \textquotesingle{}\texorpdfstring{$>$}{>}\textquotesingle{} \doxylink{struct_node}{Node}. 
+\end{DoxyReturn}
+\Hypertarget{general_2common_2parsetree__node_8h_a607050ed9abd2625aa3dfb6b45148a7c}\index{parsetree\_node.h@{parsetree\_node.h}!is\_literal@{is\_literal}}
+\index{is\_literal@{is\_literal}!parsetree\_node.h@{parsetree\_node.h}}
+\doxysubsubsection{\texorpdfstring{is\_literal()}{is\_literal()}}
+{\footnotesize\ttfamily \label{general_2common_2parsetree__node_8h_a607050ed9abd2625aa3dfb6b45148a7c} 
+bool is\+\_\+literal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if a node represents a literal. 
+
+A literal is defined as an atom (e.\+g., \textquotesingle{}A\textquotesingle{}) or a negated atom (e.\+g., \textquotesingle{}\texorpdfstring{$\sim$}{\string~}A\textquotesingle{}). It is not a complex expression. 
+\begin{DoxyParams}{Parameters}
+{\em node} & The node to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the node is a literal, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{general_2common_2parsetree__node_8h_ac792f08ed5f8708833ac64a61310dd03}\index{parsetree\_node.h@{parsetree\_node.h}!isOperator@{isOperator}}
+\index{isOperator@{isOperator}!parsetree\_node.h@{parsetree\_node.h}}
+\doxysubsubsection{\texorpdfstring{isOperator()}{isOperator()}}
+{\footnotesize\ttfamily \label{general_2common_2parsetree__node_8h_ac792f08ed5f8708833ac64a61310dd03} 
+bool is\+Operator (\begin{DoxyParamCaption}\item[{char}]{c}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if a character is a supported logical operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & The character to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the character is an operator, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{general_2common_2parsetree__node_8h_a8de0827dc0082864ca8ba149bde3fc7b}\index{parsetree\_node.h@{parsetree\_node.h}!literal@{literal}}
+\index{literal@{literal}!parsetree\_node.h@{parsetree\_node.h}}
+\doxysubsubsection{\texorpdfstring{literal()}{literal()}}
+{\footnotesize\ttfamily \label{general_2common_2parsetree__node_8h_a8de0827dc0082864ca8ba149bde3fc7b} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} literal (\begin{DoxyParamCaption}\item[{char}]{s}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a new leaf node (a literal/operand). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The character for the literal (e.\+g., \textquotesingle{}A\textquotesingle{}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new leaf \doxylink{struct_node}{Node}. 
+\end{DoxyReturn}
+\Hypertarget{general_2common_2parsetree__node_8h_ac2834e8ea6d59d5bb73d8455a9d6ff06}\index{parsetree\_node.h@{parsetree\_node.h}!negation@{negation}}
+\index{negation@{negation}!parsetree\_node.h@{parsetree\_node.h}}
+\doxysubsubsection{\texorpdfstring{negation()}{negation()}}
+{\footnotesize\ttfamily \label{general_2common_2parsetree__node_8h_ac2834e8ea6d59d5bb73d8455a9d6ff06} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} negation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a new negation (NOT) node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & The child node to be negated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \textquotesingle{}\texorpdfstring{$\sim$}{\string~}\textquotesingle{} \doxylink{struct_node}{Node}. 
+\end{DoxyReturn}

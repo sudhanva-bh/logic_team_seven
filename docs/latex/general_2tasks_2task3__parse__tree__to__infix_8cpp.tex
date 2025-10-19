@@ -1,0 +1,49 @@
+\doxysection{general/tasks/task3\+\_\+parse\+\_\+tree\+\_\+to\+\_\+infix.cpp File Reference}
+\hypertarget{general_2tasks_2task3__parse__tree__to__infix_8cpp}{}\label{general_2tasks_2task3__parse__tree__to__infix_8cpp}\index{general/tasks/task3\_parse\_tree\_to\_infix.cpp@{general/tasks/task3\_parse\_tree\_to\_infix.cpp}}
+
+
+Converts a parse tree back into an infix notation string.  
+
+
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include "{}../common/parsetree\+\_\+node.\+h"{}}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceanonymous__namespace_02task3__parse__tree__to__infix_8cpp_03}{anonymous\+\_\+namespace\{task3\+\_\+parse\+\_\+tree\+\_\+to\+\_\+infix.\+cpp\}}}
+\begin{DoxyCompactList}\small\item\em Contains internal helper functions for tree traversal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{namespaceanonymous__namespace_02task3__parse__tree__to__infix_8cpp_03_ace7befa732f9907521b58c65ccc26b77}{anonymous\+\_\+namespace\{task3\+\_\+parse\+\_\+tree\+\_\+to\+\_\+infix.\+cpp\}\+::build\+Parse\+Tree\+To\+Infix\+Recursive}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}current\+Node, bool is\+Root)
+\begin{DoxyCompactList}\small\item\em Recursively builds an infix string from a parse tree. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{general_2tasks_2task3__parse__tree__to__infix_8cpp_a786debd4db1976ffa46047030030edc6}{parse\+Tree\+To\+Infix}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}root\+Node)
+\begin{DoxyCompactList}\small\item\em Public interface to convert a parse tree to an infix string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Converts a parse tree back into an infix notation string. 
+
+This file provides a function to traverse an expression tree and reconstruct the standard, human-\/readable infix string, correctly placing parentheses to maintain operator precedence. 
+
+\label{doc-func-members}
+\Hypertarget{general_2tasks_2task3__parse__tree__to__infix_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{general_2tasks_2task3__parse__tree__to__infix_8cpp_a786debd4db1976ffa46047030030edc6}\index{task3\_parse\_tree\_to\_infix.cpp@{task3\_parse\_tree\_to\_infix.cpp}!parseTreeToInfix@{parseTreeToInfix}}
+\index{parseTreeToInfix@{parseTreeToInfix}!task3\_parse\_tree\_to\_infix.cpp@{task3\_parse\_tree\_to\_infix.cpp}}
+\doxysubsubsection{\texorpdfstring{parseTreeToInfix()}{parseTreeToInfix()}}
+{\footnotesize\ttfamily \label{general_2tasks_2task3__parse__tree__to__infix_8cpp_a786debd4db1976ffa46047030030edc6} 
+string parse\+Tree\+To\+Infix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{root\+Node}{}\end{DoxyParamCaption})}
+
+
+
+Public interface to convert a parse tree to an infix string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em root\+Node} & A pointer to the root of the parse tree. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A string containing the expression in infix notation. 
+\end{DoxyReturn}

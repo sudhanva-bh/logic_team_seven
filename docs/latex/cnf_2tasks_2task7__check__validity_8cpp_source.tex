@@ -1,0 +1,69 @@
+\doxysection{task7\+\_\+check\+\_\+validity.\+cpp}
+\hypertarget{cnf_2tasks_2task7__check__validity_8cpp_source}{}\label{cnf_2tasks_2task7__check__validity_8cpp_source}\index{cnf/tasks/task7\_check\_validity.cpp@{cnf/tasks/task7\_check\_validity.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <set>}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}../common/parsetree\_node.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\{}
+\DoxyCodeLine{00009\ vector<vector<int>>\ collectClauses(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ cnfString)\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ vector<vector<int>>\ clauses;}
+\DoxyCodeLine{00011\ \ \ \ \ istringstream\ iss(cnfString);}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{string}\ line;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordflow}{while}\ (getline(iss,\ line))\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Skip\ comments\ and\ metadata\ lines\ (starting\ with\ 'c'\ or\ 'p')}}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (line.empty()\ ||\ line[0]\ ==\ \textcolor{charliteral}{'c'}\ ||\ line[0]\ ==\ \textcolor{charliteral}{'p'})\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ istringstream\ lineStream(line);}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ literal;}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ vector<int>\ clause;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (lineStream\ >>\ literal)\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (literal\ ==\ 0)\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Clause\ end\ marker}}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!clause.empty())\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clauses.push\_back(clause);}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clause.clear();}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clause.push\_back(literal);}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{return}\ clauses;}
+\DoxyCodeLine{00036\ \}}
+\DoxyCodeLine{00037\ \}\ \ \textcolor{comment}{//\ namespace}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keywordtype}{bool}\ isValid(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ cnfString,\ \textcolor{keywordtype}{int}\&\ validCount,\ \textcolor{keywordtype}{int}\&\ invalidCount)\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ validCount\ =\ 0;}
+\DoxyCodeLine{00041\ \ \ \ \ invalidCount\ =\ 0;}
+\DoxyCodeLine{00042\ \ \ \ \ vector<vector<int>>\ clauses\ =\ collectClauses(cnfString);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ clause\ :\ clauses)\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ set<int>\ literals(clause.begin(),\ clause.end());}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ clauseValid\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ lit\ :\ literals)\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (literals.count(-\/lit))\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clauseValid\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (clauseValid)}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ ++validCount;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ ++invalidCount;}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//\ Return\ true\ if\ all\ are\ valid}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{return}\ invalidCount\ ==\ 0;}
+\DoxyCodeLine{00063\ \}}
+
+\end{DoxyCode}

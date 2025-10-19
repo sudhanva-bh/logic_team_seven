@@ -1,0 +1,55 @@
+\doxysection{general/tasks/task5\+\_\+evaluate\+\_\+truth\+\_\+value.cpp File Reference}
+\hypertarget{general_2tasks_2task5__evaluate__truth__value_8cpp}{}\label{general_2tasks_2task5__evaluate__truth__value_8cpp}\index{general/tasks/task5\_evaluate\_truth\_value.cpp@{general/tasks/task5\_evaluate\_truth\_value.cpp}}
+
+
+Evaluates the truth value of a parse tree given atom assignments.  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$stack$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include "{}../common/parsetree\+\_\+node.\+h"{}}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceanonymous__namespace_02task5__evaluate__truth__value_8cpp_03}{anonymous\+\_\+namespace\{task5\+\_\+evaluate\+\_\+truth\+\_\+value.\+cpp\}}}
+\begin{DoxyCompactList}\small\item\em Contains internal helper functions for tree evaluation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{namespaceanonymous__namespace_02task5__evaluate__truth__value_8cpp_03_a55f1e19c8a89f1389f842a9899fc190d}\label{namespaceanonymous__namespace_02task5__evaluate__truth__value_8cpp_03_a55f1e19c8a89f1389f842a9899fc190d} 
+bool {\bfseries anonymous\+\_\+namespace\{task5\+\_\+evaluate\+\_\+truth\+\_\+value.\+cpp\}\+::get\+Truth\+Value\+Recursion} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}current\+Node, const map$<$ char, bool $>$ \&truth\+Values)
+\begin{DoxyCompactList}\small\item\em Recursively evaluates the truth value of a sub-\/tree. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{general_2tasks_2task5__evaluate__truth__value_8cpp_aaf77e974b01314c7f0dc50ad5e92dc3a}{evaluate\+Truth\+Value}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}root\+Node, const map$<$ char, bool $>$ truth\+Values)
+\begin{DoxyCompactList}\small\item\em Public interface to evaluate the truth value of a parse tree. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Evaluates the truth value of a parse tree given atom assignments. 
+
+This file provides a function to compute the boolean result of a logical expression tree based on a given mapping of atomic propositions (variables) to their T/F values. 
+
+\label{doc-func-members}
+\Hypertarget{general_2tasks_2task5__evaluate__truth__value_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{general_2tasks_2task5__evaluate__truth__value_8cpp_aaf77e974b01314c7f0dc50ad5e92dc3a}\index{task5\_evaluate\_truth\_value.cpp@{task5\_evaluate\_truth\_value.cpp}!evaluateTruthValue@{evaluateTruthValue}}
+\index{evaluateTruthValue@{evaluateTruthValue}!task5\_evaluate\_truth\_value.cpp@{task5\_evaluate\_truth\_value.cpp}}
+\doxysubsubsection{\texorpdfstring{evaluateTruthValue()}{evaluateTruthValue()}}
+{\footnotesize\ttfamily \label{general_2tasks_2task5__evaluate__truth__value_8cpp_aaf77e974b01314c7f0dc50ad5e92dc3a} 
+bool evaluate\+Truth\+Value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{root\+Node}{, }\item[{const map$<$ char, bool $>$}]{truth\+Values}{}\end{DoxyParamCaption})}
+
+
+
+Public interface to evaluate the truth value of a parse tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em root\+Node} & A pointer to the root of the parse tree. \\
+\hline
+{\em truth\+Values} & A constant map where keys are atomic propositions (char) and values are their assigned boolean truth values. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The final boolean result of the entire expression. 
+\end{DoxyReturn}

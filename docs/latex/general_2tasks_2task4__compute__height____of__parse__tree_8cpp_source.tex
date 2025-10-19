@@ -1,0 +1,38 @@
+\doxysection{task4\+\_\+compute\+\_\+height\+\_\+\+\_\+of\+\_\+parse\+\_\+tree.\+cpp}
+\hypertarget{general_2tasks_2task4__compute__height____of__parse__tree_8cpp_source}{}\label{general_2tasks_2task4__compute__height____of__parse__tree_8cpp_source}\index{general/tasks/task4\_compute\_height\_\_of\_parse\_tree.cpp@{general/tasks/task4\_compute\_height\_\_of\_parse\_tree.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{general_2common_2parsetree__node_8h}{../common/parsetree\_node.h}}"{}}\ \textcolor{comment}{//\ Assumed\ to\ contain\ Node,\ isOperator}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{namespace\ }\{}
+\DoxyCodeLine{00026\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespaceanonymous__namespace_02task4__compute__height____of__parse__tree_8cpp_03_a493e5f542483d0ae559f801aa0943e0c}{computeHeightOfParseTreeRecursive}}(\mbox{\hyperlink{struct_node}{Node}}*\ currentNode)\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordflow}{if}\ (currentNode\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;\ \textcolor{comment}{//\ Height\ of\ a\ null\ tree\ is\ 0}}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{char}\ token\ =\ currentNode-\/>data;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{if}\ (token\ ==\ \textcolor{charliteral}{'\string~'})\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Unary\ operator:\ 1\ +\ height\ of\ its\ child}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1\ +\ \mbox{\hyperlink{namespaceanonymous__namespace_02task4__compute__height____of__parse__tree_8cpp_03_a493e5f542483d0ae559f801aa0943e0c}{computeHeightOfParseTreeRecursive}}(currentNode-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}});}
+\DoxyCodeLine{00036\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (isOperator(token))\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Binary\ operator:\ 1\ +\ max\ height\ of\ its\ children}}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ leftHeight\ =\ \mbox{\hyperlink{namespaceanonymous__namespace_02task4__compute__height____of__parse__tree_8cpp_03_a493e5f542483d0ae559f801aa0943e0c}{computeHeightOfParseTreeRecursive}}(currentNode-\/>\mbox{\hyperlink{struct_node_a3ca572db95a35de41c87e70c3e8fb5a7}{left}});}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ rightHeight\ =\ \mbox{\hyperlink{namespaceanonymous__namespace_02task4__compute__height____of__parse__tree_8cpp_03_a493e5f542483d0ae559f801aa0943e0c}{computeHeightOfParseTreeRecursive}}(currentNode-\/>\mbox{\hyperlink{struct_node_afe5916d969cd32f7de1e4ba15580c989}{right}});}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1\ +\ max(leftHeight,\ rightHeight);}
+\DoxyCodeLine{00041\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Operand\ (leaf):\ height\ is\ 0}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+\DoxyCodeLine{00045\ \}}
+\DoxyCodeLine{00046\ \}\ \ \textcolor{comment}{//\ namespace}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{int}\ computeHeightOfParseTree(\mbox{\hyperlink{struct_node}{Node}}*\ rootNode)\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceanonymous__namespace_02task4__compute__height____of__parse__tree_8cpp_03_a493e5f542483d0ae559f801aa0943e0c}{computeHeightOfParseTreeRecursive}}(rootNode);}
+\DoxyCodeLine{00056\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,76 @@
+\doxysection{anonymous\+\_\+namespace\{task6\+\_\+convert\+\_\+to\+\_\+cnf.\+cpp\} Namespace Reference}
+\hypertarget{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03}{}\label{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03}\index{anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}}}
+
+
+Contains internal helper functions for the CNF conversion steps.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a0bc4791ce6af34657d373c421075bca1}{impl\+\_\+free}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}current\+Node)
+\begin{DoxyCompactList}\small\item\em Step 1\+: Recursively removes all implication operators. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_ac6a70e2c40ee0d09f472278e551f71ab}{nnf}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}current\+Node)
+\begin{DoxyCompactList}\small\item\em Step 2\+: Recursively converts an implication-\/free tree to Negation Normal Form (NNF). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a13e03366efb11c5140d170f6e6c3fb59}{distr}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}node1, \mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}node2, int depth=0)
+\begin{DoxyCompactList}\small\item\em Step 3 (Helper)\+: Recursively distributes OR over AND. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a784986985c169dbc4b4d9f4458ec2c87}{cnf}} (\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}current\+Node, int depth=0)
+\begin{DoxyCompactList}\small\item\em Step 3 (Main)\+: Recursively applies the CNF distribution. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains internal helper functions for the CNF conversion steps. 
+
+\label{doc-func-members}
+\Hypertarget{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a784986985c169dbc4b4d9f4458ec2c87}\index{anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}}!cnf@{cnf}}
+\index{cnf@{cnf}!anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}}}
+\doxysubsubsection{\texorpdfstring{cnf()}{cnf()}}
+{\footnotesize\ttfamily \label{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a784986985c169dbc4b4d9f4458ec2c87} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} anonymous\+\_\+namespace\{task6\+\_\+convert\+\_\+to\+\_\+cnf.\+cpp\}\+::cnf (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{current\+Node}{, }\item[{int}]{depth}{ = {\ttfamily 0}}\end{DoxyParamCaption})}
+
+
+
+Step 3 (Main)\+: Recursively applies the CNF distribution. 
+
+Traverses the NNF tree. When it finds a disjunction ({\ttfamily +}), it calls {\ttfamily distr} to handle the distribution of OR over AND. \Hypertarget{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a13e03366efb11c5140d170f6e6c3fb59}\index{anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}}!distr@{distr}}
+\index{distr@{distr}!anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}}}
+\doxysubsubsection{\texorpdfstring{distr()}{distr()}}
+{\footnotesize\ttfamily \label{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a13e03366efb11c5140d170f6e6c3fb59} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} anonymous\+\_\+namespace\{task6\+\_\+convert\+\_\+to\+\_\+cnf.\+cpp\}\+::distr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{node1}{, }\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{node2}{, }\item[{int}]{depth}{ = {\ttfamily 0}}\end{DoxyParamCaption})}
+
+
+
+Step 3 (Helper)\+: Recursively distributes OR over AND. 
+
+This is the core logic for the final CNF step. It applies the distributive law\+:
+\begin{DoxyItemize}
+\item {\ttfamily (A \texorpdfstring{$\ast$}{*} B) + C} becomes {\ttfamily (A + C) \texorpdfstring{$\ast$}{*} (B + C)}
+\item {\ttfamily A + (B \texorpdfstring{$\ast$}{*} C)} becomes {\ttfamily (A + B) \texorpdfstring{$\ast$}{*} (A + C)} 
+\end{DoxyItemize}\Hypertarget{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a0bc4791ce6af34657d373c421075bca1}\index{anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}}!impl\_free@{impl\_free}}
+\index{impl\_free@{impl\_free}!anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}}}
+\doxysubsubsection{\texorpdfstring{impl\_free()}{impl\_free()}}
+{\footnotesize\ttfamily \label{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_a0bc4791ce6af34657d373c421075bca1} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} anonymous\+\_\+namespace\{task6\+\_\+convert\+\_\+to\+\_\+cnf.\+cpp\}\+::impl\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{current\+Node}{}\end{DoxyParamCaption})}
+
+
+
+Step 1\+: Recursively removes all implication operators. 
+
+Traverses the tree and replaces every sub-\/expression {\ttfamily A \texorpdfstring{$>$}{>} B} with its equivalent {\ttfamily \texorpdfstring{$\sim$}{\string~}A + B}. This function creates new nodes to form the new tree structure. \Hypertarget{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_ac6a70e2c40ee0d09f472278e551f71ab}\index{anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}}!nnf@{nnf}}
+\index{nnf@{nnf}!anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task6\_convert\_to\_cnf.cpp\rcurly{}}}
+\doxysubsubsection{\texorpdfstring{nnf()}{nnf()}}
+{\footnotesize\ttfamily \label{namespaceanonymous__namespace_02task6__convert__to__cnf_8cpp_03_ac6a70e2c40ee0d09f472278e551f71ab} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} anonymous\+\_\+namespace\{task6\+\_\+convert\+\_\+to\+\_\+cnf.\+cpp\}\+::nnf (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*}}]{current\+Node}{}\end{DoxyParamCaption})}
+
+
+
+Step 2\+: Recursively converts an implication-\/free tree to Negation Normal Form (NNF). 
+
+Pushes all negation ({\ttfamily \texorpdfstring{$\sim$}{\string~}}) operators inward so they only apply to atomic propositions (operands). Applies De Morgan\textquotesingle{}s laws\+:
+\begin{DoxyItemize}
+\item {\ttfamily \texorpdfstring{$\sim$}{\string~}(A \texorpdfstring{$\ast$}{*} B)} becomes {\ttfamily \texorpdfstring{$\sim$}{\string~}A + \texorpdfstring{$\sim$}{\string~}B}
+\item {\ttfamily \texorpdfstring{$\sim$}{\string~}(A + B)} becomes {\ttfamily \texorpdfstring{$\sim$}{\string~}A \texorpdfstring{$\ast$}{*} \texorpdfstring{$\sim$}{\string~}B} Also removes double negations\+:
+\item {\ttfamily \texorpdfstring{$\sim$}{\string~}\texorpdfstring{$\sim$}{\string~}A} becomes {\ttfamily A} 
+\end{DoxyItemize}

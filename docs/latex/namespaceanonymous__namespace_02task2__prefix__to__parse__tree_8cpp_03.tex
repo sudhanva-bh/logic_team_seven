@@ -1,0 +1,33 @@
+\doxysection{anonymous\+\_\+namespace\{task2\+\_\+prefix\+\_\+to\+\_\+parse\+\_\+tree.\+cpp\} Namespace Reference}
+\hypertarget{namespaceanonymous__namespace_02task2__prefix__to__parse__tree_8cpp_03}{}\label{namespaceanonymous__namespace_02task2__prefix__to__parse__tree_8cpp_03}\index{anonymous\_namespace\lcurly{}task2\_prefix\_to\_parse\_tree.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task2\_prefix\_to\_parse\_tree.cpp\rcurly{}}}
+
+
+Contains internal helper functions for tree construction.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespaceanonymous__namespace_02task2__prefix__to__parse__tree_8cpp_03_a14175ab5585919514b132b961addd185}{build\+Tree\+From\+Prefix\+Recursive}} (const string \&prefix, int \&index)
+\begin{DoxyCompactList}\small\item\em Recursively builds a parse tree from a prefix string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains internal helper functions for tree construction. 
+
+\label{doc-func-members}
+\Hypertarget{namespaceanonymous__namespace_02task2__prefix__to__parse__tree_8cpp_03_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceanonymous__namespace_02task2__prefix__to__parse__tree_8cpp_03_a14175ab5585919514b132b961addd185}\index{anonymous\_namespace\lcurly{}task2\_prefix\_to\_parse\_tree.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task2\_prefix\_to\_parse\_tree.cpp\rcurly{}}!buildTreeFromPrefixRecursive@{buildTreeFromPrefixRecursive}}
+\index{buildTreeFromPrefixRecursive@{buildTreeFromPrefixRecursive}!anonymous\_namespace\lcurly{}task2\_prefix\_to\_parse\_tree.cpp\rcurly{}@{anonymous\_namespace\lcurly{}task2\_prefix\_to\_parse\_tree.cpp\rcurly{}}}
+\doxysubsubsection{\texorpdfstring{buildTreeFromPrefixRecursive()}{buildTreeFromPrefixRecursive()}}
+{\footnotesize\ttfamily \label{namespaceanonymous__namespace_02task2__prefix__to__parse__tree_8cpp_03_a14175ab5585919514b132b961addd185} 
+\mbox{\hyperlink{struct_node}{Node}} \texorpdfstring{$\ast$}{*} anonymous\+\_\+namespace\{task2\+\_\+prefix\+\_\+to\+\_\+parse\+\_\+tree.\+cpp\}\+::build\+Tree\+From\+Prefix\+Recursive (\begin{DoxyParamCaption}\item[{const string \&}]{prefix}{, }\item[{int \&}]{index}{}\end{DoxyParamCaption})}
+
+
+
+Recursively builds a parse tree from a prefix string. 
+
+This is the internal recursive implementation. It reads one token from the prefix string. If the token is an operator, it recursively builds its children. If it\textquotesingle{}s an operand, it returns a leaf node.
+
+The {\ttfamily index} is passed by reference and advanced as tokens are consumed. 
