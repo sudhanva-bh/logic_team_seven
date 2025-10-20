@@ -31,7 +31,8 @@ int main() {
     bool doTruthTable = false;
     bool doEvaluateSpecific = false;
 
-    cout << "Do you want to enter formulas manually or generate randomly? (m/r): ";
+    cout << "Do you want to enter formulas manually or generate randomly? "
+            "(m/r): ";
     char choice;
     cin >> choice;
     cin.ignore();
@@ -69,7 +70,7 @@ int main() {
 
             if (minDepth > maxDepth) swap(minDepth, maxDepth);
 
-            cout << "Negation probability (0.0 - 1.0): ";
+            cout << "negNode probability (0.0 - 1.0): ";
             cin >> negProb;
             if (negProb < 0.0) negProb = 0.0;
             if (negProb > 1.0) negProb = 1.0;
@@ -91,7 +92,7 @@ int main() {
         }
 
         cout << "\nGenerated Formulas:\n";
-        for (const auto &f : testCases) cout << f << "\n\n";
+        for (const auto& f : testCases) cout << f << "\n\n";
 
     } else {
         // Manual input
@@ -107,7 +108,7 @@ int main() {
 
         // Detect all atoms
         set<char> atoms;
-        for (const auto &f : testCases) {
+        for (const auto& f : testCases) {
             for (char c : f)
                 if (isalpha(c)) atoms.insert(c);
         }
@@ -118,7 +119,8 @@ int main() {
         cin.ignore();
         doTruthTable = (ttChoice == 'y' || ttChoice == 'Y');
 
-        cout << "Do you want to evaluate the formulae for a specific set of truth values? (y/n): ";
+        cout << "Do you want to evaluate the formulae for a specific set of "
+                "truth values? (y/n): ";
         char evalChoice;
         cin >> evalChoice;
         cin.ignore();
@@ -145,13 +147,13 @@ int main() {
         cerr << "Failed to open output file!" << endl;
         return 1;
     }
-    streambuf *coutBuf = cout.rdbuf();
+    streambuf* coutBuf = cout.rdbuf();
     cout.rdbuf(outFile.rdbuf());
 
     vector<long long> taskTimes(8, 0);
     vector<vector<long long>> taskTimesPerFormula;
 
-    for (const string &s : testCases) {
+    for (const string& s : testCases) {
         vector<long long> thisFormulaTimes(8, 0);
         cout << "===========================================\n";
         cout << "Input Infix: " << s << "\n";
@@ -163,7 +165,8 @@ int main() {
         auto end = high_resolution_clock::now();
         thisFormulaTimes[0] = duration_cast<nanoseconds>(end - start).count();
         taskTimes[0] += thisFormulaTimes[0];
-        cout << "Task 1 (Infix to Prefix): " << prefix << " [" << thisFormulaTimes[0] << " ns]\n";
+        cout << "Task 1 (Infix to Prefix): " << prefix << " ["
+             << thisFormulaTimes[0] << " ns]\n";
 
         // Task 2: Prefix to ParseTree
         start = high_resolution_clock::now();
@@ -171,7 +174,8 @@ int main() {
         end = high_resolution_clock::now();
         thisFormulaTimes[1] = duration_cast<nanoseconds>(end - start).count();
         taskTimes[1] += thisFormulaTimes[1];
-        cout << "Task 2 (Prefix to ParseTree): Done [" << thisFormulaTimes[1] << " ns]\n";
+        cout << "Task 2 (Prefix to ParseTree): Done [" << thisFormulaTimes[1]
+             << " ns]\n";
 
         // Task 3: ParseTree to Infix
         start = high_resolution_clock::now();
@@ -179,7 +183,8 @@ int main() {
         end = high_resolution_clock::now();
         thisFormulaTimes[2] = duration_cast<nanoseconds>(end - start).count();
         taskTimes[2] += thisFormulaTimes[2];
-        cout << "Task 3 (ParseTree to Infix): " << reconstructedInfix << " [" << thisFormulaTimes[2] << " ns]\n";
+        cout << "Task 3 (ParseTree to Infix): " << reconstructedInfix << " ["
+             << thisFormulaTimes[2] << " ns]\n";
 
         // Task 4: Compute Height
         start = high_resolution_clock::now();
@@ -187,7 +192,8 @@ int main() {
         end = high_resolution_clock::now();
         thisFormulaTimes[3] = duration_cast<nanoseconds>(end - start).count();
         taskTimes[3] += thisFormulaTimes[3];
-        cout << "Task 4 (Compute Height): " << height << " [" << thisFormulaTimes[3] << " ns]\n";
+        cout << "Task 4 (Compute Height): " << height << " ["
+             << thisFormulaTimes[3] << " ns]\n";
 
         // If user wants to evaluate for specific truth values
         if (doEvaluateSpecific) {
@@ -196,15 +202,20 @@ int main() {
             for (char c : s)
                 if (isalpha(c)) atoms.insert(c);
             for (char var : atoms)
-                cout << var << " = " << (truth_values[var] ? "True" : "False") << "\n";
+                cout << var << " = " << (truth_values[var] ? "True" : "False")
+                     << "\n";
             cout << "\n";
 
             start = high_resolution_clock::now();
-            bool evaluatedTruthValue = evaluateTruthValue(parseTree, truth_values);
+            bool evaluatedTruthValue =
+                evaluateTruthValue(parseTree, truth_values);
             end = high_resolution_clock::now();
-            thisFormulaTimes[4] = duration_cast<nanoseconds>(end - start).count();
+            thisFormulaTimes[4] =
+                duration_cast<nanoseconds>(end - start).count();
             taskTimes[4] += thisFormulaTimes[4];
-            cout << "Task 5 (Evaluate Truth): " << (evaluatedTruthValue ? "True" : "False") << " [" << thisFormulaTimes[4] << " ns]\n";
+            cout << "Task 5 (Evaluate Truth): "
+                 << (evaluatedTruthValue ? "True" : "False") << " ["
+                 << thisFormulaTimes[4] << " ns]\n";
         }
 
         // Task 6: Convert to CNF
@@ -213,7 +224,8 @@ int main() {
         end = high_resolution_clock::now();
         thisFormulaTimes[5] = duration_cast<nanoseconds>(end - start).count();
         taskTimes[5] += thisFormulaTimes[5];
-        cout << "Task 6 (Convert to CNF): " << parseTreeToInfix(cnfParseTree) << " [" << thisFormulaTimes[5] << " ns]\n";
+        cout << "Task 6 (Convert to CNF): " << parseTreeToInfix(cnfParseTree)
+             << " [" << thisFormulaTimes[5] << " ns]\n";
 
         // Task 7: Check Validity
         start = high_resolution_clock::now();
@@ -222,7 +234,9 @@ int main() {
         end = high_resolution_clock::now();
         thisFormulaTimes[6] = duration_cast<nanoseconds>(end - start).count();
         taskTimes[6] += thisFormulaTimes[6];
-        cout << "Task 7 (Check Validity): " << (cnfIsValid ? "Valid" : "Invalid") << " [" << thisFormulaTimes[6] << " ns]\n";
+        cout << "Task 7 (Check Validity): "
+             << (cnfIsValid ? "Valid" : "Invalid") << " ["
+             << thisFormulaTimes[6] << " ns]\n";
         cout << "Number of valid clauses: " << validCount << "\n";
         cout << "Number of invalid clauses: " << invalidCount << "\n";
 
@@ -236,7 +250,8 @@ int main() {
             cout << "Task 8 (Generate Truth Table):\n";
             generateTruthTable(cnfParseTree, atoms);
             end = high_resolution_clock::now();
-            thisFormulaTimes[7] = duration_cast<nanoseconds>(end - start).count();
+            thisFormulaTimes[7] =
+                duration_cast<nanoseconds>(end - start).count();
             taskTimes[7] += thisFormulaTimes[7];
             cout << " [Time: " << thisFormulaTimes[7] << " ns]\n";
         }
@@ -260,7 +275,8 @@ int main() {
     cout << "Task 5: " << taskTimes[4] / testCases.size() << " ns\n";
     cout << "Task 6: " << taskTimes[5] / testCases.size() << " ns\n";
     cout << "Task 7: " << taskTimes[6] / testCases.size() << " ns\n";
-    if (doTruthTable) cout << "Task 8: " << taskTimes[7] / testCases.size() << " ns\n";
+    if (doTruthTable)
+        cout << "Task 8: " << taskTimes[7] / testCases.size() << " ns\n";
 
     cout << "Full task details written to parse_output.txt\n";
 
@@ -275,7 +291,8 @@ int main() {
         outFile << "T5: " << taskTimesPerFormula[i][4] << " ns\n";
         outFile << "T6: " << taskTimesPerFormula[i][5] << " ns\n";
         outFile << "T7: " << taskTimesPerFormula[i][6] << " ns\n";
-        if (doTruthTable) outFile << "T8: " << taskTimesPerFormula[i][7] << " ns\n";
+        if (doTruthTable)
+            outFile << "T8: " << taskTimesPerFormula[i][7] << " ns\n";
         outFile << "---------------------------------------\n";
     }
 

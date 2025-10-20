@@ -10,7 +10,7 @@ int computeHeightOfParseTreeRecursive(Node* currentNode) {
         return 0;
     }
 
-    // Negation (~)
+    // negNode (~)
     if (currentNode->data == -4) {
         return 1 + computeHeightOfParseTreeRecursive(currentNode->right);
     }

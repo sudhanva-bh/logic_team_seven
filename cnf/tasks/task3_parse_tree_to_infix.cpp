@@ -8,18 +8,18 @@ namespace {
 string buildParseTreeToInfixRecursive(Node* node, bool isRoot) {
     if (!node) return "";
 
-    // Negation
+    // negNode
     if (node->data == -4) {
         return "~" + buildParseTreeToInfixRecursive(node->right, false);
     }
-    // Disjunction
+    // disNode
     else if (node->data == -2) {
         string left = buildParseTreeToInfixRecursive(node->left, false);
         string right = buildParseTreeToInfixRecursive(node->right, false);
         string result = left + "+" + right;
         return isRoot ? result : "(" + result + ")";
     }
-    // Conjunction
+    // conNode
     else if (node->data == -3) {
         string left = buildParseTreeToInfixRecursive(node->left, false);
         string right = buildParseTreeToInfixRecursive(node->right, false);

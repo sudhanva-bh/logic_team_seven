@@ -22,13 +22,13 @@ inline Node* copyNode(const Node* src) {
 
 Node* literal(char s) { return new Node(s); }
 
-Node* negation(Node* node) { return new Node('~', nullptr, node); }
+Node* negNode(Node* node) { return new Node('~', nullptr, node); }
 
-Node* conjunction(Node* leftNode, Node* rightNode) {
+Node* conNode(Node* leftNode, Node* rightNode) {
     return new Node('*', leftNode, rightNode);
 }
 
-Node* disjunction(Node* leftNode, Node* rightNode) {
+Node* disNode(Node* leftNode, Node* rightNode) {
     return new Node('+', leftNode, rightNode);
 }
 

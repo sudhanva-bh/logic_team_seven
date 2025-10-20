@@ -4,7 +4,7 @@
 #include <iostream>
 
 struct Node {
-    int data;      // positive integer literal or negative operator
+    int data;  // positive integer literal or negative operator
     Node* left;
     Node* right;
 
@@ -22,16 +22,20 @@ inline Node* copyNode(const Node* src) {
 }
 
 // Node constructors for operators and literals
-inline Node* literal(int value) { return new Node(value); }   // value > 0
-inline Node* negation(Node* node) { return new Node(-4, nullptr, node); }
-inline Node* conjunction(Node* leftNode, Node* rightNode) { return new Node(-3, leftNode, rightNode); }
-inline Node* disjunction(Node* leftNode, Node* rightNode) { return new Node(-2, leftNode, rightNode); }
-inline Node* implication(Node* leftNode, Node* rightNode) { return new Node(-1, leftNode, rightNode); }
+inline Node* literal(int value) { return new Node(value); }  // value > 0
+inline Node* negNode(Node* node) { return new Node(-4, nullptr, node); }
+inline Node* conNode(Node* leftNode, Node* rightNode) {
+    return new Node(-3, leftNode, rightNode);
+}
+inline Node* disNode(Node* leftNode, Node* rightNode) {
+    return new Node(-2, leftNode, rightNode);
+}
+inline Node* implNode(Node* leftNode, Node* rightNode) {
+    return new Node(-1, leftNode, rightNode);
+}
 
 // Check if data is an operator
-inline bool isOperator(int c) {
-    return c <= -1 && c >= -4;
-}
+inline bool isOperator(int c) { return c <= -1 && c >= -4; }
 
 // Check if node is a literal
 inline bool is_literal(const Node* node) {
@@ -40,17 +44,22 @@ inline bool is_literal(const Node* node) {
     if (node->data == -4) {           // negation
         return node->right && node->right->data > 0;
     }
-    return false;                     // other operators
+    return false;  // other operators
 }
 
 // Operator precedence
 inline int getPrecedence(int op) {
     switch (op) {
-        case -1: return 1; // implication
-        case -2: return 2; // OR
-        case -3: return 3; // AND
-        case -4: return 4; // negation
-        default: return 0; // literals
+        case -1:
+            return 1;  // implication
+        case -2:
+            return 2;  // OR
+        case -3:
+            return 3;  // AND
+        case -4:
+            return 4;  // negation
+        default:
+            return 0;  // literals
     }
 }
 

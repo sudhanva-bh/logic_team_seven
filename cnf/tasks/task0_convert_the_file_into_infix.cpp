@@ -4,10 +4,12 @@
 #include <string>
 #include <vector>
 
+#include "../common/parsetree_node.h"
+
 using namespace std;
 
 // Reads a CNF file and returns the contents as a string
-string readCNFFile(const string &filepath) {
+string readCNFFile(const string& filepath) {
     ifstream file(filepath);
     if (!file.is_open()) throw runtime_error("Could not open file " + filepath);
 
@@ -17,7 +19,7 @@ string readCNFFile(const string &filepath) {
 }
 
 // Converts CNF file contents to infix expression
-string cnfToInfix(const string &cnfContents) {
+string cnfToInfix(const string& cnfContents) {
     stringstream ss(cnfContents);
     string line;
     vector<string> clauses;

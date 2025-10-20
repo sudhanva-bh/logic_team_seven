@@ -32,13 +32,13 @@ Node* buildTreeFromPrefixTokens(const vector<string>& tokens, size_t& index) {
 
     string token = tokens[index++];
     if (token == "~")
-        return negation(buildTreeFromPrefixTokens(tokens, index));
+        return negNode(buildTreeFromPrefixTokens(tokens, index));
     else if (token == "+")
-        return disjunction(buildTreeFromPrefixTokens(tokens, index),
-                           buildTreeFromPrefixTokens(tokens, index));
+        return disNode(buildTreeFromPrefixTokens(tokens, index),
+                       buildTreeFromPrefixTokens(tokens, index));
     else if (token == "*")
-        return conjunction(buildTreeFromPrefixTokens(tokens, index),
-                           buildTreeFromPrefixTokens(tokens, index));
+        return conNode(buildTreeFromPrefixTokens(tokens, index),
+                       buildTreeFromPrefixTokens(tokens, index));
     else if (token[0] == 'x')
         return literal(stoi(token.substr(1)));
     return nullptr;

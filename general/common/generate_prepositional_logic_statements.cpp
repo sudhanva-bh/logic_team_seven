@@ -16,16 +16,14 @@ char randomBinaryOp() {
     return ops[rand() % ops.size()];
 }
 
-bool applyNegation(double negProb) {
-    return ((rand() % 100) / 100.0) < negProb;
-}
+bool applynegNode(double negProb) { return ((rand() % 100) / 100.0) < negProb; }
 
 std::string generateFormulaRec(int depth, int minDepth, int maxDepth,
                                const std::string& atoms, double negProb) {
     // Base case: if maxDepth reached or probabilistically stop
     if (depth >= maxDepth || (depth >= minDepth && rand() % 2 == 0)) {
         std::string lit = "";
-        if (applyNegation(negProb)) lit += "~";
+        if (applynegNode(negProb)) lit += "~";
         lit += randomAtom(atoms);
         return lit;
     }
@@ -44,14 +42,14 @@ std::vector<std::string> generateRandomFormulas(int numFormulas,
                                                 int numVariables = 5,
                                                 int minDepth = 2,
                                                 int maxDepth = 5,
-                                                double negationProb = 0.5) {
+                                                double negNodeProb = 0.5) {
     // Select first numVariables letters
     std::string atoms = allAtoms.substr(0, numVariables);
 
     std::vector<std::string> formulas;
     for (int i = 0; i < numFormulas; ++i) {
         formulas.push_back(
-            generateFormulaRec(0, minDepth, maxDepth, atoms, negationProb));
+            generateFormulaRec(0, minDepth, maxDepth, atoms, negNodeProb));
     }
     return formulas;
 }

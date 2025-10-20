@@ -19,16 +19,16 @@ Node* impl_free(Node* currentNode) {
 
     switch (currentNode->data) {
         case '>':
-            result = disjunction(negation(left), right);
+            result = disNode(negNode(left), right);
             break;
         case '~':
-            result = negation(right);
+            result = negNode(right);
             break;
         case '*':
-            result = conjunction(left, right);
+            result = conNode(left, right);
             break;
         case '+':
-            result = disjunction(left, right);
+            result = disNode(left, right);
             break;
         default:
             result = new Node(currentNode->data);
@@ -44,12 +44,10 @@ Node* nnf(Node* currentNode) {
 
     switch (currentNode->data) {
         case '+':
-            result =
-                disjunction(nnf(currentNode->left), nnf(currentNode->right));
+            result = disNode(nnf(currentNode->left), nnf(currentNode->right));
             break;
         case '*':
-            result =
-                conjunction(nnf(currentNode->left), nnf(currentNode->right));
+            result = conNode(nnf(currentNode->left), nnf(currentNode->right));
             break;
         case '~': {
             Node* innerNode = currentNode->right;
@@ -58,15 +56,15 @@ Node* nnf(Node* currentNode) {
                     result = nnf(innerNode->right);
                     break;
                 case '+':
-                    result = conjunction(nnf(negation(innerNode->left)),
-                                         nnf(negation(innerNode->right)));
+                    result = conNode(nnf(negNode(innerNode->left)),
+                                     nnf(negNode(innerNode->right)));
                     break;
                 case '*':
-                    result = disjunction(nnf(negation(innerNode->left)),
-                                         nnf(negation(innerNode->right)));
+                    result = disNode(nnf(negNode(innerNode->left)),
+                                     nnf(negNode(innerNode->right)));
                     break;
                 default:
-                    result = negation(innerNode);
+                    result = negNode(innerNode);
                     break;
             }
             break;
@@ -83,27 +81,27 @@ Node* distr(Node* node1, Node* node2, int depth = 0) {
 
     const int MAX_DEPTH = 2000;  // tune as needed
     if (depth > MAX_DEPTH) {
-        "disjunction copy\n";
-        return disjunction(copyNode(node1), copyNode(node2));
+        "disNode copy\n";
+        return disNode(copyNode(node1), copyNode(node2));
     }
 
-    // If left is a conjunction, distribute: (A*B)+C => (A+C)*(B+C)
+    // If left is a conNode, distribute: (A*B)+C => (A+C)*(B+C)
     if (node1->data == '*') {
         Node* a = distr(node1->left, node2, depth + 1);
         Node* b = distr(node1->right, node2, depth + 1);
-        return conjunction(a, b);
+        return conNode(a, b);
     }
 
-    // If right is a conjunction, distribute: A+(B*C) => (A+B)*(A+C)
+    // If right is a conNode, distribute: A+(B*C) => (A+B)*(A+C)
     if (node2->data == '*') {
         Node* a = distr(node1, node2->left, depth + 1);
         Node* b = distr(node1, node2->right, depth + 1);
-        return conjunction(a, b);
+        return conNode(a, b);
     }
 
-    // Neither side is conjunction -> no distribution needed. Return new
-    // disjunction of copies
-    return disjunction(copyNode(node1), copyNode(node2));
+    // Neither side is conNode -> no distribution needed. Return new
+    // disNode of copies
+    return disNode(copyNode(node1), copyNode(node2));
 }
 
 Node* cnf(Node* currentNode, int depth = 0) {
@@ -122,7 +120,7 @@ Node* cnf(Node* currentNode, int depth = 0) {
         case '*': {
             Node* leftCNF = cnf(currentNode->left, depth + 1);
             Node* rightCNF = cnf(currentNode->right, depth + 1);
-            result = conjunction(leftCNF, rightCNF);
+            result = conNode(leftCNF, rightCNF);
             break;
         }
         case '+': {
