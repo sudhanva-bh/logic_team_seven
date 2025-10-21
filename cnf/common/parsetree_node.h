@@ -3,44 +3,48 @@
 
 #include <iostream>
 
-struct Node {
-    int data;  // positive integer literal or negative operator
-    Node* left;
-    Node* right;
+struct NodeCNF {
+    int data;  // positive integer literalCNF or negative operator
+    NodeCNF* left;
+    NodeCNF* right;
 
-    Node(int val, Node* l = nullptr, Node* r = nullptr)
+    NodeCNF(int val, NodeCNF* l = nullptr, NodeCNF* r = nullptr)
         : data(val), left(l), right(r) {}
 };
 
 // Copy a node recursively
-inline Node* copyNode(const Node* src) {
+inline NodeCNF* copyNodeCNF(const NodeCNF* src) {
     if (!src) return nullptr;
-    Node* out = new Node(src->data);
-    out->left = copyNode(src->left);
-    out->right = copyNode(src->right);
+    NodeCNF* out = new NodeCNF(src->data);
+    out->left = copyNodeCNF(src->left);
+    out->right = copyNodeCNF(src->right);
     return out;
 }
 
-// Node constructors for operators and literals
-inline Node* literal(int value) { return new Node(value); }  // value > 0
-inline Node* negNode(Node* node) { return new Node(-4, nullptr, node); }
-inline Node* conNode(Node* leftNode, Node* rightNode) {
-    return new Node(-3, leftNode, rightNode);
+// NodeCNF constructors for operators and literals
+inline NodeCNF* literalCNF(int value) {
+    return new NodeCNF(value);
+}  // value > 0
+inline NodeCNF* negNodeCNF(NodeCNF* node) {
+    return new NodeCNF(-4, nullptr, node);
 }
-inline Node* disNode(Node* leftNode, Node* rightNode) {
-    return new Node(-2, leftNode, rightNode);
+inline NodeCNF* conjNodeCNF(NodeCNF* leftNode, NodeCNF* rightNode) {
+    return new NodeCNF(-3, leftNode, rightNode);
 }
-inline Node* implNode(Node* leftNode, Node* rightNode) {
-    return new Node(-1, leftNode, rightNode);
+inline NodeCNF* disjNodeCNF(NodeCNF* leftNode, NodeCNF* rightNode) {
+    return new NodeCNF(-2, leftNode, rightNode);
+}
+inline NodeCNF* implNodeCNF(NodeCNF* leftNode, NodeCNF* rightNode) {
+    return new NodeCNF(-1, leftNode, rightNode);
 }
 
 // Check if data is an operator
-inline bool isOperator(int c) { return c <= -1 && c >= -4; }
+inline bool isOperatorCNF(int c) { return c <= -1 && c >= -4; }
 
-// Check if node is a literal
-inline bool is_literal(const Node* node) {
+// Check if node is a literalCNF
+inline bool is_literal(const NodeCNF* node) {
     if (!node) return false;
-    if (node->data > 0) return true;  // positive integer literal
+    if (node->data > 0) return true;  // positive integer literalCNF
     if (node->data == -4) {           // negation
         return node->right && node->right->data > 0;
     }
@@ -48,7 +52,7 @@ inline bool is_literal(const Node* node) {
 }
 
 // Operator precedence
-inline int getPrecedence(int op) {
+inline int getPrecedenceCNF(int op) {
     switch (op) {
         case -1:
             return 1;  // implication
@@ -64,10 +68,10 @@ inline int getPrecedence(int op) {
 }
 
 // Recursively destroy parse tree
-inline void destroyParseTree(Node* root) {
+inline void destroyParseTreeCNF(NodeCNF* root) {
     if (!root) return;
-    destroyParseTree(root->left);
-    destroyParseTree(root->right);
+    destroyParseTreeCNF(root->left);
+    destroyParseTreeCNF(root->right);
     delete root;
 }
 

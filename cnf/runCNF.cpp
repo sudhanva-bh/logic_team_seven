@@ -21,13 +21,13 @@
 using namespace std;
 using namespace std::chrono;
 
-int main() {
-    string filepath;
-    cout << "Enter the path to the .cnf file: ";
-    getline(cin, filepath);
-
+int runCNF(string filePath) {
+    if (filePath.empty()) {
+        cout << "Enter the path to the .cnf file: ";
+        getline(cin, filePath);
+    } 
     // Read CNF file and convert to infix
-    string cnfContents = readCNFFile(filepath);
+    string cnfContents = readCNFFile(filePath);
     string infix = cnfToInfix(cnfContents);
 
     vector<string> testCases = {infix};
@@ -48,65 +48,74 @@ int main() {
     streambuf* coutBuf = cout.rdbuf();
     cout.rdbuf(outFile.rdbuf());
 
-    vector<long long> taskTimes(5, 0);
+    vector<long long> taskTimes(6, 0);
     vector<vector<long long>> taskTimesPerFormula;
 
     for (const string& s : testCases) {
-        vector<long long> thisFormulaTimes(5, 0);
+        vector<long long> thisFormulaTimes(6, 0);
+        auto start = high_resolution_clock::now();
         cout << "===========================================\n";
         cout << "Input Infix: " << s << "\n";
         cout << "===========================================\n";
 
-        // Task 1: CNF to Infix (already done, just log time)
-        auto start = high_resolution_clock::now();
+        // Task 0: CNF to Infix (already done, just log time)
         // already done
         auto end = high_resolution_clock::now();
         thisFormulaTimes[0] = duration_cast<nanoseconds>(end - start).count();
         taskTimes[0] += thisFormulaTimes[0];
-        cout << "Task 1 (CNF to Infix): " << s << " [" << thisFormulaTimes[0]
+        cout << "Task 0 (CNF to Infix): " << s << " [" << thisFormulaTimes[0]
              << " ns]\n";
 
-        // Task 2: Infix to Prefix
+        // Task 1: Infix to Prefix
         start = high_resolution_clock::now();
-        string prefix = infixToPrefix(s);
+        string prefix = infixToPrefixCNF(s);
         end = high_resolution_clock::now();
         thisFormulaTimes[1] = duration_cast<nanoseconds>(end - start).count();
         taskTimes[1] += thisFormulaTimes[1];
-        cout << "Task 2 (Infix to Prefix): " << prefix << " ["
+        cout << "Task 1 (Infix to Prefix): " << prefix << " ["
              << thisFormulaTimes[1] << " ns]\n";
 
-        // Task 3: Prefix to ParseTree
+        // Task 2: Prefix to ParseTree
         start = high_resolution_clock::now();
-        Node* parseTree = prefixToParseTree(prefix);
+        NodeCNF* parseTree = prefixToParseTreeCNF(prefix);
         end = high_resolution_clock::now();
         thisFormulaTimes[2] = duration_cast<nanoseconds>(end - start).count();
         taskTimes[2] += thisFormulaTimes[2];
-        cout << "Task 3 (Prefix to ParseTree): Done [" << thisFormulaTimes[2]
+        cout << "Task 2 (Prefix to ParseTree): Done [" << thisFormulaTimes[2]
              << " ns]\n";
 
-        // Task 4: ParseTree to Infix
+        // Task 3: ParseTree to Infix
         start = high_resolution_clock::now();
-        string reconstructedInfix = parseTreeToInfix(parseTree);
+        string reconstructedInfix = parseTreeToInfixCNF(parseTree);
         end = high_resolution_clock::now();
         thisFormulaTimes[3] = duration_cast<nanoseconds>(end - start).count();
         taskTimes[3] += thisFormulaTimes[3];
-        cout << "Task 4 (ParseTree to Infix): " << reconstructedInfix << " ["
+        cout << "Task 3 (ParseTree to Infix): " << reconstructedInfix << " ["
              << thisFormulaTimes[3] << " ns]\n";
 
-        // Task 5: Check Validity
+        // // Task 4: Compute Height
         start = high_resolution_clock::now();
-        int validCount, invalidCount;
-        bool cnfIsValid = isValid(cnfContents, validCount, invalidCount);
+        int height = computeHeightOfParseTreeCNF(parseTree);
         end = high_resolution_clock::now();
         thisFormulaTimes[4] = duration_cast<nanoseconds>(end - start).count();
         taskTimes[4] += thisFormulaTimes[4];
-        cout << "Task 5 (Check Validity): "
-             << (cnfIsValid ? "Valid" : "Invalid") << " ["
+        cout << "Task 4(Compute Height of Parse Tree): " << height << " ["
              << thisFormulaTimes[4] << " ns]\n";
+
+        // Task 7: Check Validity
+        start = high_resolution_clock::now();
+        int validCount, invalidCount;
+        bool cnfIsValid = isValidCNF(cnfContents, validCount, invalidCount);
+        end = high_resolution_clock::now();
+        thisFormulaTimes[5] = duration_cast<nanoseconds>(end - start).count();
+        taskTimes[5] += thisFormulaTimes[5];
+        cout << "Task 7 (Check Validity): "
+             << (cnfIsValid ? "Valid" : "Invalid") << " ["
+             << thisFormulaTimes[5] << " ns]\n";
         cout << "Number of valid clauses: " << validCount << "\n";
         cout << "Number of invalid clauses: " << invalidCount << "\n";
 
-        destroyParseTree(parseTree);
+        destroyParseTreeCNF(parseTree);
 
         taskTimesPerFormula.push_back(thisFormulaTimes);
         cout << string(60, '-') << "\n\n";

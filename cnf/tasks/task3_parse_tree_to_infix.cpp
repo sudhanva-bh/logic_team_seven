@@ -5,21 +5,21 @@
 using namespace std;
 
 namespace {
-string buildParseTreeToInfixRecursive(Node* node, bool isRoot) {
+string buildParseTreeToInfixRecursive(NodeCNF* node, bool isRoot) {
     if (!node) return "";
 
-    // negNode
+    // negNodeCNF
     if (node->data == -4) {
         return "~" + buildParseTreeToInfixRecursive(node->right, false);
     }
-    // disNode
+    // disjNodeCNF
     else if (node->data == -2) {
         string left = buildParseTreeToInfixRecursive(node->left, false);
         string right = buildParseTreeToInfixRecursive(node->right, false);
         string result = left + "+" + right;
         return isRoot ? result : "(" + result + ")";
     }
-    // conNode
+    // conjNodeCNF
     else if (node->data == -3) {
         string left = buildParseTreeToInfixRecursive(node->left, false);
         string right = buildParseTreeToInfixRecursive(node->right, false);
@@ -35,6 +35,6 @@ string buildParseTreeToInfixRecursive(Node* node, bool isRoot) {
 }
 }  // namespace
 
-string parseTreeToInfix(Node* rootNode) {
+string parseTreeToInfixCNF(NodeCNF* rootNode) {
     return buildParseTreeToInfixRecursive(rootNode, true);
 }

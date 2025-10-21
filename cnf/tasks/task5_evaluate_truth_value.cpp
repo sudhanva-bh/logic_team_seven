@@ -8,7 +8,7 @@ using namespace std;
 
 namespace {
 
-bool evaluateTruthValueRecursive(Node* currentNode,
+bool evaluateTruthValueRecursive(NodeCNF* currentNode,
                                  const map<char, bool>& truthValues) {
     if (currentNode == nullptr) {
         return true;
@@ -39,6 +39,7 @@ bool evaluateTruthValueRecursive(Node* currentNode,
 
 }  // namespace
 
-bool evaluateTruthValue(Node* rootNode, const map<char, bool>& truthValues) {
+bool evaluateTruthValueCNF(NodeCNF* rootNode,
+                           const map<char, bool>& truthValues) {
     return evaluateTruthValueRecursive(rootNode, truthValues);
 }

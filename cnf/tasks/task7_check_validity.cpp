@@ -16,18 +16,18 @@ vector<vector<int>> collectClauses(const string& cnfString) {
         if (line.empty() || line[0] == 'c' || line[0] == 'p') continue;
 
         istringstream lineStream(line);
-        int literal;
+        int literalCNF;
         vector<int> clause;
 
-        while (lineStream >> literal) {
-            if (literal == 0) {
+        while (lineStream >> literalCNF) {
+            if (literalCNF == 0) {
                 // Clause end marker
                 if (!clause.empty()) {
                     clauses.push_back(clause);
                     clause.clear();
                 }
             } else {
-                clause.push_back(literal);
+                clause.push_back(literalCNF);
             }
         }
     }
@@ -36,7 +36,7 @@ vector<vector<int>> collectClauses(const string& cnfString) {
 }
 }  // namespace
 
-bool isValid(const string& cnfString, int& validCount, int& invalidCount) {
+bool isValidCNF(const string& cnfString, int& validCount, int& invalidCount) {
     validCount = 0;
     invalidCount = 0;
     vector<vector<int>> clauses = collectClauses(cnfString);

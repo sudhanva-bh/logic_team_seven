@@ -7,15 +7,15 @@
 
 using namespace std;
 
-bool isOperator(const string &token) {
+bool isOperatorCNF(const string& token) {
     return token == "+" || token == "*" || token == "~";
 }
-int getPrecedence(const string &op) {
+int getPrecedenceCNF(const string& op) {
     return (op == "*") ? 2 : (op == "+") ? 1 : 3;
 }
 
 // Tokenize infix into operands/operators/parentheses
-vector<string> tokenize(const string &expr) {
+vector<string> tokenize(const string& expr) {
     vector<string> tokens;
     for (size_t i = 0; i < expr.size();) {
         char c = expr[i];
@@ -35,10 +35,10 @@ vector<string> tokenize(const string &expr) {
 }
 
 // Convert infix expression to prefix
-string infixToPrefix(const string &infix) {
+string infixToPrefixCNF(const string& infix) {
     vector<string> tokens = tokenize(infix);
     reverse(tokens.begin(), tokens.end());
-    for (auto &t : tokens)
+    for (auto& t : tokens)
         if (t == "(")
             t = ")";
         else if (t == ")")
@@ -47,8 +47,8 @@ string infixToPrefix(const string &infix) {
     stack<string> opStack;
     vector<string> output;
 
-    for (const string &tok : tokens) {
-        if (!isOperator(tok) && tok != "(" && tok != ")") {
+    for (const string& tok : tokens) {
+        if (!isOperatorCNF(tok) && tok != "(" && tok != ")") {
             output.push_back(tok);
         } else if (tok == "(")
             opStack.push(tok);
@@ -60,7 +60,7 @@ string infixToPrefix(const string &infix) {
             if (!opStack.empty()) opStack.pop();
         } else {
             while (!opStack.empty() && opStack.top() != "(" &&
-                   getPrecedence(tok) < getPrecedence(opStack.top())) {
+                   getPrecedenceCNF(tok) < getPrecedenceCNF(opStack.top())) {
                 output.push_back(opStack.top());
                 opStack.pop();
             }
@@ -75,6 +75,6 @@ string infixToPrefix(const string &infix) {
 
     reverse(output.begin(), output.end());
     string prefix;
-    for (const auto &tok : output) prefix += tok;
+    for (const auto& tok : output) prefix += tok;
     return prefix;
 }

@@ -28,13 +28,14 @@ string cnfToInfix(const string& cnfContents) {
         if (line.empty() || line[0] == 'c' || line[0] == 'p') continue;
 
         stringstream lineSS(line);
-        int literal;
+        int literalCNF;
         vector<string> clauseLiterals;
 
-        while (lineSS >> literal) {
-            if (literal == 0) break;
-            clauseLiterals.push_back(literal < 0 ? "~x" + to_string(-literal)
-                                                 : "x" + to_string(literal));
+        while (lineSS >> literalCNF) {
+            if (literalCNF == 0) break;
+            clauseLiterals.push_back(literalCNF < 0
+                                         ? "~x" + to_string(-literalCNF)
+                                         : "x" + to_string(literalCNF));
         }
 
         string clauseInfix;

@@ -6,6 +6,8 @@
 #include <set>
 #include <string>
 #include <vector>
+#include <conio.h>  // Required for _getch()
+#include <stdlib.h> // Required for system("cls")
 
 #include "common/parsetree_node.h"
 
@@ -23,7 +25,47 @@
 using namespace std;
 using namespace std::chrono;
 
-int main() {
+/**
+ * @brief Displays an interactive menu and returns the user's selected index.
+ * @param prompt The question to ask the user.
+ * @param options A vector of strings representing the choices.
+ * @return The 0-based index of the selected option.
+ */
+int getUserChoiceMenu(const string& prompt, const vector<string>& options) {
+    int selected = 0;
+    int numOptions = options.size();
+
+    while (true) {
+        system("cls"); // Clear the console
+        cout << prompt << "\n";
+        cout << "Use UP/DOWN keys to navigate and ENTER to select.\n";
+        cout << "--------------------------------------------------\n\n";
+
+        for (int i = 0; i < numOptions; ++i) {
+            if (i == selected) {
+                // Highlight the selected option
+                cout << " > " << options[i] << " <\n";
+            } else {
+                cout << "   " << options[i] << " \n";
+            }
+        }
+
+        int ch = _getch(); // Wait for a key press
+        if (ch == 224) { // Special key (arrow keys)
+            ch = _getch(); // Get the actual key code
+            if (ch == 72) { // Up Arrow
+                selected = (selected - 1 + numOptions) % numOptions;
+            } else if (ch == 80) { // Down Arrow
+                selected = (selected + 1) % numOptions;
+            }
+        } else if (ch == 13) { // Enter key
+            system("cls"); // Clean up the console
+            return selected;
+        }
+    }
+}
+
+int runGeneral(string filePath) {
     srand(time(0));
 
     vector<string> testCases;
@@ -31,100 +73,44 @@ int main() {
     bool doTruthTable = false;
     bool doEvaluateSpecific = false;
 
-    cout << "Do you want to enter formulas manually or generate randomly? "
-            "(m/r): ";
-    char choice;
-    cin >> choice;
-    cin.ignore();
-
-    if (choice == 'r' || choice == 'R') {
-        // Random generation
-        int numFormulas = 5, numVariables = 5, minDepth = 5, maxDepth = 5;
-        double negProb = 0.5;
-
-        cout << "Do you want to configure advanced options? (y/n): ";
-        char advChoice;
-        cin >> advChoice;
-        cin.ignore();
-
-        if (advChoice == 'y' || advChoice == 'Y') {
-            cout << "Number of formulas (1-100): ";
-            cin >> numFormulas;
-            if (numFormulas < 1) numFormulas = 1;
-            if (numFormulas > 100) numFormulas = 100;
-
-            cout << "Number of variables (1-10): ";
-            cin >> numVariables;
-            if (numVariables < 1) numVariables = 1;
-            if (numVariables > 10) numVariables = 10;
-
-            cout << "Minimum complexity (minDepth 1-6): ";
-            cin >> minDepth;
-            if (minDepth < 1) minDepth = 1;
-            if (minDepth > 6) minDepth = 6;
-
-            cout << "Maximum complexity (maxDepth 1-6): ";
-            cin >> maxDepth;
-            if (maxDepth < 1) maxDepth = 1;
-            if (maxDepth > 6) maxDepth = 6;
-
-            if (minDepth > maxDepth) swap(minDepth, maxDepth);
-
-            cout << "negNode probability (0.0 - 1.0): ";
-            cin >> negProb;
-            if (negProb < 0.0) negProb = 0.0;
-            if (negProb > 1.0) negProb = 1.0;
-            cin.ignore();
+    // ✅ If filePath is provided, load testCases from the text file
+    if (!filePath.empty()) {
+        ifstream file(filePath);
+        if (!file.is_open()) {
+            cerr << "Error: could not open file " << filePath << endl;
+            return 1;
         }
 
-        cout << "Do you want to generate the truth table? (y/n): ";
-        char ttChoice;
-        cin >> ttChoice;
-        cin.ignore();
-        doTruthTable = (ttChoice == 'y' || ttChoice == 'Y');
+        string line;
+        while (getline(file, line)) {
+            if (!line.empty()) testCases.push_back(line);
+        }
+        file.close();
 
-        testCases = generateRandomFormulas(numFormulas, numVariables, minDepth,
-                                           maxDepth, negProb);
-
-        // Fill random truth values
-        for (char c = 'a'; c <= 'z'; ++c) {
-            truth_values[c] = rand() % 2;
+        if (testCases.empty()) {
+            cerr << "File is empty or invalid format." << endl;
+            return 1;
         }
 
-        cout << "\nGenerated Formulas:\n";
-        for (const auto& f : testCases) cout << f << "\n\n";
+        cout << "Loaded " << testCases.size() << " formulas from " << filePath
+             << ".\n";
 
-    } else {
-        // Manual input
-        cout << "Enter the number of formulas you want to input: ";
-        int n;
-        cin >> n;
-        cin.ignore();
-        testCases.resize(n);
-        for (int i = 0; i < n; ++i) {
-            cout << "Formula " << (i + 1) << ": ";
-            getline(cin, testCases[i]);
-        }
-
-        // Detect all atoms
+        // Detect all variables
         set<char> atoms;
         for (const auto& f : testCases) {
             for (char c : f)
                 if (isalpha(c)) atoms.insert(c);
         }
 
-        cout << "Do you want to generate the truth table? (y/n): ";
-        char ttChoice;
-        cin >> ttChoice;
-        cin.ignore();
-        doTruthTable = (ttChoice == 'y' || ttChoice == 'Y');
+        // --- Replaced 'y/n' with menu ---
+        int ttChoice = getUserChoiceMenu("Do you want to generate the truth table?", 
+                                       {"Yes", "No"});
+        doTruthTable = (ttChoice == 0); // 0 is "Yes"
 
-        cout << "Do you want to evaluate the formulae for a specific set of "
-                "truth values? (y/n): ";
-        char evalChoice;
-        cin >> evalChoice;
-        cin.ignore();
-        doEvaluateSpecific = (evalChoice == 'y' || evalChoice == 'Y');
+        // --- Replaced 'y/n' with menu ---
+        int evalChoice = getUserChoiceMenu("Do you want to evaluate the formulae for a specific set of truth values?", 
+                                         {"Yes", "No"});
+        doEvaluateSpecific = (evalChoice == 0); // 0 is "Yes"
 
         if (doEvaluateSpecific) {
             cout << "\nEnter truth values for the following variables:\n";
@@ -138,6 +124,103 @@ int main() {
         } else {
             // Assign random values if not provided
             for (char var : atoms) truth_values[var] = rand() % 2;
+        }
+    } else {
+        // 🔹 Original logic: manual or random generation
+        
+        // --- Replaced 'm/r' with menu ---
+        int choice = getUserChoiceMenu("How do you want to provide formulas?", 
+                                     {"Generate randomly", "Enter formulas manually"});
+
+        if (choice == 0) { // 0 is "Generate randomly"
+            // Random generation
+            int numFormulas = 5, numVariables = 5, minDepth = 5, maxDepth = 5;
+            double negProb = 0.5;
+
+            // --- Replaced 'y/n' with menu ---
+            int advChoice = getUserChoiceMenu("Do you want to configure advanced options?", 
+                                            {"No", "Yes"});
+
+            if (advChoice == 1) { // 1 is "Yes"
+                cout << "Number of formulas (1-100): ";
+                cin >> numFormulas;
+                if (numFormulas < 1) numFormulas = 1;
+                if (numFormulas > 100) numFormulas = 100;
+
+                cout << "Number of variables (1-10): ";
+                cin >> numVariables;
+                if (numVariables < 1) numVariables = 1;
+                if (numVariables > 10) numVariables = 10;
+
+                cout << "Minimum complexity (1-6): ";
+                cin >> minDepth;
+                cout << "Maximum complexity (1-6): ";
+                cin >> maxDepth;
+                if (minDepth > maxDepth) swap(minDepth, maxDepth);
+
+                cout << "negNode probability (0.0 - 1.0): ";
+                cin >> negProb;
+                if (negProb < 0.0) negProb = 0.0;
+                if (negProb > 1.0) negProb = 1.0;
+                cin.ignore();
+            }
+
+            // --- Replaced 'y/n' with menu ---
+            int ttChoice = getUserChoiceMenu("Do you want to generate the truth table?", 
+                                           {"Yes", "No"});
+            doTruthTable = (ttChoice == 0); // 0 is "Yes"
+
+            testCases = generateRandomFormulas(numFormulas, numVariables,
+                                               minDepth, maxDepth, negProb);
+
+            for (char c = 'a'; c <= 'z'; ++c) truth_values[c] = rand() % 2;
+
+            cout << "\nGenerated Formulas:\n";
+            for (const auto& f : testCases) cout << f << "\n\n";
+
+            cout << "Press any key to continue...";
+            _getch();
+
+        } else { // 1 is "Enter formulas manually"
+            // Manual input
+            cout << "Enter the number of formulas you want to input: ";
+            int n;
+            cin >> n;
+            cin.ignore();
+            testCases.resize(n);
+            for (int i = 0; i < n; ++i) {
+                cout << "Formula " << (i + 1) << ": ";
+                getline(cin, testCases[i]);
+            }
+
+            set<char> atoms;
+            for (const auto& f : testCases)
+                for (char c : f)
+                    if (isalpha(c)) atoms.insert(c);
+
+            // --- Replaced 'y/n' with menu ---
+            int ttChoice = getUserChoiceMenu("Do you want to generate the truth table?", 
+                                           {"Yes", "No"});
+            doTruthTable = (ttChoice == 0); // 0 is "Yes"
+
+            // --- Replaced 'y/n' with menu ---
+            int evalChoice = getUserChoiceMenu("Do you want to evaluate the formulae for a specific set of truth values?", 
+                                             {"Yes", "No"});
+            doEvaluateSpecific = (evalChoice == 0); // 0 is "Yes"
+
+            if (doEvaluateSpecific) {
+                cout << "\nEnter truth values for the following variables:\n";
+                for (char var : atoms) {
+                    cout << var << " (T/F or 1/0): ";
+                    string val;
+                    cin >> val;
+                    truth_values[var] =
+                        (val == "T" || val == "t" || val == "1");
+                }
+                cin.ignore();
+            } else {
+                for (char var : atoms) truth_values[var] = rand() % 2;
+            }
         }
     }
 
@@ -204,8 +287,6 @@ int main() {
             for (char var : atoms)
                 cout << var << " = " << (truth_values[var] ? "True" : "False")
                      << "\n";
-            cout << "\n";
-
             start = high_resolution_clock::now();
             bool evaluatedTruthValue =
                 evaluateTruthValue(parseTree, truth_values);
@@ -272,7 +353,8 @@ int main() {
     cout << "Task 2: " << taskTimes[1] / testCases.size() << " ns\n";
     cout << "Task 3: " << taskTimes[2] / testCases.size() << " ns\n";
     cout << "Task 4: " << taskTimes[3] / testCases.size() << " ns\n";
-    cout << "Task 5: " << taskTimes[4] / testCases.size() << " ns\n";
+    if (doEvaluateSpecific)
+        cout << "Task 5: " << taskTimes[4] / testCases.size() << " ns\n";
     cout << "Task 6: " << taskTimes[5] / testCases.size() << " ns\n";
     cout << "Task 7: " << taskTimes[6] / testCases.size() << " ns\n";
     if (doTruthTable)
@@ -288,7 +370,8 @@ int main() {
         outFile << "T2: " << taskTimesPerFormula[i][1] << " ns\n";
         outFile << "T3: " << taskTimesPerFormula[i][2] << " ns\n";
         outFile << "T4: " << taskTimesPerFormula[i][3] << " ns\n";
-        outFile << "T5: " << taskTimesPerFormula[i][4] << " ns\n";
+        if(doEvaluateSpecific)
+            outFile << "T5: " << taskTimesPerFormula[i][4] << " ns\n";
         outFile << "T6: " << taskTimesPerFormula[i][5] << " ns\n";
         outFile << "T7: " << taskTimesPerFormula[i][6] << " ns\n";
         if (doTruthTable)

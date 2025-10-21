@@ -27,50 +27,27 @@ vector<string> tokenizePrefix(const string& prefix) {
 }
 
 // Recursive tree builder
-Node* buildTreeFromPrefixTokens(const vector<string>& tokens, size_t& index) {
+NodeCNF* buildTreeFromPrefixTokens(const vector<string>& tokens,
+                                   size_t& index) {
     if (index >= tokens.size()) return nullptr;
 
     string token = tokens[index++];
     if (token == "~")
-        return negNode(buildTreeFromPrefixTokens(tokens, index));
+        return negNodeCNF(buildTreeFromPrefixTokens(tokens, index));
     else if (token == "+")
-        return disNode(buildTreeFromPrefixTokens(tokens, index),
-                       buildTreeFromPrefixTokens(tokens, index));
+        return disjNodeCNF(buildTreeFromPrefixTokens(tokens, index),
+                           buildTreeFromPrefixTokens(tokens, index));
     else if (token == "*")
-        return conNode(buildTreeFromPrefixTokens(tokens, index),
-                       buildTreeFromPrefixTokens(tokens, index));
+        return conjNodeCNF(buildTreeFromPrefixTokens(tokens, index),
+                           buildTreeFromPrefixTokens(tokens, index));
     else if (token[0] == 'x')
-        return literal(stoi(token.substr(1)));
+        return literalCNF(stoi(token.substr(1)));
     return nullptr;
 }
 
 // Public function
-Node* prefixToParseTree(const string& prefix) {
+NodeCNF* prefixToParseTreeCNF(const string& prefix) {
     vector<string> tokens = tokenizePrefix(prefix);
     size_t index = 0;
     return buildTreeFromPrefixTokens(tokens, index);
-}
-
-// Optional: print tree inorder for testing
-void printInorder(Node* node) {
-    if (!node) return;
-    if (node->left) printInorder(node->left);
-    if (node->data > 0)
-        cout << "x" << node->data;
-    else {
-        switch (node->data) {
-            case -2:
-                cout << "+";
-                break;
-            case -3:
-                cout << "*";
-                break;
-            case -4:
-                cout << "~";
-                break;
-            default:
-                break;
-        }
-    }
-    if (node->right) printInorder(node->right);
 }
